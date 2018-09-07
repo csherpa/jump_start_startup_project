@@ -10,6 +10,26 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= form.label :project_name %>
+    <%= form.text_field :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_desciption %>
+    <%= form.text_field :project_desciption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_review %>
+    <%= form.text_field :project_review %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_status %>
+    <%= form.text_field :project_status %>
+  </div> 
 
   <div class="actions">
     <%= form.submit %>
