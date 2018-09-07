@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= @employer.company_name %></h1>
+<div>
+    <strong>Company Name: </strong>
+    <%= @employer.company_name%>
+</div>
+<div>
+    <strong>Company Website: </strong>
+    <%= @employer.company_name_url%>
+</div>
 <%= link_to 'Edit', edit_employer_path(@employer) %> |
 <%= link_to 'Back', employers_path %>
