@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>JumpStar</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>JumpStar</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= yield %>
-  </body>
+<body>
+  <div class='ui inverted segment'>
+    <div class='ui inverted secondary menu'>
+       
+      <a href="/employers" class='item'>employers</a>
+      <a href="/projects" class='item'>projects</a>
+      <a href="/developers" class='item'>developers</a>
+      <a href ="/users/sign_in" class='item'> sing in</a>
+       
+   </div>
+  </div>
+
+  <p class="notice">
+    <%= notice %>
+  </p>
+  <p class="alert">
+    <%= alert %>
+  </p>
+
+  <%= yield %>
+
+</body>
+
 </html>
