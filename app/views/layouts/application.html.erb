@@ -17,17 +17,18 @@
          <div id="content">
         <div id="navigation_section">
         
-            <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, :class => 'sign_out' %>
-            <%= link_to 'EDIT PROFILE', edit_user_registration_path, :class => 'edit_profile' %>
-
+            
             <div class='ui inverted segment'>
     <div class='ui inverted secondary menu'>
     <a href="/" class='item'>home</a>
       <a href="/employers" class='item'>employers</a>
       <a href="/projects" class='item'>projects</a>
       <a href="/developers" class='item'>developers</a>
-      
-      <a href ="/users/sign_in" class='item'> sing in</a>
+    
+      <%= link_to 'log out', destroy_user_session_path, method: :delete, :class =>  'item' %>
+      <%= link_to 'edith profile', edit_user_registration_path, :class => 'item' %>
+
+     
 
       <p class="notice">
     <%= notice %>
