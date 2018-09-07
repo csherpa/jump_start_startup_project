@@ -691,6 +691,60 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 290ms (Views: 245.3ms | ActiveRecord: 15.9ms)
 
 
+<<<<<<< HEAD
+Started GET "/" for 127.0.0.1 at 2018-09-06 17:32:00 -0400
+  [1m[35m (13.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/chhotisherpa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chhotisherpa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chhotisherpa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (14.1ms)
+Completed 200 OK in 54ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-06 17:32:05 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (1.4ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 668ms (Views: 632.3ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-06 17:32:15 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (4.9ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 60ms (Views: 41.1ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-06 17:32:21 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 72ms (Views: 59.3ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 10:18:55 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/chhotisherpa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chhotisherpa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chhotisherpa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (5.5ms)
+Completed 200 OK in 36ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 10:19:02 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (2.9ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 394ms (Views: 358.5ms | ActiveRecord: 13.6ms)
+=======
 Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-06 17:33:51 -0400
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/mark/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
@@ -1172,6 +1226,7 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered devise/shared/_links.html.erb (0.9ms)
   Rendered devise/registrations/new.html.erb within layouts/application (61.7ms)
 Completed 200 OK in 697ms (Views: 669.6ms | ActiveRecord: 4.5ms)
+>>>>>>> master
 
 
 Started GET "/" for 127.0.0.1 at 2018-09-07 10:18:52 -0400
