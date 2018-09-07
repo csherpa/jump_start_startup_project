@@ -7,25 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first
 require 'faker'
 
-5.times do 
-    employer = Employer.create!(company_name: Faker::Company.name, company_name_url: Faker::Company.name + '.com') 
-    employer.create_user(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, email: Faker::Name.last_name + Faker::Name.first_name + '@gmail.com', password: Faker::Internet.password, phone_number: Faker::PhoneNumber.phone_number, city: Faker::Address.city)
-end
+# 5.times do 
+#     employer = Employer.create!(company_name: Faker::Company.name, company_name_url: Faker::Company.name + '.com') 
+#     employer.create_user(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, email: Faker::Name.last_name + Faker::Name.first_name + '@gmail.com', password: Faker::Internet.password, phone_number: Faker::PhoneNumber.phone_number, city: Faker::Address.city)
+# end
 
-5.times do 
-    username = Faker::Internet.username
-    developer = Developer.create(
-        resume_url: username + '/resume',
-        linkedin_url: 'linkedin.com/' + username,
-        github_url: 'github.com/' + username ,
-        portfolio_url: username + '.com'
-    )
-end
+# 5.times do 
+#     username = Faker::Internet.username
+#     developer = Developer.create(
+#         resume_url: username + '/resume',
+#         linkedin_url: 'linkedin.com/' + username,
+#         github_url: 'github.com/' + username ,
+#         portfolio_url: username + '.com'
+#     )
+# end
 
 5.times do 
     project = Project.create(
         developer_id: 1, 
-        employer_id: 1, 
+        employer_id: 15, 
         project_name: Faker::Lorem.word, 
         project_desciption: Faker::Lorem.paragraph, 
         project_review: Faker::Lorem.sentences, 
