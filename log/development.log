@@ -3217,3 +3217,70 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 86ms (Views: 84.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-09-07 15:31:06 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 574ms (Views: 565.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 15:31:09 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 109ms (Views: 107.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 15:31:09 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (3.7ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (29.9ms)
+Completed 200 OK in 138ms (Views: 110.0ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 15:31:10 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 115ms (Views: 105.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 15:31:11 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (1.6ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 112ms (Views: 97.7ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-07 15:31:11 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (132.3ms)
+Completed 200 OK in 271ms (Views: 201.4ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-07 15:45:17 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AYjKAaELKGFSCkYS+sdrcnKJ9bvcLzdcioeLomDufX6zG8GQfKf7jfq2+7cK+OyJNwrNYTQDubQTzqHLsTAQXw==", "user"=>{"email"=>"fakemail@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "fakemail@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 6ms (ActiveRecord: 2.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AYjKAaELKGFSCkYS+sdrcnKJ9bvcLzdcioeLomDufX6zG8GQfKf7jfq2+7cK+OyJNwrNYTQDubQTzqHLsTAQXw==", "user"=>{"email"=>"fakemail@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 186ms (Views: 71.6ms | ActiveRecord: 0.0ms)
+
+
