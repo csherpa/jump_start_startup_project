@@ -11,7 +11,16 @@
 </head>
 
 <body>
-  <div class='ui inverted segment'>
+<nav>
+      <% if user_signed_in? %>
+        <h2 id="welcoming_signedin_user"> HI, <%= current_user.first_name %> <%= current_user.last_name %>! You are <%= current_user.userable_type %> </h2>
+         <div id="content">
+        <div id="navigation_section">
+        
+            <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, :class => 'sign_out' %>
+            <%= link_to 'EDIT PROFILE', edit_user_registration_path, :class => 'edit_profile' %>
+
+            <div class='ui inverted segment'>
     <div class='ui inverted secondary menu'>
     <a href="/" class='item'>home</a>
       <a href="/employers" class='item'>employers</a>
@@ -19,16 +28,20 @@
       <a href="/developers" class='item'>developers</a>
       
       <a href ="/users/sign_in" class='item'> sing in</a>
-       
-   </div>
-  </div>
 
-  <p class="notice">
+      <p class="notice">
     <%= notice %>
   </p>
   <p class="alert">
     <%= alert %>
   </p>
+       
+   </div>
+  </div>
+      <% end %> 
+  </nav>
+  
+  
 
   <%= yield %>
 
