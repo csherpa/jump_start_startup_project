@@ -2645,3 +2645,575 @@ FOREIGN KEY ("employer_id")
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:26
 >>>>>>> 548b5d1e19e25cdcfe017825b3df3f5bccaffad5
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 15:09:35 -0400
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "jumpStar_development" does not exist
+):
+  
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:688:in `rescue in connect'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:683:in `connect'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:215:in `initialize'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `new'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `postgresql_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:809:in `new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:853:in `checkout_new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:832:in `try_to_checkout_new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:793:in `acquire_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:521:in `checkout'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:380:in `connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1008:in `retrieve_connection'
+activerecord (5.2.1) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+activerecord (5.2.1) lib/active_record/connection_handling.rb:90:in `connection'
+activerecord (5.2.1) lib/active_record/migration.rb:554:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (456.5ms)[0m  [1m[35mCREATE DATABASE "jumpStar_development" ENCODING = 'unicode'[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (344.6ms)[0m  [1m[35mCREATE DATABASE "jumpStar_test" ENCODING = 'unicode'[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (23.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 15:10:37 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(73360387257896760)[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateProjects (20180906170658)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "developer_id" integer, "employer_id" integer, "project_name" character varying, "project_desciption" character varying, "project_review" character varying, "project_status" character varying, "plattform_desktop" boolean, "plattform_mobile" boolean, "platform_tablet" boolean, "assets_text" boolean, "assets_images" boolean, "assets_videos" boolean, "assets_audio" boolean, "assets_database" boolean, "due_date_less_then_month" boolean, "due_date_one_month" boolean, "due_date_three_month" boolean, "due_date_plus_three_month" boolean, "pages_landing_pages" boolean, "pages_two_pages" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180906170658_create_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180906170658"]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateDevelopers (20180906170854)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "developers" ("id" bigserial primary key, "resume_url" character varying, "linkedin_url" character varying, "github_url" character varying, "portfolio_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180906170854_create_developers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180906170854"]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to DeviseCreateUsers (20180906171852)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (23.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "first_name" character varying, "last_name" character varying, "phone_number" integer, "role" character varying, "image" character varying, "description" character varying, "city" character varying, "state" character varying, "zip" integer, "userable_type" character varying, "userable_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180906171852_devise_create_users.rb:5
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_userable_type_and_userable_id" ON "users"  ("userable_type", "userable_id")[0m
+  ↳ db/migrate/20180906171852_devise_create_users.rb:5
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20180906171852_devise_create_users.rb:48
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20180906171852_devise_create_users.rb:49
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180906171852"]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateEmployers (20180906194612)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "employers" ("id" bigserial primary key, "company_name" character varying, "company_name_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180906194612_create_employers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180906194612"]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateMessages (20180907160924)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "subject" character varying, "body" character varying, "date" timestamp, "developer_id" bigint, "employer_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_affee0e072"
+FOREIGN KEY ("developer_id")
+  REFERENCES "developers" ("id")
+, CONSTRAINT "fk_rails_86d4cbaf1f"
+FOREIGN KEY ("employer_id")
+  REFERENCES "employers" ("id")
+)[0m
+  ↳ db/migrate/20180907160924_create_messages.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_developer_id" ON "messages"  ("developer_id")[0m
+  ↳ db/migrate/20180907160924_create_messages.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_employer_id" ON "messages"  ("employer_id")[0m
+  ↳ db/migrate/20180907160924_create_messages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180907160924"]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-07 19:11:02.478332"], ["updated_at", "2018-09-07 19:11:02.478332"]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(73360387257896760)[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mEmployer Create (0.4ms)[0m  [1m[32mINSERT INTO "employers" ("company_name", "company_name_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["company_name", "Blick, Terry and Cartwright"], ["company_name_url", "Quigley LLC.com"], ["created_at", "2018-09-07 19:11:06.207734"], ["updated_at", "2018-09-07 19:11:06.207734"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "feestmarcela@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "phone_number", "city", "userable_type", "userable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "feestmarcela@gmail.com"], ["encrypted_password", "$2a$11$ZhLaWbLdkxMbyRivOXMvNuFfLfEwgyE2NKhaIQDWCcrGwcSt0Nw9W"], ["first_name", "Michale"], ["last_name", "Kunze"], ["phone_number", 861], ["city", "North Rusty"], ["userable_type", "Employer"], ["userable_id", 1], ["created_at", "2018-09-07 19:11:06.347238"], ["updated_at", "2018-09-07 19:11:06.347238"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userable_id" = $1 AND "users"."userable_type" = $2 LIMIT $3[0m  [["userable_id", 1], ["userable_type", "Employer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mEmployer Create (0.2ms)[0m  [1m[32mINSERT INTO "employers" ("company_name", "company_name_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["company_name", "Kovacek Group"], ["company_name_url", "Hickle LLC.com"], ["created_at", "2018-09-07 19:11:06.351820"], ["updated_at", "2018-09-07 19:11:06.351820"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ziemannedgardo@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "phone_number", "city", "userable_type", "userable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "ziemannedgardo@gmail.com"], ["encrypted_password", "$2a$11$SuiOh.YR7MXcPQCU.vS0C.1E2KoTGAIGRueWR66x0/ZsTB/sC2UD2"], ["first_name", "Madeline"], ["last_name", "Wilkinson"], ["phone_number", 351], ["city", "Luciobury"], ["userable_type", "Employer"], ["userable_id", 2], ["created_at", "2018-09-07 19:11:06.463307"], ["updated_at", "2018-09-07 19:11:06.463307"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userable_id" = $1 AND "users"."userable_type" = $2 LIMIT $3[0m  [["userable_id", 2], ["userable_type", "Employer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mEmployer Create (0.2ms)[0m  [1m[32mINSERT INTO "employers" ("company_name", "company_name_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["company_name", "Balistreri Inc"], ["company_name_url", "Kris-Terry.com"], ["created_at", "2018-09-07 19:11:06.468199"], ["updated_at", "2018-09-07 19:11:06.468199"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "schoenmisti@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "phone_number", "city", "userable_type", "userable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "schoenmisti@gmail.com"], ["encrypted_password", "$2a$11$XL0Wr4HfY8iVBqg077TBI.Yv4O9qbwPfsB1u5LmfQgI8hzEdXjNXK"], ["first_name", "Ray"], ["last_name", "Dooley"], ["phone_number", 1], ["city", "South Devonside"], ["userable_type", "Employer"], ["userable_id", 3], ["created_at", "2018-09-07 19:11:06.579074"], ["updated_at", "2018-09-07 19:11:06.579074"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userable_id" = $1 AND "users"."userable_type" = $2 LIMIT $3[0m  [["userable_id", 3], ["userable_type", "Employer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mEmployer Create (0.2ms)[0m  [1m[32mINSERT INTO "employers" ("company_name", "company_name_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["company_name", "Boehm-Boehm"], ["company_name_url", "Mosciski Inc.com"], ["created_at", "2018-09-07 19:11:06.583846"], ["updated_at", "2018-09-07 19:11:06.583846"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "uptonlance@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "phone_number", "city", "userable_type", "userable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "uptonlance@gmail.com"], ["encrypted_password", "$2a$11$jrQRDbr1XDVov8P0bBroe.A.7fcyBx4jpTHSMEEYhA4OjJEsOCyjq"], ["first_name", "Jewel"], ["last_name", "Schmitt"], ["phone_number", 0], ["city", "North Dannie"], ["userable_type", "Employer"], ["userable_id", 4], ["created_at", "2018-09-07 19:11:06.694724"], ["updated_at", "2018-09-07 19:11:06.694724"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userable_id" = $1 AND "users"."userable_type" = $2 LIMIT $3[0m  [["userable_id", 4], ["userable_type", "Employer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mEmployer Create (0.2ms)[0m  [1m[32mINSERT INTO "employers" ("company_name", "company_name_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["company_name", "O'Kon-Lockman"], ["company_name_url", "Larson LLC.com"], ["created_at", "2018-09-07 19:11:06.699643"], ["updated_at", "2018-09-07 19:11:06.699643"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "torpwiley@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "phone_number", "city", "userable_type", "userable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "torpwiley@gmail.com"], ["encrypted_password", "$2a$11$a6mobDf31xvaeZW9hxmqGenDWGHpxmaOLnFeZB4.Z/lZah3mtfuvK"], ["first_name", "Nancy"], ["last_name", "Fay"], ["phone_number", 0], ["city", "Dwainfort"], ["userable_type", "Employer"], ["userable_id", 5], ["created_at", "2018-09-07 19:11:06.810946"], ["updated_at", "2018-09-07 19:11:06.810946"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."userable_id" = $1 AND "users"."userable_type" = $2 LIMIT $3[0m  [["userable_id", 5], ["userable_type", "Employer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mDeveloper Create (0.4ms)[0m  [1m[32mINSERT INTO "developers" ("resume_url", "linkedin_url", "github_url", "portfolio_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["resume_url", "max.wintheiser/resume"], ["linkedin_url", "linkedin.com/max.wintheiser"], ["github_url", "github.com/max.wintheiser"], ["portfolio_url", "max.wintheiser.com"], ["created_at", "2018-09-07 19:11:06.824619"], ["updated_at", "2018-09-07 19:11:06.824619"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mDeveloper Create (0.2ms)[0m  [1m[32mINSERT INTO "developers" ("resume_url", "linkedin_url", "github_url", "portfolio_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["resume_url", "charmain.towne/resume"], ["linkedin_url", "linkedin.com/charmain.towne"], ["github_url", "github.com/charmain.towne"], ["portfolio_url", "charmain.towne.com"], ["created_at", "2018-09-07 19:11:06.827022"], ["updated_at", "2018-09-07 19:11:06.827022"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mDeveloper Create (0.2ms)[0m  [1m[32mINSERT INTO "developers" ("resume_url", "linkedin_url", "github_url", "portfolio_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["resume_url", "jared/resume"], ["linkedin_url", "linkedin.com/jared"], ["github_url", "github.com/jared"], ["portfolio_url", "jared.com"], ["created_at", "2018-09-07 19:11:06.829744"], ["updated_at", "2018-09-07 19:11:06.829744"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mDeveloper Create (0.2ms)[0m  [1m[32mINSERT INTO "developers" ("resume_url", "linkedin_url", "github_url", "portfolio_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["resume_url", "jerald/resume"], ["linkedin_url", "linkedin.com/jerald"], ["github_url", "github.com/jerald"], ["portfolio_url", "jerald.com"], ["created_at", "2018-09-07 19:11:06.832059"], ["updated_at", "2018-09-07 19:11:06.832059"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mDeveloper Create (0.2ms)[0m  [1m[32mINSERT INTO "developers" ("resume_url", "linkedin_url", "github_url", "portfolio_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["resume_url", "marlyn/resume"], ["linkedin_url", "linkedin.com/marlyn"], ["github_url", "github.com/marlyn"], ["portfolio_url", "marlyn.com"], ["created_at", "2018-09-07 19:11:06.834120"], ["updated_at", "2018-09-07 19:11:06.834120"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mEmployer Load (0.2ms)[0m  [1m[34mSELECT  "employers".* FROM "employers" WHERE "employers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mDeveloper Load (0.2ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("developer_id", "employer_id", "project_name", "project_desciption", "project_review", "project_status", "plattform_desktop", "plattform_mobile", "platform_tablet", "assets_text", "assets_images", "assets_videos", "assets_audio", "assets_database", "due_date_less_then_month", "due_date_one_month", "due_date_three_month", "due_date_plus_three_month", "pages_landing_pages", "pages_two_pages", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"[0m  [["developer_id", 1], ["employer_id", 1], ["project_name", "non"], ["project_desciption", "Quia nam ipsum. Iure sit ea. Assumenda ab est."], ["project_review", "[\"Laudantium natus sit.\", \"Enim ad quasi.\", \"Ut cum aut.\"]"], ["project_status", "Complete"], ["plattform_desktop", true], ["plattform_mobile", false], ["platform_tablet", false], ["assets_text", true], ["assets_images", false], ["assets_videos", true], ["assets_audio", false], ["assets_database", false], ["due_date_less_then_month", true], ["due_date_one_month", true], ["due_date_three_month", true], ["due_date_plus_three_month", false], ["pages_landing_pages", true], ["pages_two_pages", true], ["created_at", "2018-09-07 19:11:06.856375"], ["updated_at", "2018-09-07 19:11:06.856375"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mEmployer Load (0.2ms)[0m  [1m[34mSELECT  "employers".* FROM "employers" WHERE "employers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mDeveloper Load (0.2ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("developer_id", "employer_id", "project_name", "project_desciption", "project_review", "project_status", "plattform_desktop", "plattform_mobile", "platform_tablet", "assets_text", "assets_images", "assets_videos", "assets_audio", "assets_database", "due_date_less_then_month", "due_date_one_month", "due_date_three_month", "due_date_plus_three_month", "pages_landing_pages", "pages_two_pages", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"[0m  [["developer_id", 1], ["employer_id", 1], ["project_name", "quo"], ["project_desciption", "Voluptas vel autem. Laudantium error ut. Aut sit ut."], ["project_review", "[\"Perferendis aut molestiae.\", \"Quia et excepturi.\", \"Soluta hic magni.\"]"], ["project_status", "Complete"], ["plattform_desktop", true], ["plattform_mobile", true], ["platform_tablet", false], ["assets_text", false], ["assets_images", true], ["assets_videos", true], ["assets_audio", false], ["assets_database", true], ["due_date_less_then_month", true], ["due_date_one_month", false], ["due_date_three_month", true], ["due_date_plus_three_month", false], ["pages_landing_pages", true], ["pages_two_pages", false], ["created_at", "2018-09-07 19:11:06.862624"], ["updated_at", "2018-09-07 19:11:06.862624"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mEmployer Load (0.3ms)[0m  [1m[34mSELECT  "employers".* FROM "employers" WHERE "employers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("developer_id", "employer_id", "project_name", "project_desciption", "project_review", "project_status", "plattform_desktop", "plattform_mobile", "platform_tablet", "assets_text", "assets_images", "assets_videos", "assets_audio", "assets_database", "due_date_less_then_month", "due_date_one_month", "due_date_three_month", "due_date_plus_three_month", "pages_landing_pages", "pages_two_pages", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"[0m  [["developer_id", 1], ["employer_id", 1], ["project_name", "aut"], ["project_desciption", "Sunt error animi. Occaecati ea et. Quae ducimus dolorem."], ["project_review", "[\"Id omnis ea.\", \"Nostrum libero consequatur.\", \"Modi sed fugit.\"]"], ["project_status", "Complete"], ["plattform_desktop", true], ["plattform_mobile", false], ["platform_tablet", true], ["assets_text", false], ["assets_images", true], ["assets_videos", true], ["assets_audio", false], ["assets_database", true], ["due_date_less_then_month", false], ["due_date_one_month", true], ["due_date_three_month", false], ["due_date_plus_three_month", false], ["pages_landing_pages", false], ["pages_two_pages", true], ["created_at", "2018-09-07 19:11:06.868584"], ["updated_at", "2018-09-07 19:11:06.868584"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mEmployer Load (0.2ms)[0m  [1m[34mSELECT  "employers".* FROM "employers" WHERE "employers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mDeveloper Load (0.2ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("developer_id", "employer_id", "project_name", "project_desciption", "project_review", "project_status", "plattform_desktop", "plattform_mobile", "platform_tablet", "assets_text", "assets_images", "assets_videos", "assets_audio", "assets_database", "due_date_less_then_month", "due_date_one_month", "due_date_three_month", "due_date_plus_three_month", "pages_landing_pages", "pages_two_pages", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"[0m  [["developer_id", 1], ["employer_id", 1], ["project_name", "qui"], ["project_desciption", "Molestiae explicabo ratione. Laboriosam et sed. Alias ipsa est."], ["project_review", "[\"Omnis ipsum eaque.\", \"Hic consequatur et.\", \"Consequuntur omnis molestias.\"]"], ["project_status", "Complete"], ["plattform_desktop", true], ["plattform_mobile", false], ["platform_tablet", false], ["assets_text", false], ["assets_images", true], ["assets_videos", true], ["assets_audio", true], ["assets_database", true], ["due_date_less_then_month", true], ["due_date_one_month", false], ["due_date_three_month", true], ["due_date_plus_three_month", false], ["pages_landing_pages", true], ["pages_two_pages", true], ["created_at", "2018-09-07 19:11:06.879731"], ["updated_at", "2018-09-07 19:11:06.879731"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mEmployer Load (0.2ms)[0m  [1m[34mSELECT  "employers".* FROM "employers" WHERE "employers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mDeveloper Load (0.2ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("developer_id", "employer_id", "project_name", "project_desciption", "project_review", "project_status", "plattform_desktop", "plattform_mobile", "platform_tablet", "assets_text", "assets_images", "assets_videos", "assets_audio", "assets_database", "due_date_less_then_month", "due_date_one_month", "due_date_three_month", "due_date_plus_three_month", "pages_landing_pages", "pages_two_pages", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"[0m  [["developer_id", 1], ["employer_id", 1], ["project_name", "laboriosam"], ["project_desciption", "Cum non consequatur. Doloribus iusto commodi. Ut iusto alias."], ["project_review", "[\"Id consequatur doloribus.\", \"Rem et culpa.\", \"Quaerat quibusdam et.\"]"], ["project_status", "Complete"], ["plattform_desktop", true], ["plattform_mobile", false], ["platform_tablet", false], ["assets_text", true], ["assets_images", true], ["assets_videos", false], ["assets_audio", false], ["assets_database", false], ["due_date_less_then_month", false], ["due_date_one_month", true], ["due_date_three_month", true], ["due_date_plus_three_month", true], ["pages_landing_pages", true], ["pages_two_pages", true], ["created_at", "2018-09-07 19:11:06.889858"], ["updated_at", "2018-09-07 19:11:06.889858"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 15:11:23 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 654ms (Views: 640.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 15:11:27 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (1.5ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 100ms (Views: 86.8ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 15:11:28 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 71ms (Views: 69.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 15:11:29 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 76ms (Views: 74.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 15:11:30 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.8ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 111ms (Views: 90.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-07 15:11:31 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /home/mark/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (52.2ms)
+Completed 200 OK in 137ms (Views: 97.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 15:11:32 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 97ms (Views: 95.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/developers/1/edit" for 127.0.0.1 at 2018-09-07 15:11:39 -0400
+Processing by DevelopersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDeveloper Load (1.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/developers_controller.rb:67
+  Rendering developers/edit.html.erb within layouts/application
+  Rendered developers/_form.html.erb (7.0ms)
+  Rendered developers/edit.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 98ms (Views: 84.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 15:11:44 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.7ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 103ms (Views: 98.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/employers/2/edit" for 127.0.0.1 at 2018-09-07 15:11:46 -0400
+Processing by EmployersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEmployer Load (0.8ms)[0m  [1m[34mSELECT  "employers".* FROM "employers" WHERE "employers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/employers_controller.rb:67
+  Rendering employers/edit.html.erb within layouts/application
+  Rendered employers/_form.html.erb (5.4ms)
+  Rendered employers/edit.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 136ms (Views: 124.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 15:11:49 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.9ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 107ms (Views: 102.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 15:11:51 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 114ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 15:11:53 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 157ms (Views: 154.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-07 15:11:54 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 96ms (Views: 93.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 15:11:55 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 84ms (Views: 82.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-07 15:11:56 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 116ms (Views: 113.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 15:11:59 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.9ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 156ms (Views: 152.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 15:12:00 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 78ms (Views: 75.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 15:12:00 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.3ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 97ms (Views: 95.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 15:12:02 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 99ms (Views: 95.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-07 15:12:03 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 119ms (Views: 115.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-07 15:12:18 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 173ms (Views: 170.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 15:12:18 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 88ms (Views: 86.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 15:12:19 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 81ms (Views: 79.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 15:12:19 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.3ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 92ms (Views: 90.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 15:12:20 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 86ms (Views: 84.9ms | ActiveRecord: 0.0ms)
+
+
