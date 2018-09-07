@@ -1273,3 +1273,296 @@ Completed 200 OK in 968ms (Views: 955.7ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 98962ms (Views: 98920.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-09-07 13:09:18 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/skyling/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(73360387257896760)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateMessages (20180907160924)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (42.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "subject" character varying, "body" character varying, "date" timestamp, "developer_id" bigint, "employer_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_affee0e072"
+FOREIGN KEY ("developer_id")
+  REFERENCES "developers" ("id")
+, CONSTRAINT "fk_rails_86d4cbaf1f"
+FOREIGN KEY ("employer_id")
+  REFERENCES "employers" ("id")
+)[0m
+  ↳ db/migrate/20180907160924_create_messages.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_developer_id" ON "messages"  ("developer_id")[0m
+  ↳ db/migrate/20180907160924_create_messages.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_employer_id" ON "messages"  ("employer_id")[0m
+  ↳ db/migrate/20180907160924_create_messages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180907160924"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(73360387257896760)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-09-07 13:09:46 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/skyling/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (It's not clear which file to import for '@import "scaffolds"'.
+Candidates:
+  _scaffolds.scss
+  scaffolds.scss
+Please delete or rename all but one of these files.
+):
+     6:   <%= csrf_meta_tags %>
+     7:   <%= csp_meta_tag %>
+     8: 
+     9:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11: </head>
+    12: 
+  
+app/assets/stylesheets/application.scss:17
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1968172669549943944_70272407636940'
+Started GET "/" for 127.0.0.1 at 2018-09-07 13:10:48 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (It's not clear which file to import for '@import "scaffolds"'.
+Candidates:
+  _scaffolds.scss
+  scaffolds.scss
+Please delete or rename all but one of these files.
+):
+     6:   <%= csrf_meta_tags %>
+     7:   <%= csp_meta_tag %>
+     8: 
+     9:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11: </head>
+    12: 
+  
+app/assets/stylesheets/application.scss:17
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1968172669549943944_70272400773180'
+Started GET "/" for 127.0.0.1 at 2018-09-07 13:12:47 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Started GET "/" for 127.0.0.1 at 2018-09-07 13:12:54 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43338ms (Views: 43335.7ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 36340ms (Views: 36324.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 13:13:47 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/skyling/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 377ms (Views: 369.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 13:13:51 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.8ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 124ms (Views: 105.0ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-07 13:13:52 -0400
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 112ms (Views: 107.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 13:13:53 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 75ms (Views: 65.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 13:13:54 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.7ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 72ms (Views: 62.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 13:13:55 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 72ms (Views: 69.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 13:13:56 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.3ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 82ms (Views: 79.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 13:14:09 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.5ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 79ms (Views: 76.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 13:14:12 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 68ms (Views: 65.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 13:14:14 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 73ms (Views: 69.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 13:14:15 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.4ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 79ms (Views: 75.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-09-07 13:14:16 -0400
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:13
+  Rendered projects/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 74ms (Views: 71.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 13:14:17 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.4ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 76ms (Views: 73.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-09-07 13:14:20 -0400
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.5ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:14
+  Rendered developers/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 73ms (Views: 70.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/developers/new" for 127.0.0.1 at 2018-09-07 13:14:21 -0400
+Processing by DevelopersController#new as HTML
+  Rendering developers/new.html.erb within layouts/application
+  Rendered developers/_form.html.erb (84.6ms)
+  Rendered developers/new.html.erb within layouts/application (87.1ms)
+Completed 200 OK in 161ms (Views: 147.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/employers" for 127.0.0.1 at 2018-09-07 13:14:26 -0400
+Processing by EmployersController#index as HTML
+  Rendering employers/index.html.erb within layouts/application
+  [1m[36mEmployer Load (0.4ms)[0m  [1m[34mSELECT "employers".* FROM "employers"[0m
+  ↳ app/views/employers/index.html.erb:13
+  Rendered employers/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 74ms (Views: 71.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/employers/1" for 127.0.0.1 at 2018-09-07 13:14:27 -0400
+Processing by EmployersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployer Load (0.6ms)[0m  [1m[34mSELECT  "employers".* FROM "employers" WHERE "employers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employers_controller.rb:67
+  Rendering employers/show.html.erb within layouts/application
+  Rendered employers/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 76ms (Views: 69.0ms | ActiveRecord: 0.8ms)
+
+
