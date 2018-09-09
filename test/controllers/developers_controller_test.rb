@@ -17,7 +17,7 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create developer" do
     assert_difference('Developer.count') do
-      post developers_url, params: { developer: { resume_url: @developer.resume_url } }
+      post developers_url, params: { developer: {  } }
     end
 
     assert_redirected_to developer_url(Developer.last)
@@ -34,7 +34,7 @@ class DevelopersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update developer" do
-    patch developer_url(@developer), params: { developer: { resume_url: @developer.resume_url } }
+    patch developer_url(@developer), params: { developer: {  } }
     assert_redirected_to developer_url(@developer)
   end
 

@@ -5,7 +5,6 @@ class DevelopersController < ApplicationController
   # GET /developers.json
   def index
     @developers = Developer.all
-
   end
 
   # GET /developers/1
@@ -26,7 +25,6 @@ class DevelopersController < ApplicationController
   # POST /developers.json
   def create
     @developer = Developer.new(developer_params)
-
 
     respond_to do |format|
       if @developer.save
@@ -71,6 +69,6 @@ class DevelopersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def developer_params
-      params.require(:developer).permit(:resume_url)
+      params.fetch(:developer, {})
     end
 end

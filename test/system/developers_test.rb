@@ -14,7 +14,6 @@ class DevelopersTest < ApplicationSystemTestCase
     visit developers_url
     click_on "New Developer"
 
-    fill_in "Resume Url", with: @developer.resume_url
     click_on "Create Developer"
 
     assert_text "Developer was successfully created"
@@ -25,7 +24,6 @@ class DevelopersTest < ApplicationSystemTestCase
     visit developers_url
     click_on "Edit", match: :first
 
-    fill_in "Resume Url", with: @developer.resume_url
     click_on "Update Developer"
 
     assert_text "Developer was successfully updated"

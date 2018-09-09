@@ -3,13 +3,13 @@
 one:
   subject: MyString
   body: MyString
-  date: 2018-09-07 12:09:24
-  developer: one
-  employer: one
+  date: 2018-09-08 21:00:15
+  developer_id: 1
+  employer_id: 1
 
 two:
   subject: MyString
   body: MyString
-  date: 2018-09-07 12:09:24
-  developer: two
-  employer: two
+  date: 2018-09-08 21:00:15
+  developer_id: 1
+  employer_id: 1
