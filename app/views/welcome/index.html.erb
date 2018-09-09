@@ -1,5 +1,6 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<h1><a href="/developers/sign_up">Become a developer</a></h1>
-<h1><a href="/employers/sign_up">Become an employer</a></h1>
+ <% unless employer_signed_in? or developer_signed_in? %> 
+    <h1>Welcome to the best startup ever!</h1>
+    <h2><a href="/developers/sign_up">Become a developer</a></h2>
+    <h2><a href="/employers/sign_up">Become an employer</a></h2>
+<% end %>
 
