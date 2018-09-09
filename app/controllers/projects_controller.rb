@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
       default_filter_params: {},
       sanitize_params: false,
     ) or return
-    @projects = @filterrific.find
+    @projects = @filterrific.find.order(created_at: :desc)
 
     respond_to do |format|
       format.html
