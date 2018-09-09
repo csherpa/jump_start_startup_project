@@ -8,7 +8,7 @@
     <label>Platform Mobile</label>
     <%= f.select(
       :plattform_mobile,
-      options_for_select([['Yes', true], ['No', false]]),
+      @filterrific.select_options[:plattform_mobile],
       include_blank: '- Any -' 
     ) %>
   </div>
@@ -16,7 +16,7 @@
     <label>Platform Desktop</label>
     <%= f.select(
       :plattform_desktop,
-      options_for_select([['Yes', true], ['No', false]]),
+      @filterrific.select_options[:plattform_desktop],
       include_blank: '- Any -' 
     ) %>
   </div>
