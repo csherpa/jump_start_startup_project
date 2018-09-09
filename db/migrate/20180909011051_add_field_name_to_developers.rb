@@ -1,7 +1,7 @@
 class AddFieldNameToDevelopers < ActiveRecord::Migration[5.2]
   def change
     add_column :developers, :first_name, :string
-    add_column :developers, :second_name, :string
+    add_column :developers, :last_name, :string
     add_column :developers, :phone_number, :integer
     add_column :developers, :image, :string
     add_column :developers, :description, :string

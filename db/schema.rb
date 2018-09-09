@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_011152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
-    t.string "second_name"
+    t.string "last_name"
     t.integer "phone_number"
     t.string "image"
     t.string "description"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_011152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
-    t.string "second_name"
+    t.string "last_name"
     t.string "company_name"
     t.string "company_url"
     t.integer "phone_number"

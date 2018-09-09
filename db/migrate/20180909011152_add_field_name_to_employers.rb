@@ -1,7 +1,7 @@
 class AddFieldNameToEmployers < ActiveRecord::Migration[5.2]
   def change
     add_column :employers, :first_name, :string
-    add_column :employers, :second_name, :string
+    add_column :employers, :last_name, :string
     add_column :employers, :company_name, :string
     add_column :employers, :company_url, :string
     add_column :employers, :phone_number, :integer
