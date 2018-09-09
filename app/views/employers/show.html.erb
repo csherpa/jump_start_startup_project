@@ -1,3 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Back', employers_path %>
+<%if current_employer and current_employer.id == @employer.id%>
+Your name is <%= @employer.full_name %>
+ <%elsif%>
+    <p>Name of the employer is <%= @employer.full_name %></p>
+<% end %>
+
+
