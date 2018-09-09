@@ -10,88 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_160924) do
+ActiveRecord::Schema.define(version: 2018_09_08_234942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "developers", force: :cascade do |t|
-    t.string "resume_url"
-    t.string "linkedin_url"
-    t.string "github_url"
-    t.string "portfolio_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "employers", force: :cascade do |t|
-    t.string "company_name"
-    t.string "company_name_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.string "subject"
-    t.string "body"
-    t.datetime "date"
-    t.bigint "developer_id"
-    t.bigint "employer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["developer_id"], name: "index_messages_on_developer_id"
-    t.index ["employer_id"], name: "index_messages_on_employer_id"
-  end
-
-  create_table "projects", force: :cascade do |t|
-    t.integer "developer_id"
-    t.integer "employer_id"
-    t.string "project_name"
-    t.string "project_desciption"
-    t.string "project_review"
-    t.string "project_status"
-    t.boolean "plattform_desktop"
-    t.boolean "plattform_mobile"
-    t.boolean "platform_tablet"
-    t.boolean "assets_text"
-    t.boolean "assets_images"
-    t.boolean "assets_videos"
-    t.boolean "assets_audio"
-    t.boolean "assets_database"
-    t.boolean "due_date_less_then_month"
-    t.boolean "due_date_one_month"
-    t.boolean "due_date_three_month"
-    t.boolean "due_date_plus_three_month"
-    t.boolean "pages_landing_pages"
-    t.boolean "pages_two_pages"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "phone_number"
-    t.string "role"
-    t.string "image"
-    t.string "description"
-    t.string "city"
-    t.string "state"
-    t.integer "zip"
-    t.string "userable_type"
-    t.bigint "userable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["userable_type", "userable_id"], name: "index_users_on_userable_type_and_userable_id"
+    t.index ["email"], name: "index_developers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "messages", "developers"
-  add_foreign_key "messages", "employers"
+  create_table "employers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_employers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_employers_on_reset_password_token", unique: true
+  end
+
 end
