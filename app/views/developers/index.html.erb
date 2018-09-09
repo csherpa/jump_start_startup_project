@@ -2,6 +2,30 @@
 
 <h1>Developers</h1>
 
+<div class="main-index">
+    <% @developers.each do |developer| %>
+      <div class="ui card">
+        <div class="image">
+          <img src="/images/avatar2/large/kristy.png">
+        </div>
+        <div class="content">
+          <a class="header">DEV NAME</a>
+          <div class="meta">
+            <span class="date">Joined in 2013</span>
+          </div>
+          <div class="description">
+            DEV is an art director living in New York.
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="user icon"></i>
+            22 Friends
+          </a>
+        </div>
+      </div>
+    <% end %>
+</div>
 <table>
   <thead>
     <tr>
