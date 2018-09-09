@@ -4,7 +4,21 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+
+    @filterrific = initialize_filterrific(
+      Project,
+      params[:filterrific],
+      select_options: {},
+      default_filter_params: {},
+      sanitize_params: false,
+    ) or return
+    # raise "Can't build filters" unless @filterrific
+    @projects = @filterrific.find
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /projects/1
