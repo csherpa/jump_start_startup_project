@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
       default_filter_params: {},
       sanitize_params: false,
     ) or return
-    # raise "Can't build filters" unless @filterrific
     @projects = @filterrific.find
 
     respond_to do |format|
