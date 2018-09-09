@@ -1,0 +1,2 @@
+json.extract! project, :id, :developer_id, :employer_id, :project_name, :project_description, :project_review, :plattform_mobile, :plattform_desktop, :platform_tablet, :assets_text, :assets_images, :assets_videos, :assets_audio, :assets_database, :due_date_less_then_month, :due_date_one_month, :due_date_three_month, :due_date_plus_three_month, :pages_landing_pages, :pages_two_pages, :created_at, :updated_at
+json.url project_url(project, format: :json)

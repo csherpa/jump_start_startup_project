@@ -1,15 +1,29 @@
-<!DOCTYPE html>
-<html>
+
+
   <head>
-    <title>Jumpstart</title>
+    <title>JUMPSTART</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:700" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+ 
+    <nav>
+      <% if developer_signed_in? %>
+        <h2> HI! <%= current_developer.first_name%></h2>
+        
+            <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete, :class => 'sign_out' %>
+            <%= link_to 'EDIT PROFILE', edit_developer_registration_path, :class => 'edit_profile' %>
+      <% end %>
+
+    
+  </nav>
+  
+
+      <%= yield %>
+    
+  
   </body>
-</html>

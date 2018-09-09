@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  developer_id: 1
+  employer_id: 1
+  project_name: MyString
+  project_description: MyString
+  project_review: MyString
+  plattform_mobile: false
+  plattform_desktop: false
+  platform_tablet: false
+  assets_text: false
+  assets_images: false
+  assets_videos: false
+  assets_audio: false
+  assets_database: false
+  due_date_less_then_month: false
+  due_date_one_month: false
+  due_date_three_month: false
+  due_date_plus_three_month: false
+  pages_landing_pages: false
+  pages_two_pages: false
+
+two:
+  developer_id: 1
+  employer_id: 1
+  project_name: MyString
+  project_description: MyString
+  project_review: MyString
+  plattform_mobile: false
+  plattform_desktop: false
+  platform_tablet: false
+  assets_text: false
+  assets_images: false
+  assets_videos: false
+  assets_audio: false
+  assets_database: false
+  due_date_less_then_month: false
+  due_date_one_month: false
+  due_date_three_month: false
+  due_date_plus_three_month: false
+  pages_landing_pages: false
+  pages_two_pages: false

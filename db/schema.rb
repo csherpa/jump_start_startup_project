@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_08_234942) do
+ActiveRecord::Schema.define(version: 2018_09_09_011152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2018_09_08_234942) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "second_name"
+    t.integer "phone_number"
+    t.string "image"
+    t.string "description"
+    t.string "city"
+    t.string "state"
+    t.string "string"
+    t.integer "zip"
+    t.string "resume_url"
+    t.string "linkedin_url"
+    t.string "github_url"
+    t.string "portfolio_url"
     t.index ["email"], name: "index_developers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true
   end
@@ -35,8 +48,53 @@ ActiveRecord::Schema.define(version: 2018_09_08_234942) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "second_name"
+    t.string "company_name"
+    t.string "company_url"
+    t.integer "phone_number"
+    t.string "image"
+    t.string "description"
+    t.string "city"
+    t.string "state"
+    t.string "string"
+    t.integer "zip"
     t.index ["email"], name: "index_employers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employers_on_reset_password_token", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "subject"
+    t.string "body"
+    t.datetime "date"
+    t.integer "developer_id"
+    t.integer "employer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "developer_id"
+    t.integer "employer_id"
+    t.string "project_name"
+    t.string "project_description"
+    t.string "project_review"
+    t.boolean "plattform_mobile"
+    t.boolean "plattform_desktop"
+    t.boolean "platform_tablet"
+    t.boolean "assets_text"
+    t.boolean "assets_images"
+    t.boolean "assets_videos"
+    t.boolean "assets_audio"
+    t.boolean "assets_database"
+    t.boolean "due_date_less_then_month"
+    t.boolean "due_date_one_month"
+    t.boolean "due_date_three_month"
+    t.boolean "due_date_plus_three_month"
+    t.boolean "pages_landing_pages"
+    t.boolean "pages_two_pages"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
