@@ -4,7 +4,24 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    binary_select_options = [['Yes', true], ['No', false]]
+
+    @filterrific = initialize_filterrific(
+      Project,
+      params[:filterrific],
+      select_options: {
+        plattform_mobile: binary_select_options,
+        plattform_desktop: binary_select_options,
+      },
+      default_filter_params: {},
+      sanitize_params: false,
+    ) or return
+    @projects = @filterrific.find.order(created_at: :desc)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /projects/1
