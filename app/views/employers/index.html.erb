@@ -12,14 +12,11 @@
   <tbody>
     <% @employers.each do |employer| %>
       <tr>
+        <td><%= employer.full_name %></td>
         <td><%= link_to 'Show', employer %></td>
-        <td><%= link_to 'Edit', edit_employer_path(employer) %></td>
-        <td><%= link_to 'Destroy', employer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Employer', new_employer_path %>

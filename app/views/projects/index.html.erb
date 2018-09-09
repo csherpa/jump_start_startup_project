@@ -5,6 +5,25 @@
 <table>
   <thead>
     <tr>
+      <th>Developer</th>
+      <th>Employer</th>
+      <th>Project name</th>
+      <th>Project description</th>
+      <th>Project review</th>
+      <th>Plattform mobile</th>
+      <th>Plattform desktop</th>
+      <th>Platform tablet</th>
+      <th>Assets text</th>
+      <th>Assets images</th>
+      <th>Assets videos</th>
+      <th>Assets audio</th>
+      <th>Assets database</th>
+      <th>Due date less then month</th>
+      <th>Due date one month</th>
+      <th>Due date three month</th>
+      <th>Due date plus three month</th>
+      <th>Pages landing pages</th>
+      <th>Pages two pages</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +31,25 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
+        <td><%= project.developer_id %></td>
+        <td><%= project.employer_id %></td>
+        <td><%= project.project_name %></td>
+        <td><%= project.project_description %></td>
+        <td><%= project.project_review %></td>
+        <td><%= project.plattform_mobile %></td>
+        <td><%= project.plattform_desktop %></td>
+        <td><%= project.platform_tablet %></td>
+        <td><%= project.assets_text %></td>
+        <td><%= project.assets_images %></td>
+        <td><%= project.assets_videos %></td>
+        <td><%= project.assets_audio %></td>
+        <td><%= project.assets_database %></td>
+        <td><%= project.due_date_less_then_month %></td>
+        <td><%= project.due_date_one_month %></td>
+        <td><%= project.due_date_three_month %></td>
+        <td><%= project.due_date_plus_three_month %></td>
+        <td><%= project.pages_landing_pages %></td>
+        <td><%= project.pages_two_pages %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

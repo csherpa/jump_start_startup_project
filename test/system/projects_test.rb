@@ -14,6 +14,25 @@ class ProjectsTest < ApplicationSystemTestCase
     visit projects_url
     click_on "New Project"
 
+    fill_in "Assets Audio", with: @project.assets_audio
+    fill_in "Assets Database", with: @project.assets_database
+    fill_in "Assets Images", with: @project.assets_images
+    fill_in "Assets Text", with: @project.assets_text
+    fill_in "Assets Videos", with: @project.assets_videos
+    fill_in "Developer", with: @project.developer_id
+    fill_in "Due Date Less Then Month", with: @project.due_date_less_then_month
+    fill_in "Due Date One Month", with: @project.due_date_one_month
+    fill_in "Due Date Plus Three Month", with: @project.due_date_plus_three_month
+    fill_in "Due Date Three Month", with: @project.due_date_three_month
+    fill_in "Employer", with: @project.employer_id
+    fill_in "Pages Landing Pages", with: @project.pages_landing_pages
+    fill_in "Pages Two Pages", with: @project.pages_two_pages
+    fill_in "Platform Tablet", with: @project.platform_tablet
+    fill_in "Plattform Desktop", with: @project.plattform_desktop
+    fill_in "Plattform Mobile", with: @project.plattform_mobile
+    fill_in "Project Description", with: @project.project_description
+    fill_in "Project Name", with: @project.project_name
+    fill_in "Project Review", with: @project.project_review
     click_on "Create Project"
 
     assert_text "Project was successfully created"
@@ -24,6 +43,25 @@ class ProjectsTest < ApplicationSystemTestCase
     visit projects_url
     click_on "Edit", match: :first
 
+    fill_in "Assets Audio", with: @project.assets_audio
+    fill_in "Assets Database", with: @project.assets_database
+    fill_in "Assets Images", with: @project.assets_images
+    fill_in "Assets Text", with: @project.assets_text
+    fill_in "Assets Videos", with: @project.assets_videos
+    fill_in "Developer", with: @project.developer_id
+    fill_in "Due Date Less Then Month", with: @project.due_date_less_then_month
+    fill_in "Due Date One Month", with: @project.due_date_one_month
+    fill_in "Due Date Plus Three Month", with: @project.due_date_plus_three_month
+    fill_in "Due Date Three Month", with: @project.due_date_three_month
+    fill_in "Employer", with: @project.employer_id
+    fill_in "Pages Landing Pages", with: @project.pages_landing_pages
+    fill_in "Pages Two Pages", with: @project.pages_two_pages
+    fill_in "Platform Tablet", with: @project.platform_tablet
+    fill_in "Plattform Desktop", with: @project.plattform_desktop
+    fill_in "Plattform Mobile", with: @project.plattform_mobile
+    fill_in "Project Description", with: @project.project_description
+    fill_in "Project Name", with: @project.project_name
+    fill_in "Project Review", with: @project.project_review
     click_on "Update Project"
 
     assert_text "Project was successfully updated"

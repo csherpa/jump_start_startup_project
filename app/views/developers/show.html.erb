@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Resume url:</strong>
-  <%= @developer.resume_url %>
-</p>
+<%if current_developer and current_developer.id == @developer.id%>
+Your name is <%= @developer.full_name %>
+ <%elsif%>
+    <p>Name of the developer is <%= @developer.full_name %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_developer_path(@developer) %> |
 <%= link_to 'Back', developers_path %>

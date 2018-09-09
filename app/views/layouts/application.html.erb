@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title>JumpStar</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title>JUMPSTART</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:700" rel="stylesheet">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
 <body>
-  <div class='ui inverted segment'>
-    <div class='ui inverted secondary menu'>
-    <a href="/" class='item'>home</a>
-      <a href="/employers" class='item'>employers</a>
-      <a href="/projects" class='item'>projects</a>
-      <a href="/developers" class='item'>developers</a>
-      
-      <a href ="/users/sign_in" class='item'> sign in</a>
-       
-   </div>
-  </div>
+ 
+    <nav>
+      <% if developer_signed_in? %>
+        <h2> HI! <%= current_developer.first_name%> You are a <%= current_developer.model_name %></h2>
+          <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete, :class => 'sign_out' %>
+          <%= link_to 'EDIT PROFILE', edit_developer_registration_path, :class => 'edit_profile' %>
+          <p><a href="/developers">See all developers</a></p>
+          <p><a href="/employers">See all employers</a></p>
+          <p><a href="/projects">See all projects</a></p>
+      <% elsif employer_signed_in? %>
+        <h2> HI! <%= current_employer.first_name%> You are an <%= current_employer.model_name %></h2>
+        <%= link_to 'LOG OUT', destroy_employer_session_path, method: :delete, :class => 'sign_out' %>
+        <%= link_to 'EDIT PROFILE', edit_employer_registration_path, :class => 'edit_profile' %>
+        <p><a href="/employers">See all employers</a></p>
+        <p><a href="/developers">See all developers</a></p>
+        <p><a href="/projects">See all projects</a></p>
+      <% end %>
 
-  <p class="notice">
-    <%= notice %>
-  </p>
-  <p class="alert">
-    <%= alert %>
-  </p>
+   
 
-  <%= yield %>
+  </nav>
+  
 
-</body>
-
-</html>
+      <%= yield %>
+    
+  
+  </body>
