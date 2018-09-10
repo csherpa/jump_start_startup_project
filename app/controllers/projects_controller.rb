@@ -5,19 +5,33 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     binary_select_options = [['Yes', true], ['No', false]]
+    status_of_project = [['Open', 'open'],['Pending', 'pending'], ['In Process', 'in process'],['Complete', 'complete']]
 
     @filterrific = initialize_filterrific(
       Project,
       params[:filterrific],
       select_options: {
+        status: status_of_project,
         plattform_mobile: binary_select_options,
         plattform_desktop: binary_select_options,
+        platform_tablet: binary_select_options,
+        assets_text: binary_select_options,
+        assets_images: binary_select_options,
+        assets_videos: binary_select_options,
+        assets_audio: binary_select_options,
+        assets_database: binary_select_options,
+        due_date_less_then_month: binary_select_options,
+        due_date_one_month: binary_select_options,
+        due_date_three_month: binary_select_options,
+        due_date_plus_three_month: binary_select_options,
+        pages_landing_pages: binary_select_options,
+        pages_two_pages: binary_select_options,
+
       },
       default_filter_params: {},
       sanitize_params: false,
     ) or return
     @projects = @filterrific.find.order(created_at: :desc)
-
     respond_to do |format|
       format.html
       format.js
