@@ -69,3 +69,4 @@ gem 'semantic-ui-sass'
 gem "filterrific", "~> 5.1"
 
 gem "jquery-rails", "~> 4.3"
+ 
