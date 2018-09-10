@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :reviews
+  # resources :reviews
   resources :messages
-  resources :projects
+  resources :projects do 
+    resources :reviews, except: [:show, :index]
+  end
   # get 'welcome/index'
   root 'welcome#index'
   devise_for :developers, path: 'developers', :controllers => { registrations: 'developers/registrations' }

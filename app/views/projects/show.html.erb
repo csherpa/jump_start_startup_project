@@ -95,5 +95,6 @@
   <%= @project.pages_two_pages %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Edit', edit_project_path(@project) %> 
+<%= link_to 'review', new_review_path(@project) %>
 <%= link_to 'Back', projects_path %>
