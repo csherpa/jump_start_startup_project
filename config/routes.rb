@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  
   resources :aplications
   # resources :reviews
   # project/id/new
+  # proj
   resources :projects do 
     resources :reviews, except: [:show, :index]
+    resources :employers
+
   end
+
   # get 'welcome/index'
   root 'welcome#index'
 
