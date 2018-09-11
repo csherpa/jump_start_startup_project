@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_031300) do
+ActiveRecord::Schema.define(version: 2018_09_11_180346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aplications", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "developer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "developers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -77,6 +84,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_031300) do
   create_table "projects", force: :cascade do |t|
     t.integer "developer_id"
     t.integer "employer_id"
+    t.string "project_status"
     t.string "project_name"
     t.string "project_description"
     t.string "project_review"
@@ -101,17 +109,13 @@ ActiveRecord::Schema.define(version: 2018_09_11_031300) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
-    t.string "rating"
+    t.integer "rating"
     t.string "review"
-    t.bigint "developer_id"
-    t.bigint "employer_id"
+    t.integer "developer_id"
+    t.integer "employer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "project_id"
-    t.index ["developer_id"], name: "index_reviews_on_developer_id"
-    t.index ["employer_id"], name: "index_reviews_on_employer_id"
   end
 
-  add_foreign_key "reviews", "developers"
-  add_foreign_key "reviews", "employers"
 end

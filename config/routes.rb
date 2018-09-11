@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :aplications
   # resources :reviews
   # project/id/new
   resources :projects do 
