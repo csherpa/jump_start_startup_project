@@ -7,34 +7,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 <body>
-  <nav>
-    <div class="logo">
-      <a href="/">
-        <%= image_tag 'logo.png', class: 'logo' %>
-      </a>
+  <header>
+    <div class="top-nav">
+      <div class="logo">
+        <a href="/">
+          <%= image_tag 'logo.png', class: 'logo' %>
+        </a>
+      </div>
+      <div class="links">
+        <% if developer_signed_in? %>
+          <%= link_to 'MESSAGES', messages_path %>
+          <%= link_to 'EDIT PROFILE', edit_developer_registration_path, :class => 'edit_profile' %>
+          <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete, :class => 'sign_out' %> 
+        <% elsif employer_signed_in? %>
+          <%= link_to 'MESSAGES', messages_path %>
+          <%= link_to 'EDIT PROFILE', edit_employer_registration_path, :class => 'edit_profile' %>
+          <%= link_to 'LOG OUT', destroy_employer_session_path, method: :delete, :class => 'sign_out' %>
+        <% else %> 
+          <%= link_to 'LOGIN / SIGN UP', login_path %>
+        <% end %>
+      </div>
     </div>
-    <div class="links">
-      <% if developer_signed_in? %>
-        <%= link_to 'DEVELOPERS', developers_path %>
-        <%= link_to 'EMPLOYERS', employers_path %>
-        <%= link_to 'PROJECTS', projects_path %>
-        <%= link_to 'MESSAGES', messages_path %>
-        <%= link_to 'EDIT PROFILE', edit_developer_registration_path, :class => 'edit_profile' %>
-        <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete, :class => 'sign_out' %> 
-      <% elsif employer_signed_in? %>
-        <%= link_to 'DEVELOPERS', developers_path %>
-        <%= link_to 'EMPLOYERS', employers_path %>
-        <%= link_to 'PROJECTS', projects_path %>
-        <%= link_to 'MESSAGES', messages_path %>
-        <%= link_to 'EDIT PROFILE', edit_employer_registration_path, :class => 'edit_profile' %>
-        <%= link_to 'LOG OUT', destroy_employer_session_path, method: :delete, :class => 'sign_out' %>
-      <% else %> 
-        <%= link_to 'DEVELOPERS', developers_path %>
-        <%= link_to 'EMPLOYERS', employers_path %>
-        <%= link_to 'PROJECTS', projects_path %>
-      <% end %>
-     </div>
-  </nav>
-  
-      <%= yield %>
+    <div class="navigation-bar">
+      <%= link_to 'PROJECTS', projects_path, class: 'link' %>
+      <%= link_to 'DEVELOPERS', developers_path, class: 'link' %>
+      <%= link_to 'EMPLOYERS', employers_path, class: 'link' %> 
+    </div>
+    </header>
+    <div class="main-container">
+    <%= yield %>
+    </div>
   </body>

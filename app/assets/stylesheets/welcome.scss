@@ -1,3 +1,20 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.homepage-container{
+    @include flexbox(flex, row, center, space-evenly);
+}
+
+.logsign-container{
+    @include flexbox(flex, row, center, space-evenly);
+    position: relative;
+    top: 10vh;
+}
+
+.left-info{
+    padding-right: 10vw;
+}
+
+.right-info{
+    border-left: 1px solid green;
+    padding-left: 10vw;
+}
+
+
