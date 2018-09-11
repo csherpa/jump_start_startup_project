@@ -94,7 +94,19 @@
   <strong>Pages two pages:</strong>
   <%= @project.pages_two_pages %>
 </p>
-
+<%= link_to "Write a Review", new_project_review_path(@project) %>
 <%= link_to 'Edit', edit_project_path(@project) %> 
-<%= link_to 'review', new_review_path(@project) %>
+ 
 <%= link_to 'Back', projects_path %>
+
+ 
+
+
+          <% @reviews.each do |review| %>
+            
+              <div class="star-rating" data-score= <%= review.title %> ></div>
+              <p><%= review.review %></p>
+            </div>
+          <% end %>
+       
+   
