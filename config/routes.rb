@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :reviews
   resources :projects
-  resources :messages do
+  resources :messages, only: [:index, :show, :create] do
     get '/chat/:user_id', action: :chat, as: 'chat', on: :collection
   end
 
