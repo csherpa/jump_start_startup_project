@@ -20,9 +20,6 @@ class Project < ApplicationRecord
           :due_date_plus_three_month,
           :pages_landing_pages,
           :pages_two_pages,
-
-
-          
         ]
       )
 

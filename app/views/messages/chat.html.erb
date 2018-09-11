@@ -1,7 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Messages</h1>
-
 <table>
   <thead>
     <tr>
@@ -29,11 +25,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Message', new_message_path %>
-
-<% @chats.each do |chat| %>
-  <p>Your messages with Employer: <%= link_to chat.employer.full_name, chat_messages_path(chat.employer_id) %></p>
-<%end%>
