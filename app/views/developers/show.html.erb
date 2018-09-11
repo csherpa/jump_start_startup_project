@@ -1,10 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<%if current_developer and current_developer.id == @developer.id%>
-Your name is <%= @developer.full_name %>
- <%elsif%>
-    <p>Name of the developer is <%= @developer.full_name %></p>
-    <td><a href="">Send a message</a></td>
-<% end %>
+<h1>Developers</h1>
 
-<%= link_to 'Back', developers_path %>
+<div class="main-index">
+   
+    <div class="ui card">
+        <div class="image">
+            <img src="https://help.github.com/assets/images/help/profile/identicon.png">
+        </div>
+        <div class="content">
+            <a class="header"><%= @developer.full_name%></a>
+        </div>
+        <div class="content">
+            <p>Description: <%= @developer.description%></p>
+        </div>
+        <div class="content">
+            <p>Email: <%= @developer.email%></p>
+        </div>
+
+        <div class="content">
+            <p>Contact: <%= @developer.phone_number%></p>
+        </div>
+
+        <div class="content">
+            <p>State: <%= @developer.state%></p>
+        </div>
+    </div>    
+</div>
+<%= link_to 'Edit', edit_developer_registration_path(@developer) %> |
+<%= link_to 'Delete', @developer, method: :delete, data: { confirm: 'Are you sure?' } %>

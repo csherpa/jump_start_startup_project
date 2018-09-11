@@ -20,6 +20,7 @@ class DevelopersController < ApplicationController
 
   # GET /developers/1/edit
   def edit
+    @developer = Developer.find(params[:id])
   end
 
   # POST /developers
