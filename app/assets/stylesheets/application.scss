@@ -51,6 +51,10 @@ header{
     width: 25vw;
 }
 
+.log-link{
+    @include flexbox(flex,row, center, space-between);
+}
+
 .main-container{
     @include flexbox(flex, column, center, center);
 }
