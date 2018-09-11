@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.integer :developer_id
       t.integer :employer_id
       t.string :project_name
+      t.string :project_status
       t.string :project_description
       t.string :project_review
       t.boolean :plattform_mobile
