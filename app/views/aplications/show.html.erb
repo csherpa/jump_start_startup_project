@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @aplication.project_id %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @aplication.developer_id %>
+</p>
+
+<%= link_to 'Edit', edit_aplication_path(@aplication) %> |
+<%= link_to 'Back', aplications_path %>
