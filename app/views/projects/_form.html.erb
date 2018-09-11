@@ -15,25 +15,26 @@
     <%= form.label :developer_id %>
     <%= form.number_field :developer_id %>
   </div>
+  
 
   <div class="field">
     <%= form.label :employer_id %>
-    <%= form.number_field :employer_id %>
+
+    <%= form.number_field :employer_id, :value => current_employer.id %>
+
+  </div>
+   <div class="field">
+    <%= form.label :project_status %>
+    <%= form.text_field :project_status, :value => 'open'%>
+  </div> 
+  <div class="field">
+    <%= form.label :project_status %>
+    <%= form.text_field :project_status, :value =>"open" %>
   </div>
 
   <div class="field">
     <%= form.label :project_name %>
     <%= form.text_field :project_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :project_description %>
-    <%= form.text_field :project_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :project_review %>
-    <%= form.text_field :project_review %>
   </div>
 
   <div class="field">

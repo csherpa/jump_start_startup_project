@@ -135,7 +135,11 @@
   <%= render_filterrific_spinner %>
 <% end %>
 </div>
+  
 <div class="project-list">
+
+<%= link_to 'New Project', new_project_path%>
+
 <%= render(partial: 'projects/list', locals: { projects: @projects }) %>
 </div>
 </div>

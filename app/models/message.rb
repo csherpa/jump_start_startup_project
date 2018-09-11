@@ -6,4 +6,5 @@ class Message < ApplicationRecord
     validates :developer, presence: true
 
     scope :from_developer, ->(id) { where(developer_id: id) }
+    scope :from_employer, ->(id) { where(employer_id: id) }
 end

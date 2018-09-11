@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-    belongs_to :employer
+    belongs_to :employer, optional: true
     belongs_to :developer, optional: true
     has_many :reviews
 

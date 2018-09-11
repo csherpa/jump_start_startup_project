@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Aplications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Developer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aplications.each do |aplication| %>
+      <tr>
+        <td><%= aplication.project_id %></td>
+        <td><%= aplication.developer_id %></td>
+        <td><%= link_to 'Show', aplication %></td>
+        <td><%= link_to 'Edit', edit_aplication_path(aplication) %></td>
+        <td><%= link_to 'Destroy', aplication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aplication', new_aplication_path %>
