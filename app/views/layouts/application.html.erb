@@ -1,42 +1,43 @@
-
-
-  <head>
+<head>
     <title>JUMPSTART</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Orbitron:700" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
 <body>
- 
-    <nav>
-      <% if developer_signed_in? %>
-        <h2> HI! <%= current_developer.full_name %> You are a <%= current_developer.model_name %></h2>
-          <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete, :class => 'sign_out' %>
+  <header>
+    <div class="top-nav">
+      <div class="logo">
+        <a href="/">
+          <%= image_tag 'logo.png', class: 'logo' %>
+        </a>
+      </div>
+      <div class="links">
+        <% if developer_signed_in? %>
+          <%= link_to 'MESSAGES', messages_path %>
           <%= link_to 'EDIT PROFILE', edit_developer_registration_path, :class => 'edit_profile' %>
-          <p><a href="/developers">See all developers</a></p>
-          <p><a href="/employers">See all employers</a></p>
-          <p><a href="/projects">See all projects</a></p>
-          <p><a href="/messages">Message box</a></p>
-      <% elsif employer_signed_in? %>
-        <h2> HI! <%= current_employer.first_name%> You are an <%= current_employer.model_name %>Your id is <%= current_employer.id %></h2>
-        <%= link_to 'LOG OUT', destroy_employer_session_path, method: :delete, :class => 'sign_out' %>
-        <%= link_to 'EDIT PROFILE', edit_employer_registration_path, :class => 'edit_profile' %>
-        <p><a href="/employers">See all employers</a></p>
-        <p><a href="/developers">See all developers</a></p>
-        <p><a href="/projects">See all projects</a></p>
-        <p><a href="">My projects</a></p>
-        <p><a href="/projects/new">New project</a></p>
-        <p><a href="/messages">Message box</a></p>
-        <p><a href="/messages">There will be a create a message button</a></p>
-      <% end %>
 
-  </nav>
-  
+          <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete, :class => 'sign_out' %> 
+        <% elsif employer_signed_in? %>
+          <%= link_to 'MESSAGES', messages_path %>
+          <%= link_to 'EDIT PROFILE', edit_employer_registration_path, :class => 'edit_profile' %>
+          <%= link_to 'LOG OUT', destroy_employer_session_path, method: :delete, :class => 'sign_out' %>
+        <% else %> 
+          <%= link_to 'LOGIN / SIGN UP', login_path %>
+        <% end %>
+      </div>
+    </div>
+    <div class="navigation-bar">
+      <%= link_to 'PROJECTS', projects_path, class: 'link' %>
+      <%= link_to 'DEVELOPERS', developers_path, class: 'link' %>
+      <%= link_to 'EMPLOYERS', employers_path, class: 'link' %> 
+    </div>
+    </header>
+    <div class="main-container">
+    <%= yield %>
+    </div>
 
-      <%= yield %>
-    
-  
   </body>
+

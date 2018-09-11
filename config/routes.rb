@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   get '/employers', to: 'employers#index'
   get '/employers/:id', to: 'employers#show', as: 'employer'
   root 'welcome#index'
+  get '/dashboard', to: 'welcome#dashboard'
+  get '/login', to: 'welcome#login'
 end

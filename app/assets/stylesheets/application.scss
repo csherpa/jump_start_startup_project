@@ -15,8 +15,46 @@
  
  $font-url: 'http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
  @import 'semantic-ui';
+ @import './partials/*';
  @import 'scaffolds';
  @import 'welcome';
  @import 'projects';
  @import 'developers';
  @import 'messages';
+
+header{
+    @include flexbox(flex, column, center, center);
+}
+
+.top-nav{
+    @include flexbox(flex, row, center, space-between);
+    width: 100%;
+}
+
+.navigation-bar{
+    @include flexbox(flex, row, center, space-evenly);
+    width: 100%;
+    height: 2.5vh;
+    background-color: #34374D;
+    
+    .link{
+        color: white;
+    }
+}
+
+.logo {
+    width: 15vh;
+}
+
+.links{
+    @include flexbox(flex,row, center, space-between);
+    width: 25vw;
+}
+
+.log-link{
+    @include flexbox(flex,row, center, space-between);
+}
+
+.main-container{
+    @include flexbox(flex, column, center, center);
+}
