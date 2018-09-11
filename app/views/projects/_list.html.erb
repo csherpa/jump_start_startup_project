@@ -47,12 +47,13 @@
             <td><%= project.due_date_plus_three_month %></td>
             <td><%= project.pages_landing_pages %></td>
             <td><%= project.pages_two_pages %></td>
-            <p><%= link_to 'Show', project %></p>
-            <p><%= link_to 'Edit', edit_project_path(project) %></p>
-            <p><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+            <td><%= link_to 'Show', new_project_review_path(project.id) %></td>
+            <td><%= link_to 'Edit', edit_project_path(project) %></td>
+            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
              <p><a href="">Apply for the project <%=project.project_name%></a></p>
+
         </tr>
         <% end %>
     </tbody>
-    </table>
-<div>
+  
