@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   devise_for :developers, path: 'developers', :controllers => { registrations: 'developers/registrations' }
   devise_for :employers, path: 'employers', :controllers => { registrations: 'employers/registrations' }
 
-  get '/developers', to: 'developers#index'get '/developers/:id', to: 'developers#show', as: 'developer'
+  get '/developers', to: 'developers#index'
+  get '/developers/:id', to: 'developers#show', as: 'developer'
 
   get '/employers', to: 'employers#index'
   get '/employers/:id', to: 'employers#show', as: 'employer'
   root 'welcome#index'
- 
+end

@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    
     binary_select_options = [['Yes', true], ['No', false]]
     status_of_project = [['Open', 'open'],['Pending', 'pending'], ['In Process', 'in process'],['Complete', 'complete']]
 

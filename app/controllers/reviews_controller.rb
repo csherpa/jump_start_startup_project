@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @reviews = Review.where(project_id: @project.id).order("created_at DESC")
   end
 
   # GET /reviews/1/edit
@@ -18,12 +19,12 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
-     
+    @review = Review.new(review_params) 
+   
     @review.project_id = @project.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @project, notice: 'Review was successfully created.' }
+        format.html { redirect_to new_project_review_path(@project.id), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
