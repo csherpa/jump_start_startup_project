@@ -1,11 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Back', employers_path %>
-<%if current_employer and current_employer.id == @employer.id%>
-Your name is <%= @employer.full_name %>
- <%elsif%>
-    <p>Name of the employer is <%= @employer.full_name %></p>
-    <td><a href="">Send a message</a></td>
-<% end %>
+<h1>Employers</h1>
+<h1><%= link_to 'View All Employers', employers_path %></h1>
+<div class="main-index">
+   
+    <div class="ui card">
+        <div class="image">
+            <img src="https://avatars3.githubusercontent.com/u/8208326?s=88&v=4">
+        </div>
+        <div class="content">
+            <a class="header"><p>Owner's Name: <%= @employer.full_name%></p></a>
+        </div>
+        <div class="content">
+            <p>Company Name: <%= @employer.company_name%></p>
+        </div>
+        <div class="content">
+            <p>Description: <%= @employer.description%></p>
+        </div>
+        <div class="content">
+            <p>Email: <%= @employer.email%></p>
+        </div>
 
+        <div class="content">
+            <p>Contact: <%= @employer.phone_number%></p>
+        </div>
 
+        <div class="content">
+            <p>State: <%= @employer.state%></p>
+        </div>
+    </div>    
+</div>
+<%= link_to 'Edit', edit_employer_registration_path(@employer) %> |
+<%= link_to 'Delete', @employer, method: :delete, data: { confirm: 'Are you sure?' } %>
