@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
-
     # Todo is_a? Developer and is_a? Employer
     if current_user.is_a? Developer
       @chats = Message.includes(:employer).select(:employer_id).from_developer(current_developer.id).group(:employer_id)
