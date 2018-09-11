@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # resources :reviews
   resources :messages
+  # project/id/new
   resources :projects do 
     resources :reviews, except: [:show, :index]
   end

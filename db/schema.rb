@@ -100,17 +100,13 @@ ActiveRecord::Schema.define(version: 2018_09_10_235131) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
-    t.string "rating"
+    t.integer "rating"
     t.string "review"
-    t.bigint "developer_id"
-    t.bigint "employer_id"
+    t.integer "developer_id"
+    t.integer "employer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "project_id"
-    t.index ["developer_id"], name: "index_reviews_on_developer_id"
-    t.index ["employer_id"], name: "index_reviews_on_employer_id"
   end
 
-  add_foreign_key "reviews", "developers"
-  add_foreign_key "reviews", "employers"
 end

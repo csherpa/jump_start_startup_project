@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_project
-  before_action :authenticate_developer!
+  
   # GET /reviews
   # GET /reviews.json
    
@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-    @review.developer_id = current_developer.id
+     
     @review.project_id = @project.id
     respond_to do |format|
       if @review.save
