@@ -4,6 +4,7 @@
 Your name is <%= @developer.full_name %>
  <%elsif%>
     <p>Name of the developer is <%= @developer.full_name %></p>
+    <td><a href="">Send a message</a></td>
 <% end %>
 
 <%= link_to 'Back', developers_path %>

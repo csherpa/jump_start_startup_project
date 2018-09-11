@@ -5,16 +5,16 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
+
+    # Todo is_a? Developer and is_a? Employer
+    @chats = Message.includes(:employer).select(:employer_id).from_developer(current_developer.id).group(:employer_id)
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
-  end
-
-  # GET /messages/new
-  def new
-    @message = Message.new
+    @messages = Message.all
+    @results_for_developer = Message.find(params[:id])
   end
 
   # GET /messages/1/edit
@@ -36,28 +36,17 @@ class MessagesController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /messages/1
-  # PATCH/PUT /messages/1.json
-  def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /messages/1
-  # DELETE /messages/1.json
-  def destroy
-    @message.destroy
-    respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
-      format.json { head :no_content }
+ 
+  # GET /messages/chat/:user_id
+  def chat
+    if current_user.is_a? Developer
+      @recipient = Employer.find(params[:user_id])
+      @messages = Message.where(developer_id: current_developer.id, employer_id: params[:user_id])
+    elsif current_user.is_a? Employer
+      @recipient = Developer.find(params[:user_id])
+      @messages = Message.where(employer_id: current_employer.id, developer_id: params[:user_id])
+    else
+      raise "Not logged in"
     end
   end
 
@@ -69,6 +58,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:subject, :body, :date, :developer_id, :employer_id)
+      params.require(:message).permit(:body)
     end
 end
