@@ -3,5 +3,9 @@
 <h1>Your messages with Employers</h1>
 
 <% @chats.each do |chat| %>
-  <p><%= link_to chat.employer.full_name, chat_messages_path(chat.employer_id) %></p>
+  <% if current_developer %>
+    <p><%= link_to chat.employer.full_name, chat_messages_path(chat.employer_id) %></p>
+  <% elsif %>
+    <p><%= link_to chat.developer.full_name, chat_messages_path(chat.developer_id) %></p>
+  <%end%>
 <%end%>
