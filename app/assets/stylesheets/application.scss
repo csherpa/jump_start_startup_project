@@ -15,8 +15,21 @@
  
  $font-url: 'http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
  @import 'semantic-ui';
+ @import './partials/*';
  @import 'scaffolds';
  @import 'welcome';
  @import 'projects';
  @import 'developers';
  @import 'messages';
+
+nav{
+    @include flexbox(flex, row, center, space-between);
+}
+
+.logo {
+    width: 15vh;
+}
+
+.center {
+    @include flexbox(flex, row, center, center);
+}
