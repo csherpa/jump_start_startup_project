@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Projects</h1>
-
+<div class="project-container">
+<div class="project-filter">
 <%= form_for_filterrific @filterrific do |f| %>
   <h4>Search</h4>
   <div>
@@ -133,5 +134,8 @@
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
 <% end %>
-
+</div>
+<div class="project-list">
 <%= render(partial: 'projects/list', locals: { projects: @projects }) %>
+</div>
+</div>

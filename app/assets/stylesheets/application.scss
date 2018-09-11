@@ -25,10 +25,12 @@
 header{
     @include flexbox(flex, column, center, center);
 }
+
 .top-nav{
     @include flexbox(flex, row, center, space-between);
     width: 100%;
 }
+
 .navigation-bar{
     @include flexbox(flex, row, center, space-evenly);
     width: 100%;
@@ -39,8 +41,14 @@ header{
         color: white;
     }
 }
+
 .logo {
     width: 15vh;
+}
+
+.links{
+    @include flexbox(flex,row, center, space-between);
+    width: 25vw;
 }
 
 .main-container{

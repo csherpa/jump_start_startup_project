@@ -17,4 +17,16 @@
     padding-left: 10vw;
 }
 
+.row-container{
+    @include flexbox(flex, row, center, center);
+    width: 100%;
+}
+
+.dashboard-row{
+    width: 25%;
+}
+
+.column-container{
+    @include flexbox(flex, column, center, center);
+}
 

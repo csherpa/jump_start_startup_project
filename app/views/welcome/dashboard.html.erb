@@ -1,0 +1,25 @@
+<div class="row-container">
+    <div class="dashboard-row">
+        <table>
+            <thead>
+                <th>Project</th>
+                <th>Status</th>
+            </head>
+            <tbody>
+            <% @developer.projects.each do |project| %>
+                <tr>
+                    <td><%= project.name %></td>
+                    <td><%= project.status %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dashboard-row">
+        <table>
+        </table>
+    </div>
+    <div class="dashboard-row">
+        <div class="dash-profile">
+        </div>
+    </div>
+</div>
