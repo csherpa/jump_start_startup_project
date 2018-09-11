@@ -94,6 +94,30 @@
   <strong>Pages two pages:</strong>
   <%= @project.pages_two_pages %>
 </p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to "Write a Review", new_project_review_path(@project) %>
+<%= link_to 'Edit', edit_project_path(@project) %> 
+ 
 <%= link_to 'Back', projects_path %>
+
+ 
+
+
+          <% @reviews.each do |review| %>
+            
+              <h1><%= review.title %></h1>
+              <p><%= review.review %></p>
+            </div>
+          <% end %>
+
+
+          <script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
+       
+   

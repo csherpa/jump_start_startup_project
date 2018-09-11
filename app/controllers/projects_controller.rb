@@ -42,6 +42,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @reviews = Review.where(project_id: @project.id).order("created_at DESC")
+
   end
 
   # GET /projects/new
