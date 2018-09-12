@@ -5,7 +5,7 @@ class Project < ApplicationRecord
 
     filterrific(
         available_filters: [
-          :status,
+          :project_status,
           :plattform_mobile,
           :plattform_desktop,
           :platform_tablet,
@@ -25,7 +25,7 @@ class Project < ApplicationRecord
 
     scope :plattform_mobile, ->(query) { where(plattform_mobile: query) }
     scope :plattform_desktop, ->(query) { where(plattform_desktop: query) }
-    scope :status, ->(query) { where(status: query) }
+    scope :project_status, ->(query) { where(project_status: query) }
     scope :platform_tablet, ->(query) { where(platform_tablet: query) }
     scope :assets_text, ->(query) { where(assets_text: query) }
     scope :assets_images, ->(query) { where(assets_images: query) }

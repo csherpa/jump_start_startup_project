@@ -1,31 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Developers</h1>
-<h1><%= link_to 'View All Developers', developers_path %></h1>
+<h1>Hello, <%= current_developer.full_name %></h1>
+
 <div class="main-index">
-   
-    <div class="ui card">
+      <div class="ui card">
         <div class="image">
-            <% if @developer.image.attached? %>
-            <%= image_tag (@developer.image) %>
-            <% end %>
+          <%if current_developer.image.attached? %>
+            <%= image_tag (current_developer.image)%>
+          <% end %>
         </div>
         <div class="content">
-            <a class="header"><%= @developer.full_name%></a>
-        </div>
-        <div class="content">
-            <p>Description: <%= @developer.description%></p>
-        </div>
-        <div class="content">
-            <p>Email: <%= @developer.email%></p>
-        </div>
+          <a class="header"><%=current_developer.full_name%></a>
+          <div class="meta">
+            <%= current_developer.created_at%>
+          </div>
+          <div class="content">
+          Description: <%= current_developer.description%>
+          </div>
+
+          <div class="content">
+          Resume: <%= current_developer.resume_url%>
+          </div>
+
+          <div class="content">
+          Github: <%= current_developer.github_url%>
+          </div>
+
+          <div class="content">
+          Linkedin: <%= current_developer.linkedin_url%>
+          </div>
+
+          <div class="content">
+          Portfolio: <%= current_developer.portfolio_url%>
+          </div>
 
         <div class="content">
-            <p>Contact: <%= @developer.phone_number%></p>
+          City: <%= current_developer.city%>
         </div>
 
-        <div class="content">
-            <p>State: <%= @developer.state%></p>
-        </div>
-    </div>    
+         <div class="content">
+          Zip: <%= current_developer.zip%>
+          </div>
+          <div class="content">
+          <%= current_developer.email%>
+          </div>
+        </div>   
 </div>
+
+<h1>Open projects</h1>
+<h1>Projects In Process</h1>
+<h1>Complete Projects</h1>

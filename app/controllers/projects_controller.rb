@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
       Project,
       params[:filterrific],
       select_options: {
-        status: status_of_project,
+        project_status: status_of_project,
         plattform_mobile: binary_select_options,
         plattform_desktop: binary_select_options,
         platform_tablet: binary_select_options,
