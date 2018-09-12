@@ -1,32 +1,4 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Employers</h1>
-<h1><%= link_to 'View All Employers', employers_path %></h1>
-<div class="main-index">
-   
-    <div class="ui card">
-        <%if @employer.image.attached? %>
-            <%= image_tag (@employer.image)%>
-          <% end %>
-        <div class="content">
-            <a class="header"><p>Owner's Name: <%= @employer.full_name%></p></a>
-        </div>
-        <div class="content">
-            <p>Company Name: <%= @employer.company_name%></p>
-        </div>
-        <div class="content">
-            <p>Description: <%= @employer.description%></p>
-        </div>
-        <div class="content">
-            <p>Email: <%= @employer.email%></p>
-        </div>
+<h1>Hello, <%= current_employer.full_name %></h1>
 
-        <div class="content">
-            <p>Contact: <%= @employer.phone_number%></p>
-        </div>
-
-        <div class="content">
-            <p>State: <%= @employer.state%></p>
-        </div>
-    </div>    
-</div>

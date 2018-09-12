@@ -17,11 +17,13 @@
       <div class="links">
         <% if developer_signed_in? %>
           <%= link_to 'MESSAGES', messages_path %>
+          <a href="/developers/<%=current_developer.id%>">MY PROFILE</a>
           <%= link_to 'EDIT PROFILE', edit_developer_registration_path, :class => 'edit_profile' %>
 
           <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete, :class => 'sign_out' %> 
         <% elsif employer_signed_in? %>
           <%= link_to 'MESSAGES', messages_path %>
+          <a href="/employers/<%=current_employer.id%>">MY PROFILE</a>
           <%= link_to 'EDIT PROFILE', edit_employer_registration_path, :class => 'edit_profile' %>
           <%= link_to 'LOG OUT', destroy_employer_session_path, method: :delete, :class => 'sign_out' %>
         <% else %> 
