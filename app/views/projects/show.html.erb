@@ -1,113 +1,77 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Developer:</strong>
-  <%= @project.developer_id %>
-</p>
-
-<p>
-  <strong>Employer:</strong>
-  <%= @project.employer_id %>
-</p>
-
-<p>
-  <strong>Project name:</strong>
-  <%= @project.project_name %>
-</p>
-
-<p>
-  <strong>Project description:</strong>
-  <%= @project.project_description %>
-</p>
-
-<p>
-  <strong>Project review:</strong>
-  <%= @project.project_review %>
-</p>
-
-<p>
-  <strong>Plattform mobile:</strong>
-  <%= @project.plattform_mobile %>
-</p>
-
-<p>
-  <strong>Plattform desktop:</strong>
-  <%= @project.plattform_desktop %>
-</p>
-
-<p>
-  <strong>Platform tablet:</strong>
-  <%= @project.platform_tablet %>
-</p>
-
-<p>
-  <strong>Assets text:</strong>
-  <%= @project.assets_text %>
-</p>
-
-<p>
-  <strong>Assets images:</strong>
-  <%= @project.assets_images %>
-</p>
-
-<p>
-  <strong>Assets videos:</strong>
-  <%= @project.assets_videos %>
-</p>
-
-<p>
-  <strong>Assets audio:</strong>
-  <%= @project.assets_audio %>
-</p>
-
-<p>
-  <strong>Assets database:</strong>
-  <%= @project.assets_database %>
-</p>
-
-<p>
-  <strong>Due date less then month:</strong>
-  <%= @project.due_date_less_then_month %>
-</p>
-
-<p>
-  <strong>Due date one month:</strong>
-  <%= @project.due_date_one_month %>
-</p>
-
-<p>
-  <strong>Due date three month:</strong>
-  <%= @project.due_date_three_month %>
-</p>
-
-<p>
-  <strong>Due date plus three month:</strong>
-  <%= @project.due_date_plus_three_month %>
-</p>
-
-<p>
-  <strong>Pages landing pages:</strong>
-  <%= @project.pages_landing_pages %>
-</p>
-
-<p>
-  <strong>Pages two pages:</strong>
-  <%= @project.pages_two_pages %>
-</p>
-<%= link_to "Write a Review", new_project_review_path(@project) %>
-<%= link_to 'Edit', edit_project_path(@project) %> 
- 
-<%= link_to 'Back', projects_path %>
-
- 
-
-
-          <% @reviews.each do |review| %>
-            
-              <h1><%= review.title %></h1>
-              <p><%= review.review %></p>
-            </div>
-          <% end %>
-
- 
-   
+<p id="notice"><%= notice %>
+<div class="top-buttons">
+  <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, projects_path %>
+</div>
+<div class="project-container">
+  <div class="project-main">
+    <strong>Project</strong> <%= @project.project_name %> <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
+    <br>
+    <strong>Description</strong>
+    <br>
+    <%= @project.project_description %>
+    <div class="project-review">
+   <% if @project.developer_id%>
+    <strong>Developer</strong> <%= @project.developer.full_name %>
+  <% end%>
+    <br>
+      <strong>Project Review</strong>
+      <%= link_to "Write a Review", new_project_review_path(@project) %>
+      <br>
+      <% @reviews.each do |review| %>
+        <div>
+          <h1><%= review.title %></h1>
+          <%= review.review %> 
+        </div>
+      <% end %>
+         <% if @project.employer_id == current_employer.id and @project.project_status == "pending"%>
+        <h3>Aplicants: </h3>
+    <% @aplications.each do |aplication|%>
+    <% specific_aplicant_name = Developer.find(aplication.developer_id) %>
+    <p><%= specific_aplicant_name.full_name %></p>
+   <% end %>
+   <button>Submit</button>
+   <% end %>
+    </div>
+  </div>
+  <div class="project-side">
+    <table>
+    <strong>Status</strong><br>
+    <li><%= @project.project_status %></li>
+    <br>
+    <strong>Due Date</strong>
+      <li>&lt; 1 month <%= @project.due_date_less_then_month %></li>
+      <li>1 month <%= @project.due_date_one_month %></li>
+      <li>&gt; 3 months <%= @project.due_date_three_month %></li>
+      <li>3+ months <%= @project.due_date_plus_three_month %></li>
+    <br>
+    <strong>Platform</strong>
+      <li>Desktop <%= @project.plattform_desktop %></li>
+      <li>Mobile <%= @project.plattform_mobile %></li>
+      <li>Tablet <%= @project.platform_tablet %></li>
+    <br>
+    <strong>Assets</strong>
+      <li>Text <%= @project.assets_text %></li>
+      <li>Images <%= @project.assets_images %></li>
+      <li>Videos <%= @project.assets_videos %></li>
+      <li>Audio <%= @project.assets_audio %></li>
+      <li>Database <%= @project.assets_database %></li>
+    <br>
+    <strong>Pages</strong>
+      <li>Landing Page <%= @project.pages_landing_pages %></li>
+      <li>2+ Pages <%= @project.pages_two_pages %></li>
+    <br>
+    <strong>Posted by</strong><br/>
+      <li><%= @project.employer.full_name %></li>
+    </table>
+  </div>
+</div>
+  
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+          return $(this).attr('data-score');
+    }
+  });
+</script>

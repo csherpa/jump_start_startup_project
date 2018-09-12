@@ -11,6 +11,11 @@ class EmployersController < ApplicationController
   # GET /employers/1.json
   def show
     @employer = Employer.find(params[:id])
+    @open_projects = Project.where({ employer_id: @employer.id, project_status: "open" })
+    @inprogress_projects = Project.where({ employer_id: @employer.id, project_status: "in process" })
+    @complete_projects = Project.where({ employer_id: @employer.id, project_status: "complete" })
+    @pending_projects = Project.where({ employer_id: @employer.id, project_status: "pending" })
+
   end
 
   # GET /employers/new
@@ -62,6 +67,11 @@ class EmployersController < ApplicationController
     end
   end
 
+  # GET /employers/my/projects
+  def index_projects
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employer
@@ -70,6 +80,7 @@ class EmployersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employer_params
-      params.fetch(:employer, {})
+      params.require(:employer).permit(:email, :first_name, :last_name, :description, :phone_number, :state, :company_name, :image)
+      # params.fetch(:employer, {})
     end
 end

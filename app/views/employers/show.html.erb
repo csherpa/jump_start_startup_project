@@ -1,11 +1,65 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Back', employers_path %>
-<%if current_employer and current_employer.id == @employer.id%>
-Your name is <%= @employer.full_name %>
- <%elsif%>
-    <p>Name of the employer is <%= @employer.full_name %></p>
-    <td><a href="">Send a message</a></td>
-<% end %>
+<div class="main-index">
+      <div class="ui card">
+        <div class="image">
+          <%if @employer.image.attached? %>
+            <%= image_tag (@employer.image)%>
+          <% end %>
+        </div>
+        <div class="content">
+          <a class="header"><%=@employer.full_name%></a>
+          <div class="meta">
+            <%= @employer.created_at%>
+          </div>
+          <div class="content">
+          Description: <%= @employer.description%>
+          </div>
+          <div class="content">
+          Company Name: <%= @employer.company_name%>
+          </div>
 
+        <div class="content">
+          Company Site: <%= @employer.company_url%>
+        </div>
 
+        <div class="content">
+          City: <%= @employer.city%>
+        </div>
+
+         <div class="content">
+          Zip: <%= @employer.zip%>
+          </div>
+          <div class="content">
+          <%= @employer.email%>
+          </div>
+        </div>   
+
+</div>
+
+<h1>Open projects</h1>
+
+<%@open_projects.each do |open_project| %>
+  <p><%= open_project.project_name%></p>
+<%end%>
+
+<h1>Projects In Process</h1>
+
+<%@inprogress_projects.each do |inprogress_project| %>
+  <p><%= inprogress_project.project_name%></p>
+<%end%>
+
+<h1>Complete Projects</h1>
+
+<%@complete_projects.each do |complete_project| %>
+  <p><%= complete_project.project_name%></p>
+<%end%>
+
+<h1>Pending Projects</h1>
+
+<%@pending_projects.each do |pending_project| %>
+  <p><a href="/projects/<%=pending_project.id%>/reviews/new"><%= pending_project.project_name%></a></p>
+
+<%end%>
+
+ 

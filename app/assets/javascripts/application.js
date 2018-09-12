@@ -17,6 +17,6 @@
 // Libraries:
 //= require jquery
 //= require filterrific/filterrific-jquery
-//
+
 // App:
 //= require_tree .

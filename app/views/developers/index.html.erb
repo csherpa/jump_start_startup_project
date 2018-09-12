@@ -6,41 +6,33 @@
     <% @developers.each do |developer| %>
       <div class="ui card">
         <div class="image">
-          <img src="/images/avatar2/large/kristy.png">
+          <%if developer.image.attached? %>
+            <%= image_tag (developer.image)%>
+          <% end %>
         </div>
         <div class="content">
-          <a class="header">DEV NAME</a>
+          <a class="header"><%=developer.full_name%></a>
           <div class="meta">
-            <span class="date">Joined in 2013</span>
+            <%= developer.created_at%>
           </div>
-          <div class="description">
-            DEV is an art director living in New York.
+          <div class="content">
+            <%= developer.description%>
           </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            22 Friends
-          </a>
-        </div>
-      </div>
-    <% end %>
+          <div class="content">
+            <%= developer.email%>
+          </div>
+          
+          <div class="content">
+            <%= link_to 'More Info',developer %>
+          </div>
+            <div>
+            <% if current_employer %>
+            <a href="/messages/chat/<%= developer.id%>">Message <%=developer.first_name%></a>
+            <% end %>
+          </div>
+          
+        </div>  
+    <% end %>   
 </div>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @developers.each do |developer| %>
-      <tr>
-        <td><%= developer.full_name %></td>
-        <td><%= link_to 'Show', developer %></td>
-        <td><a href="">Send a message</a></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 

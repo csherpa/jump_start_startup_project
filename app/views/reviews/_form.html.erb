@@ -1,5 +1,14 @@
  
 
+  <% if @project.employer_id == current_employer.id %>
+ 
+   <% @aplications.each do |aplication|%>
+    <% specific_aplicant_name = Developer.find(aplication.developer_id) %>
+    <p><%= specific_aplicant_name.full_name %></p>
+   <% end %>
+   <button>Submit</button>
+   <% end %>
+  
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Status:</strong>
@@ -14,6 +23,7 @@
   <strong>Employer:</strong>
   <%= @project.employer_id %>
 </p>
+
 
 <p>
   <strong>Project name:</strong>
@@ -142,6 +152,8 @@
               <p><%= review.review %></p>
             </div>
           <% end %>
+
+
 
 
           <script>

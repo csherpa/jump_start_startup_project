@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     end
     @review = Review.new
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
+    @aplications = Aplication.where(project_id: @project.id)
   end
 
   # GET /reviews/1/edit

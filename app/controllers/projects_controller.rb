@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
       Project,
       params[:filterrific],
       select_options: {
-        status: status_of_project,
+        project_status: status_of_project,
         plattform_mobile: binary_select_options,
         plattform_desktop: binary_select_options,
         platform_tablet: binary_select_options,
@@ -43,6 +43,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
+    @aplications = Aplication.where(project_id: @project.id)
     
   end
 
@@ -104,5 +105,6 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:developer_id, :employer_id,:project_status, :project_name, :project_description, :project_review, :plattform_mobile, :plattform_desktop, :platform_tablet, :assets_text, :assets_images, :assets_videos, :assets_audio, :assets_database, :due_date_less_then_month, :due_date_one_month, :due_date_three_month, :due_date_plus_three_month, :pages_landing_pages, :pages_two_pages)
+
     end
 end

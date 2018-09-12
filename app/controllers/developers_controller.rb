@@ -11,6 +11,25 @@ class DevelopersController < ApplicationController
   # GET /developers/1.json
   def show
     @developer = Developer.find(params[:id])
+    @open_projects = Project.where({ developer_id: @developer.id, project_status: "open" })
+    @inprogress_projects = Project.where({ developer_id: @developer.id, project_status: "in process" })
+    @complete_projects = Project.where({ developer_id: @developer.id, project_status: "complete" })
+    @pending_projects = Project.where({ developer_id: @developer.id, project_status: "pending" })
+  end
+
+  def index_projects
+  end
+
+  def load_chat(recipient_id)
+    if current_user.is_a? Developer
+      @recipient = Employer.find(recipient_id)
+      @messages = Message.where(developer_id: current_developer.id, employer_id: recipient_id)
+    elsif current_user.is_a? Employer
+      @recipient = Developer.find(recipient_id)
+      @messages = Message.where(employer_id: current_employer.id, developer_id: recipient_id)
+    else
+      raise "Not logged in"
+    end  
   end
 
   # GET /developers/new
@@ -20,6 +39,7 @@ class DevelopersController < ApplicationController
 
   # GET /developers/1/edit
   def edit
+    @developer = Developer.find(params[:id])
   end
 
   # POST /developers
@@ -70,6 +90,7 @@ class DevelopersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def developer_params
-      params.fetch(:developer, {})
+      params.require(:developer).permit(:email, :first_name, :last_name, :description, :phone_number, :state, :image)
+      # params.fetch(:developer, {})
     end
 end
