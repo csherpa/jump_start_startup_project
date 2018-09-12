@@ -58,6 +58,8 @@
 <h1>Pending Projects</h1>
 
 <%@pending_projects.each do |pending_project| %>
-  <p><%= pending_project.project_name%></p>
+  <p><a href="/projects/<%=pending_project.id%>/reviews/new"><%= pending_project.project_name%></a></p>
+
 <%end%>
 
+ 
