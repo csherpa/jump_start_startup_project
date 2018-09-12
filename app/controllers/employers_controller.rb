@@ -62,6 +62,10 @@ class EmployersController < ApplicationController
     end
   end
 
+  # GET /employers/my/projects
+  def index_projects
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employer
