@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # get 'welcome/index'
   root 'welcome#index'
 
-  resources :messages, only: [:index, :show, :create] do
+  resources :messages, only: [:index, :create] do
     get '/chat/:user_id', action: :chat, as: 'chat', on: :collection
   end
 

@@ -1,0 +1,32 @@
+<div id="chat" class="ui comments">
+    <h3 class="ui dividing header">Chat with <%= @recipient.full_name %></h3>
+    <% @messages.each do |message| %>
+        <div class="comment">
+            <div class="content">
+                <% if message.sender == 'developer' %>
+                    <span class="author" style="color:red"><%= message.developer.full_name %></span>
+                <% else %>
+                  <span class="author"><%= message.employer.full_name %></span>
+                <% end %>
+                
+                <div class="metadata">
+                    <div class="date"><%= time_ago_in_words(message.created_at) %> ago</div>
+                </div>
+                <div class="text">
+                    <%= message.body %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    
+    <%= form_with(model: Message.new, class: "ui reply form", id: "chat_form") do |form| %>
+        <%= form.hidden_field :recipient_id, value: @recipient.id %>
+        
+        <div class="field">
+            <%= form.text_area :body, class: "send_on_ctrl_enter" %>
+        </div>
+        <button type="submit" name="chat-button" class="ui primary submit labeled icon button right floated">
+            <i class="icon edit"></i>Send
+        </button>
+    <% end %>
+<div>
