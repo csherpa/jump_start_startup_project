@@ -9,15 +9,6 @@
     scoreName: 'review[rating]'
   });
 </script>
-
-  <% if @project.employer_id == current_employer.id %>
- 
-   <% @aplications.each do |aplication|%>
-    <% specific_aplicant_name = Developer.find(aplication.developer_id) %>
-    <p><%= specific_aplicant_name.full_name %></p>
-   <% end %>
-   <button>Submit</button>
-   <% end %>
   
 <p id="notice"><%= notice %></p>
 <p>
