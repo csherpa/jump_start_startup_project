@@ -1,19 +1,19 @@
  
 
+  <% if @project.employer_id == current_employer.id %>
+ 
+   <% @aplications.each do |aplication|%>
+    <% specific_aplicant_name = Developer.find(aplication.developer_id) %>
+    <p><%= specific_aplicant_name.full_name %></p>
+   <% end %>
+   <button>Submit</button>
+   <% end %>
 
-
-
-<script>
-  $('#star-rating').raty({
-    path: '/assets/',
-    scoreName: 'review[rating]'
-  });
-</script>
   
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Status:</strong>
-  <%= @project.project_status %>
+  <p id ="status"><%= @project.project_status %></p>
 </p>
 <p>
   <strong>Developer:</strong>
@@ -112,7 +112,8 @@
 </p>
  
 <%= link_to 'Edit', edit_project_path(@project) %> 
- <%= link_to 'Apply', "#" %> 
+<%= link_to 'Apply', updatestatus_path(@project), remote:true %> 
+ 
  
 
  <%= form_for([@project, @review]) do |f| %>
@@ -152,18 +153,4 @@
               <p><%= review.review %></p>
             </div>
           <% end %>
-
-
-
-
-          <script>
-    $('#star-rating').raty({
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
-</script>
-       
    
