@@ -23,12 +23,13 @@
           <%= review.review %> 
         </div>
       <% end %>
-         <% if @project.employer_id == current_employer.id and @project.project_status == "pending"%>
+         <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "pending"%>
         <h3>Aplicants: </h3>
     <% @aplications.each do |aplication|%>
     <% specific_aplicant_name = Developer.find(aplication.developer_id) %>
-    <p><%= specific_aplicant_name.full_name %></p>
+    <input type="radio" name="developer_full_name"> <%= specific_aplicant_name.full_name %><br>
    <% end %>
+   <br>
    <button>Submit</button>
    <% end %>
     </div>
