@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   end
 
-  # get 'welcome/index'
   root 'welcome#index'
 
   resources :messages, only: [:index, :create] do
@@ -24,9 +23,12 @@ Rails.application.routes.draw do
   get '/developers/:id', to: 'developers#show', as: 'developer'
   
 
-  get '/employers', to: 'employers#index'
-  get '/employers/:id', to: 'employers#show', as: 'employer'
-  root 'welcome#index'
+  as :employers do
+    get '/employers', to: 'employers#index'
+    get '/employers/:id', to: 'employers#show', as: 'employer'
+    get '/employers/my/projects', to: 'employers#index_projects'
+  end
+  
   get '/dashboard', to: 'welcome#dashboard'
   get '/login', to: 'welcome#login'
 end
