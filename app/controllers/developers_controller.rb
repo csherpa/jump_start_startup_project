@@ -11,6 +11,9 @@ class DevelopersController < ApplicationController
   # GET /developers/1.json
   def show
     @developer = Developer.find(params[:id])
+    @open_projects = Project.where({ developer_id: @developer.id, project_status: "open" })
+    @inprogress_projects = Project.where({ developer_id: @developer.id, project_status: "in process" })
+    @complete_projects = Project.where({ developer_id: @developer.id, project_status: "complete" })
   end
 
   def index_projects
