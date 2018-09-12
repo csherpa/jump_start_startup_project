@@ -43,6 +43,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
+    @aplications = Aplication.where(project_id: @project.id)
     
   end
 

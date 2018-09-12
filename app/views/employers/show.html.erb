@@ -1,44 +1,65 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Hello, <%= current_employer.full_name %></h1>
-
 <div class="main-index">
       <div class="ui card">
         <div class="image">
-          <%if current_employer.image.attached? %>
-            <%= image_tag (current_employer.image)%>
+          <%if @employer.image.attached? %>
+            <%= image_tag (@employer.image)%>
           <% end %>
         </div>
         <div class="content">
-          <a class="header"><%=current_employer.full_name%></a>
+          <a class="header"><%=@employer.full_name%></a>
           <div class="meta">
-            <%= current_employer.created_at%>
+            <%= @employer.created_at%>
           </div>
           <div class="content">
-          Description: <%= current_employer.description%>
+          Description: <%= @employer.description%>
           </div>
           <div class="content">
-          Company Name: <%= current_employer.company_name%>
+          Company Name: <%= @employer.company_name%>
           </div>
 
         <div class="content">
-          Company Site: <%= current_employer.company_url%>
+          Company Site: <%= @employer.company_url%>
         </div>
 
         <div class="content">
-          City: <%= current_employer.city%>
+          City: <%= @employer.city%>
         </div>
 
          <div class="content">
-          Zip: <%= current_employer.zip%>
+          Zip: <%= @employer.zip%>
           </div>
           <div class="content">
-          <%= current_employer.email%>
+          <%= @employer.email%>
           </div>
         </div>   
+
 </div>
 
 <h1>Open projects</h1>
+
+<%@open_projects.each do |open_project| %>
+  <p><%= open_project.project_name%></p>
+<%end%>
+
 <h1>Projects In Process</h1>
+
+<%@inprogress_projects.each do |inprogress_project| %>
+  <p><%= inprogress_project.project_name%></p>
+<%end%>
+
 <h1>Complete Projects</h1>
 
+<%@complete_projects.each do |complete_project| %>
+  <p><%= complete_project.project_name%></p>
+<%end%>
+
+<h1>Pending Projects</h1>
+
+<%@pending_projects.each do |pending_project| %>
+  <p><a href="/projects/<%=pending_project.id%>/reviews/new"><%= pending_project.project_name%></a></p>
+
+<%end%>
+
+ 

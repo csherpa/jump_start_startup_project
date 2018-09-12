@@ -1,52 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Hello, <%= current_developer.full_name %></h1>
 
 <div class="main-index">
       <div class="ui card">
         <div class="image">
-          <%if current_developer.image.attached? %>
-            <%= image_tag (current_developer.image)%>
+          <%if @developer.image.attached? %>
+            <%= image_tag (@developer.image)%>
           <% end %>
         </div>
         <div class="content">
-          <a class="header"><%=current_developer.full_name%></a>
+          <a class="header"><%=@developer.full_name%></a>
           <div class="meta">
-            <%= current_developer.created_at%>
+            <%= @developer.created_at%>
           </div>
           <div class="content">
-          Description: <%= current_developer.description%>
-          </div>
-
-          <div class="content">
-          Resume: <%= current_developer.resume_url%>
+          Description: <%= @developer.description%>
           </div>
 
           <div class="content">
-          Github: <%= current_developer.github_url%>
+          Resume: <%= @developer.resume_url%>
           </div>
 
           <div class="content">
-          Linkedin: <%= current_developer.linkedin_url%>
+          Github: <%= @developer.github_url%>
           </div>
 
           <div class="content">
-          Portfolio: <%= current_developer.portfolio_url%>
+          Linkedin: <%= @developer.linkedin_url%>
+          </div>
+
+          <div class="content">
+          Portfolio: <%= @developer.portfolio_url%>
           </div>
 
         <div class="content">
-          City: <%= current_developer.city%>
+          City: <%= @developer.city%>
         </div>
 
          <div class="content">
-          Zip: <%= current_developer.zip%>
+          Zip: <%= @developer.zip%>
           </div>
           <div class="content">
-          <%= current_developer.email%>
+          <%= @developer.email%>
           </div>
-        </div>   
+        </div>  
+
+
 </div>
 
 <h1>Open projects</h1>
+
+<%@open_projects.each do |open_project| %>
+  <p><%= open_project.project_name%></p>
+<%end%>
+
 <h1>Projects In Process</h1>
+
+<%@inprogress_projects.each do |inprogress_project| %>
+  <p><%= inprogress_project.project_name%></p>
+<%end%>
+
 <h1>Complete Projects</h1>
+
+<%@complete_projects.each do |complete_project| %>
+  <p><%= complete_project.project_name%></p>
+<%end%>
+
+<h1>Pending Projects</h1>
+
+<%@pending_projects.each do |pending_project| %>
+  <p><%= pending_project.project_name%></p>
+<%end%>
