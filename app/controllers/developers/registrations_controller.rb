@@ -56,7 +56,8 @@ class Developers::RegistrationsController < Devise::RegistrationsController
       :email,
       :description,
       :phone_number,
-      :state
+      :state,
+      :image
     ])
   end
 

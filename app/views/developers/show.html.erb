@@ -6,7 +6,9 @@
    
     <div class="ui card">
         <div class="image">
-            <img src="https://help.github.com/assets/images/help/profile/identicon.png">
+            <% if @developer.image.attached? %>
+            <%= image_tag (@developer.image) %>
+            <% end %>
         </div>
         <div class="content">
             <a class="header"><%= @developer.full_name%></a>
@@ -27,5 +29,3 @@
         </div>
     </div>    
 </div>
-<%= link_to 'Edit', edit_developer_registration_path(@developer) %> |
-<%= link_to 'Delete', @developer, method: :delete, data: { confirm: 'Are you sure?' } %>
