@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 2018_09_11_180346) do
     t.boolean "pages_two_pages"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
   end
 
   create_table "reviews", force: :cascade do |t|

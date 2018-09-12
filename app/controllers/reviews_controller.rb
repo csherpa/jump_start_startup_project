@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :set_project
+  before_action :set_project, only: [:show, :edit, :new, :update, :destroy]
   
   # GET /reviews
   # GET /reviews.json
@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    puts "IM IN HERE YO"
   end
 
   # POST /reviews
@@ -33,6 +34,15 @@ class ReviewsController < ApplicationController
     end
   end
 
+
+  def update_status
+    puts "HELLO WORLD"
+    puts params
+    @current_project = Project.find(params[:format])
+    @current_project.update(project_status: "complicated")
+  end
+
+  
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
@@ -68,10 +78,11 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:title, :review)
     end
+
     def set_project
       @project = Project.find(params[:project_id])
-      
     end
+
     
 
 end
