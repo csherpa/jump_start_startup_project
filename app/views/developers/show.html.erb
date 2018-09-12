@@ -45,11 +45,7 @@
           </div>
         </div>  
 
-                    <div>
-            <% if current_developer %>
-            <a href="/messages/chat/<%= employer.id%>">Message <%=employer.first_name%></a>
-            <% end %>
-          </div> 
+
 </div>
 
 <h1>Open projects</h1>
@@ -68,4 +64,10 @@
 
 <%@complete_projects.each do |complete_project| %>
   <p><%= complete_project.project_name%></p>
+<%end%>
+
+<h1>Pending Projects</h1>
+
+<%@pending_projects.each do |pending_project| %>
+  <p><%= pending_project.project_name%></p>
 <%end%>

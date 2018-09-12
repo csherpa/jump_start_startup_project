@@ -14,6 +14,7 @@ class EmployersController < ApplicationController
     @open_projects = Project.where({ employer_id: @employer.id, project_status: "open" })
     @inprogress_projects = Project.where({ employer_id: @employer.id, project_status: "in process" })
     @complete_projects = Project.where({ employer_id: @employer.id, project_status: "complete" })
+    @pending_projects = Project.where({ employer_id: @employer.id, project_status: "pending" })
   end
 
   # GET /employers/new

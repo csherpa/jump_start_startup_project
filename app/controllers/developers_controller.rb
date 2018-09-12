@@ -14,6 +14,7 @@ class DevelopersController < ApplicationController
     @open_projects = Project.where({ developer_id: @developer.id, project_status: "open" })
     @inprogress_projects = Project.where({ developer_id: @developer.id, project_status: "in process" })
     @complete_projects = Project.where({ developer_id: @developer.id, project_status: "complete" })
+    @pending_projects = Project.where({ developer_id: @developer.id, project_status: "pending" })
   end
 
   def index_projects
