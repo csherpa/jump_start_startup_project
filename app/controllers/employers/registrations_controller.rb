@@ -57,7 +57,8 @@ class Employers::RegistrationsController < Devise::RegistrationsController
       :description,
       :company_name,
       :phone_number,
-      :state
+      :state,
+      :image
     ])
   end
 

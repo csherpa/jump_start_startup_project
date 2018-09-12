@@ -6,7 +6,9 @@
     <% @developers.each do |developer| %>
       <div class="ui card">
         <div class="image">
-          <img src="https://help.github.com/assets/images/help/profile/identicon.png">
+          <%if developer.image.attached? %>
+            <%= image_tag (developer.image)%>
+          <% end %>
         </div>
         <div class="content">
           <a class="header"><%=developer.full_name%></a>
