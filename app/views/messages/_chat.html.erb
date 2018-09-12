@@ -19,11 +19,11 @@
         </div>
     <% end %>
     
-    <%= form_with(model: Message.new, class: "ui reply form") do |form| %>
+    <%= form_with(model: Message.new, class: "ui reply form", id: "chat_form") do |form| %>
         <%= form.hidden_field :recipient_id, value: @recipient.id %>
         
         <div class="field">
-            <%= form.text_area :body %>
+            <%= form.text_area :body, class: "send_on_ctrl_enter" %>
         </div>
         <button type="submit" name="chat-button" class="ui primary submit labeled icon button right floated">
             <i class="icon edit"></i>Send
