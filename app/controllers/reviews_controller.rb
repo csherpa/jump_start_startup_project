@@ -1,20 +1,27 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_project, only: [:show, :edit, :new, :update, :destroy]
-  
+  # before_action :set_developer
   # GET /reviews
   # GET /reviews.json
    
 
   # GET /reviews/new
   def new
+    @currentUser = current_developer.id
+    if Aplication.exists?(developer_id: @currentUser, project_id:  @project.id ) 
+      @project.update(project_status: "pending")
+      else
+      
+    @project.update(project_status: "open")
+    end
     @review = Review.new
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
   end
 
   # GET /reviews/1/edit
   def edit
-    puts "IM IN HERE YO"
+     
   end
 
   # POST /reviews
@@ -36,13 +43,20 @@ class ReviewsController < ApplicationController
 
 
   def update_status
-   
-    if current_developer
+    @currentUser = current_developer.id
     @current_project = Project.find(params[:format])
+    # @aplication = Aplication.all
+    
+    if current_developer
+    
+      if Aplication.exists?(developer_id: @currentUser, project_id:  @current_project ) 
+      puts "HELLO"
+      else
+      Aplication.create(:project_id => @current_project.id,:developer_id => @currentUser)
     @current_project.update(project_status: "pending")
     end
   end
-
+end
   
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
@@ -74,6 +88,10 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
       
     end
+    
+  #   def set_developer
+  #  @developer = Developer.find(params[:id])
+  #    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
