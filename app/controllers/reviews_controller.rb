@@ -8,16 +8,17 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @currentUser = current_developer.id
+    @review = Review.new
+    @reviews = Review.where(project_id: @project.id).order("created_at DESC")
+    @aplications = Aplication.where(project_id: @project.id)
+    
     if Aplication.exists?(developer_id: @currentUser, project_id:  @project.id ) 
       @project.update(project_status: "pending")
       else
       
     @project.update(project_status: "open")
     end
-    @review = Review.new
-    @reviews = Review.where(project_id: @project.id).order("created_at DESC")
-    @aplications = Aplication.where(project_id: @project.id)
+   
   end
 
   # GET /reviews/1/edit
@@ -28,6 +29,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
+    @project = Project.find(params[:project_id])
     @review = Review.new(review_params) 
    
     @review.project_id = @project.id
