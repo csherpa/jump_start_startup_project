@@ -11,100 +11,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :developer_id %>
-    <%= form.number_field :developer_id %>
-  </div>
-  
-
-  <div class="field">
-    <%= form.label :employer_id %>
-
-    <%= form.number_field :employer_id, :value => current_employer.id %>
-
-  </div>
-   <div class="field">
-    <%= form.label :project_status %>
-    <%= form.text_field :project_status, :value => 'open'%>
-  </div> 
-
-
+<div class="project-container">
+  <div class="project-main">
   <div class="field">
     <%= form.label :project_name %>
     <%= form.text_field :project_name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :plattform_mobile %>
-    <%= form.check_box :plattform_mobile %>
+    <%= form.label :project_description %>
+    <%= form.text_field :project_description %>
   </div>
-
-  <div class="field">
-    <%= form.label :plattform_desktop %>
-    <%= form.check_box :plattform_desktop %>
-  </div>
-
-  <div class="field">
-    <%= form.label :platform_tablet %>
-    <%= form.check_box :platform_tablet %>
-  </div>
-
-  <div class="field">
-    <%= form.label :assets_text %>
-    <%= form.check_box :assets_text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :assets_images %>
-    <%= form.check_box :assets_images %>
-  </div>
-
-  <div class="field">
-    <%= form.label :assets_videos %>
-    <%= form.check_box :assets_videos %>
-  </div>
-
-  <div class="field">
-    <%= form.label :assets_audio %>
-    <%= form.check_box :assets_audio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :assets_database %>
-    <%= form.check_box :assets_database %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date_less_then_month %>
-    <%= form.check_box :due_date_less_then_month %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date_one_month %>
-    <%= form.check_box :due_date_one_month %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date_three_month %>
-    <%= form.check_box :due_date_three_month %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date_plus_three_month %>
-    <%= form.check_box :due_date_plus_three_month %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pages_landing_pages %>
-    <%= form.check_box :pages_landing_pages %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pages_two_pages %>
-    <%= form.check_box :pages_two_pages %>
-  </div>
-
-  <div class="actions">
+   <div class="actions">
     <%= form.submit %>
   </div>
+  </div>
+  <div class="project-side">
+  <div class="field">
+    <strong><%= form.label :project_status %></strong>
+    <%= form.text_field :project_status, :value => 'open'%><br>
+    <br>
+     <strong>Due Date</strong><br>
+    <%= form.check_box :due_date_less_then_month %> Less than 1 month<br>
+    <%= form.check_box :due_date_one_month %> 1 month<br>
+    <%= form.check_box :due_date_three_month %> 3 months<br>
+    <%= form.check_box :due_date_plus_three_month %> 3+ months<br>
+  <br>
+  <strong>Platform</strong><br>
+    <%= form.check_box :plattform_desktop %> Desktop <br>
+    <%= form.check_box :plattform_mobile %> Mobile <br>
+    <%= form.check_box :platform_tablet %> Tablet <br>
+  <br>
+  <strong>Assets</strong><br>
+    <%= form.check_box :assets_text %> Text <br>
+    <%= form.check_box :assets_images %> Images <br>
+    <%= form.check_box :assets_videos %> Videos <br>
+    <%= form.check_box :assets_audio %> Audio <br>
+    <%= form.check_box :assets_database %> Database<br>
+ <br>
+  <strong>Pages</strong> <br>
+    <%= form.check_box :pages_landing_pages %> Landing pages <br>
+    <%= form.check_box :pages_two_pages %> 2 pages<br>
+    <br>
+    <%= form.label :developer_id %>
+    <%= form.number_field :developer_id %>
+    <br>
+    <%= form.label :employer_id %>
+    <%= form.number_field :employer_id, :value => current_employer.id %>
+  </div>
+</div>
+ 
 <% end %>

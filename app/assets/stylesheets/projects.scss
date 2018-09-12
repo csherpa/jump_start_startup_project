@@ -1,8 +1,17 @@
-.projects{
-    @include flexbox(flex, column, center, center);
-    width: 100%;
+.top-buttons{
+    @include flexbox(flex, row, center, space-between);
+    width: 90%;
 }
 
+.projects{
+    @include flexbox(flex, column, flex-start, center);
+    width: 90%;
+}
+
+form {
+    @include flexbox(flex, column, center, space-around);
+    width: 90vw;
+}
 .project-container{
     @include flexbox(flex, row, flex-start, space-evenly);
 }

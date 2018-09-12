@@ -1,9 +1,9 @@
 <div id="projects_list">
     <table>
         <% @projects.each do |project| %>
-        <tr>
-            <td><%= project.project_name %></td>
-        </tr>
+            <tr>
+                <td><h3><%= link_to project.project_name, project_path(project) %></h3></td>
+            </tr>
         <% end %>
-        </table>
+    </table>
 </div>
