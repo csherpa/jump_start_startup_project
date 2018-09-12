@@ -5,9 +5,9 @@
 <div class="main-index">
    
     <div class="ui card">
-        <div class="image">
-            <%= image_tag (@employer.image) %>
-        </div>
+        <%if @employer.image.attached? %>
+            <%= image_tag (@employer.image)%>
+          <% end %>
         <div class="content">
             <a class="header"><p>Owner's Name: <%= @employer.full_name%></p></a>
         </div>
@@ -30,5 +30,3 @@
         </div>
     </div>    
 </div>
-<%= link_to 'Edit', edit_employer_registration_path(@employer) %> |
-<%= link_to 'Delete', @employer, method: :delete, data: { confirm: 'Are you sure?' } %>
