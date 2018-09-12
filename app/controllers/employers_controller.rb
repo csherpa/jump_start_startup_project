@@ -64,6 +64,7 @@ class EmployersController < ApplicationController
 
   # GET /employers/my/projects
   def index_projects
+    
   end
 
   private
