@@ -14,17 +14,6 @@ class MessagesController < ApplicationController
 
   end
 
-  # GET /messages/1
-  # GET /messages/1.json
-  def show
-    @messages = Message.all
-    @results_for_developer = Message.find(params[:id])
-  end
-
-  # GET /messages/1/edit
-  def edit
-  end
-
   # POST /messages
   # POST /messages.json
   def create

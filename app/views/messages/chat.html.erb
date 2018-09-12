@@ -18,5 +18,13 @@
             </div>
         </div>
     <% end %>
-    <a href="">
+    
+    <%= form_with(model: Message.new, class: "ui reply form") do |form| %>
+        <div class="field">
+            <%= form.text_area :body %>
+        </div>
+        <button type="submit" name="chat-button" class="ui primary submit labeled icon button right floated">
+            <i class="icon edit"></i>Send
+        </button>
+    <% end %>
 <div>
