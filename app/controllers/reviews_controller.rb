@@ -36,10 +36,11 @@ class ReviewsController < ApplicationController
 
 
   def update_status
-    puts "HELLO WORLD"
-    puts params
+   
+    if current_developer
     @current_project = Project.find(params[:format])
-    @current_project.update(project_status: "complicated")
+    @current_project.update(project_status: "pending")
+    end
   end
 
   
@@ -78,7 +79,7 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:title, :review)
     end
-
+    
     def set_project
       @project = Project.find(params[:project_id])
     end

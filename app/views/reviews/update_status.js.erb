@@ -1,3 +1,7 @@
-console.log('hello world')
+console.log('<%= current_employer %>')
  
-  $( "#status" ).replaceWith( "complicated" );
+
+ if ('<%= current_developer %>'){
+  $( "#status" ).replaceWith( "pending" );
+
+ }
