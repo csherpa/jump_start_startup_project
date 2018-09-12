@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Projects</h1>
-<div class="project-container">
+<%= link_to 'New Project', new_project_path%>
+<%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+
 <div class="project-filter">
 <%= form_for_filterrific @filterrific do |f| %>
-  <h4>Search</h4>
-  <div>
+  <div class="filter-col">
     <label>Status</label>
     <%= f.select(
       :project_status,
@@ -13,23 +17,22 @@
       include_blank: '- Any -' 
     ) %>
   </div>
-  <div>
+
+  <div class="filter-col">
     <label>Platform Mobile</label>
     <%= f.select(
       :plattform_mobile,
       @filterrific.select_options[:plattform_mobile],
       include_blank: '- Any -' 
     ) %>
-  </div>
-  <div>
+  
     <label>Platform Desktop</label>
     <%= f.select(
       :plattform_desktop,
       @filterrific.select_options[:plattform_desktop],
       include_blank: '- Any -' 
     ) %>
-  </div>
-  <div>
+
     <label>Platform Tablet</label>
     <%= f.select(
       :platform_tablet,
@@ -37,39 +40,36 @@
       include_blank: '- Any -' 
     ) %>
   </div>
-  <div>
+
+  <div class="filter-col">
     <label>Text</label>
     <%= f.select(
       :assets_text,
       @filterrific.select_options[:assets_text],
       include_blank: '- Any -' 
     ) %>
-  </div>
-   <div>
+  
     <label>Images</label>
     <%= f.select(
       :assets_images,
       @filterrific.select_options[:assets_images],
       include_blank: '- Any -' 
     ) %>
-  </div>
-   <div>
+ 
     <label>Videos</label>
     <%= f.select(
       :assets_videos,
       @filterrific.select_options[:assets_videos],
       include_blank: '- Any -' 
     ) %>
-  </div>
-   <div>
+
     <label>Audio</label>
     <%= f.select(
       :assets_audio,
       @filterrific.select_options[:assets_audio],
       include_blank: '- Any -' 
     ) %>
-  </div>
-  <div>
+  
     <label>Database</label>
     <%= f.select(
       :assets_database,
@@ -77,31 +77,29 @@
       include_blank: '- Any -' 
     ) %>
   </div>
-   <div>
+
+  <div class="filter-col">
     <label> < 3 months</label>
     <%= f.select(
       :due_date_less_then_month,
       @filterrific.select_options[:due_date_less_then_month],
       include_blank: '- Any -' 
     ) %>
-  </div>
-   <div>
+ 
     <label>1 month</label>
     <%= f.select(
       :due_date_one_month,
       @filterrific.select_options[:due_date_one_month],
       include_blank: '- Any -' 
     ) %>
-  </div>
-   <div>
+ 
     <label>3 months</label>
     <%= f.select(
       :due_date_three_month,
       @filterrific.select_options[:due_date_three_month],
       include_blank: '- Any -' 
     ) %>
-  </div>
-   <div>
+ 
     <label>+ 3 months</label>
     <%= f.select(
       :due_date_plus_three_month,
@@ -109,15 +107,15 @@
       include_blank: '- Any -' 
     ) %>
   </div>
-   <div>
+
+   <div class="filter-col">
     <label>Landing Page</label>
     <%= f.select(
       :pages_landing_pages,
       @filterrific.select_options[:pages_landing_pages],
       include_blank: '- Any -' 
     ) %>
-  </div>
-   <div>
+  
     <label>2+ Pages</label>
     <%= f.select(
       :pages_two_pages,
@@ -125,21 +123,15 @@
       include_blank: '- Any -' 
     ) %>
   </div>
-  <div>
-    <%= link_to(
-      'Reset filters',
-      reset_filterrific_url,
-    ) %>
-  </div>
+  
+
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
 <% end %>
 </div>
+
   
-<div class="project-list">
-
-<%= link_to 'New Project', new_project_path%>
-
-<%= render(partial: 'projects/list', locals: { projects: @projects }) %>
-</div>
+  <div class="project-list">
+    <%= render(partial: 'projects/list', locals: { projects: @projects }) %>
+  </div>
 </div>

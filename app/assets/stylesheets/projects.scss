@@ -1,0 +1,39 @@
+.projects{
+    @include flexbox(flex, column, center, center);
+    width: 100%;
+}
+
+.project-container{
+    @include flexbox(flex, row, flex-start, space-evenly);
+}
+
+.project-filter{
+    @include flexbox(flex, row, flex-start, space-evenly);
+    width: 90%;
+    border: 1px solid black;
+}
+
+.project-main{
+    width: 50vw;
+    margin-right: 10vw;
+}
+
+.project-review {
+    background-color: rgba($color: green, $alpha: 0.2);
+    padding: 1vh 2vw 2vh 2vh;
+}
+
+.project-side{
+    background-color: rgba($color: green, $alpha: 0.2);
+    padding: 1vh 2vw 2vh 2vh;
+    width: 20vw;
+}
+
+.projects-list {
+    @include flexbox(flex, column, flex-start, center);
+    width: 90%;
+}
+
+li {
+    list-style-type: none;
+}
