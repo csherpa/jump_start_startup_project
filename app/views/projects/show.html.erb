@@ -10,7 +10,9 @@
     <br>
     <%= @project.project_description %>
     <div class="project-review">
+   <% if @project.developer_id%>
     <strong>Developer</strong> <%= @project.developer.full_name %>
+  <% end%>
     <br>
       <strong>Project Review</strong>
       <%= link_to "Write a Review", new_project_review_path(@project) %>
@@ -21,6 +23,14 @@
           <%= review.review %> 
         </div>
       <% end %>
+         <% if @project.employer_id == current_employer.id and @project.project_status == "pending"%>
+        <h3>Aplicants: </h3>
+    <% @aplications.each do |aplication|%>
+    <% specific_aplicant_name = Developer.find(aplication.developer_id) %>
+    <p><%= specific_aplicant_name.full_name %></p>
+   <% end %>
+   <button>Submit</button>
+   <% end %>
     </div>
   </div>
   <div class="project-side">
