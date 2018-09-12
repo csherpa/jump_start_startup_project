@@ -16,6 +16,18 @@ class DevelopersController < ApplicationController
   def index_projects
   end
 
+  def load_chat(recipient_id)
+    if current_user.is_a? Developer
+      @recipient = Employer.find(recipient_id)
+      @messages = Message.where(developer_id: current_developer.id, employer_id: recipient_id)
+    elsif current_user.is_a? Employer
+      @recipient = Developer.find(recipient_id)
+      @messages = Message.where(employer_id: current_employer.id, developer_id: recipient_id)
+    else
+      raise "Not logged in"
+    end  
+  end
+
   # GET /developers/new
   def new
     @developer = Developer.new

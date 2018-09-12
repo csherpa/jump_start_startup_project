@@ -16,14 +16,21 @@
             <%= developer.created_at%>
           </div>
           <div class="content">
-          <%= developer.description%>
+            <%= developer.description%>
           </div>
           <div class="content">
-          <%= developer.email%>
+            <%= developer.email%>
           </div>
-          <div>
-          <%= link_to 'More Info',developer %>
+          
+          <div class="content">
+            <%= link_to 'More Info',developer %>
           </div>
+            <div>
+            <% if current_employer %>
+            <a href="/messages/chat/<%= developer.id%>">Message <%=developer.first_name%></a>
+            <% end %>
+          </div>
+          
         </div>  
     <% end %>   
 </div>
