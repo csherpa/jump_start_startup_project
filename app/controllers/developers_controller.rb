@@ -13,6 +13,9 @@ class DevelopersController < ApplicationController
     @developer = Developer.find(params[:id])
   end
 
+  def index_projects
+  end
+
   # GET /developers/new
   def new
     @developer = Developer.new

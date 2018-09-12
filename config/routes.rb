@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     get '/employers/:id', to: 'employers#show', as: 'employer'
     get '/employers/my/projects', to: 'employers#index_projects'
   end
+
+  as :developers do
+    get '/developers/my/projects', to: 'developers#index_projects'
+  end
   
   get '/dashboard', to: 'welcome#dashboard'
   get '/login', to: 'welcome#login'
