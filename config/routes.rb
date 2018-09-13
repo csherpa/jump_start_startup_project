@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
  
   root 'welcome#index'
-  get "/updatestatus", to: "reviews#update_status" 
 
   resources :messages, only: [:index, :create] do
     get '/chat/:user_id', action: :chat, as: 'chat', on: :collection

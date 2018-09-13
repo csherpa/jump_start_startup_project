@@ -44,23 +44,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-
-  def update_status
-    @currentUser = current_developer.id
-    @current_project = Project.find(params[:format])
-    # @aplication = Aplication.all
-    
-    if current_developer
-    
-      if Aplication.exists?(developer_id: @currentUser, project_id:  @current_project ) 
-      puts "HELLO"
-      else
-      Aplication.create(:project_id => @current_project.id,:developer_id => @currentUser)
-    @current_project.update(project_status: "pending")
-    end
-  end
-end
-  
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   
