@@ -1,35 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Employers</h1>
+<h1>Clients</h1>
 
-<div class="main-index">
-    <% @employers.each do |employer| %>
-      <div class="ui card">
-        <div class="image">
-          <%if employer.image.attached? %>
-            <%= image_tag (employer.image)%>
+<div class="card-container">
+  <% @employers.each do |employer| %>
+    <div class="ui card">
+      
+      <div class="image">
+        <%if employer.image.attached? %>
+          <%= image_tag (employer.image)%>
+        <% end %>
+      </div>
+
+      <div class="content">
+        <%= link_to employer.full_name, employer_path(employer), class: 'header' %>
+        
+        <div class="meta">
+          <%= employer.created_at%>
+        </div>
+
+        <div class="description">
+          <%= employer.company_name%>
+          <%= employer.email%>
+        </div>
+
+        <div class="extra content">
+          <%= link_to 'More Info', employer_path(employer) %>
+          <br/>
+          <% if current_developer %>
+            <%= link_to '<i class="far fa-comments"></i> Message'.html_safe, chat_messages_path(employer) %>
           <% end %>
         </div>
-        <div class="content">
-          <a class="header"><%=employer.full_name%></a>
-          <div class="meta">
-            <%= employer.created_at%>
-          </div>
-          <div class="content">
-          <%= employer.company_name%>
-          </div>
-          <div class="content">
-          <%= employer.email%>
-          </div>
-          <div>
-          <%= link_to 'More Info',employer %>
-          </div>
-          <div>
-            <% if current_developer %>
-            <a href="/messages/chat/<%= employer.id%>">Message <%=employer.first_name%></a>
-            <% end %>
-          </div>
-        </div>  
+      </div>  
+    </div>
     <% end %>   
 </div>
-
