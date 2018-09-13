@@ -11,7 +11,8 @@ class Employer < ApplicationRecord
  def soft_delete
   
   update_attribute(:first_name, "account")
-  update_attribute( :last_name , ' was deleted') 
+  update_attribute( :last_name , 'deleted') 
+  
  
   update_attribute(:deleted_at, Time.current)  
 end  
