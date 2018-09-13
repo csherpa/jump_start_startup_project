@@ -58,6 +58,7 @@ header{
 
 .main-container{
     @include flexbox(flex, column, center, center);
+    width: 100%;
 }
 
 .card-container {
