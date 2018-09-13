@@ -27,8 +27,8 @@
       <% end %>
       <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "open" %>
         <%# Employers: project owners choose the applicant  %>
-        <%= render(partial: 'projects/form_employer_select_applicant', object: @aplications) %>
-      <% elsif current_developer and @project.project_status == "open" and !@aplications.where(developer: current_developer).exists? %>
+        <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
+      <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>
         <%# Developers: New application for devs that haven't applied %>
         <%= render(partial: 'projects/form_developer_apply', object: @project) %>         
       <% end %>

@@ -43,7 +43,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
-    @aplications = Aplication.where(project_id: @project.id)
   end
 
   # GET /projects/new
@@ -76,6 +75,10 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
+        # Update project status to open
+        if @project.developer and @project.project_status == 'open'
+          @project.update(project_status: 'in process')
+        end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
@@ -113,6 +116,15 @@ class ProjectsController < ApplicationController
     Aplication.create!(attributes)
   end
 
+  def assign_developer
+    respond_to :js
+    unless current_employer
+      return head 403
+    end
+
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -121,6 +133,6 @@ class ProjectsController < ApplicationController
       
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:developer_id, :employer_id,:project_status, :project_name, :project_description, :project_review, :plattform_mobile, :plattform_desktop, :platform_tablet, :assets_text, :assets_images, :assets_videos, :assets_audio, :assets_database, :due_date_less_then_month, :due_date_one_month, :due_date_three_month, :due_date_plus_three_month, :pages_landing_pages, :pages_two_pages)
+      params.require(:project).permit(:developer_id, :employer_id, :project_status, :project_name, :project_description, :project_review, :plattform_mobile, :plattform_desktop, :platform_tablet, :assets_text, :assets_images, :assets_videos, :assets_audio, :assets_database, :due_date_less_then_month, :due_date_one_month, :due_date_three_month, :due_date_plus_three_month, :pages_landing_pages, :pages_two_pages)
     end
 end
