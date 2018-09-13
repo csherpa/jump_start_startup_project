@@ -21,7 +21,6 @@ class MessagesController < ApplicationController
     @message.created_at = Time.now
     @message.updated_at = Time.now
     @message.set_user_ids(current_user, recipient_id)
-    pp(@message)
 
     if @message.save
       respond_to do |format|
