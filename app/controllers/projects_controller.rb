@@ -42,9 +42,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
     @aplications = Aplication.where(project_id: @project.id)
-    
+    if current_developer
     @currentUser = current_developer.id
     if Aplication.exists?(developer_id: current_developer.id, project_id:  @project.id ) 
       @project.update(project_status: "pending")
@@ -52,6 +53,7 @@ class ProjectsController < ApplicationController
         @project.update(project_status: "open")
       
     end
+  end
   end
 
   def update_status

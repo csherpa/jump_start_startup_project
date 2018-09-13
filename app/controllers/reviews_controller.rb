@@ -11,6 +11,8 @@ class ReviewsController < ApplicationController
     @review = Review.new
     @aplications = Aplication.where(project_id: @project.id)
     @project = Project.find(params[:project_id])
+   
+    if current_developer
     @currentUser = current_developer.id
     if Aplication.exists?(developer_id: @currentUser, project_id:  @project.id ) 
       @project.update(project_status: "pending")
@@ -18,7 +20,7 @@ class ReviewsController < ApplicationController
         @project.update(project_status: "open")
       
     end
-   
+  end
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
 
    
