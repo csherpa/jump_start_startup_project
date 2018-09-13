@@ -26,17 +26,11 @@
         </div>
       <% end %>
       <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "open" %>
-        <h3>Aplicants:</h3>
-        <% @aplications.each do |aplication|%>
-          <label><input type="radio" name="developer_full_name"> <%= aplication.developer.full_name %></label><br>
-        <% end %>
-        <br>
-        <button>Submit</button>
+        <%# Employers: project owners choose the applicant  %>
+        <%= render(partial: 'projects/form_employer_select_applicant', object: @aplications) %>
       <% elsif current_developer and @project.project_status == "open" and !@aplications.where(developer: current_developer).exists? %>
-        <%# New application for dev that hasn't applied %>
-        <div id="project-dev-actions">
-          <%= link_to 'Apply', apply_project_path(@project), remote: true, id: "project-apply-button" %> 
-        </div>          
+        <%# Developers: New application for devs that haven't applied %>
+        <%= render(partial: 'projects/form_developer_apply', object: @project) %>         
       <% end %>
     </div>
   </div>

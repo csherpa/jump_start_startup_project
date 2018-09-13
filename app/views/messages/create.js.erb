@@ -1,4 +1,4 @@
 <% js = escape_javascript(
   render(partial: 'messages/chat', locals: { messages: @messages, recipient: @recipient })
 ) %>
-$("#chat").html("<%= js %>");
+$("#chat").replaceWith("<%= js %>");

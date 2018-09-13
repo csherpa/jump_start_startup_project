@@ -1,0 +1,6 @@
+<h3>Aplicants:</h3>
+<% @aplications.each do |aplication|%>
+    <label><input type="radio" name="developer_full_name"> <%= aplication.developer.full_name %></label><br>
+<% end %>
+<br>
+<button>Submit</button>
