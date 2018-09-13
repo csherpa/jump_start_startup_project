@@ -15,7 +15,7 @@
 
     <div class="project-review">
       <% if @project.developer_id%>
-        <strong>Developer</strong> <%= @project.developer.full_name %>
+        <strong>Developer</strong> <a href="/developers/<%=@project.developer.id%>"><%= @project.developer.full_name %></a>
       <% end%>
       <br>
 

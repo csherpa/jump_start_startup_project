@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 2018_09_13_172059) do
     t.integer "employer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "project_id"
   end
 
 end
