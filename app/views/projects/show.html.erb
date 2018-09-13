@@ -9,6 +9,12 @@
      <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
    <%end%>
     <br>
+    <strong>Owner</strong>
+    <br>
+    <% specific_owner = Employer.find(@project.employer_id) %>
+    
+    <a href="/employers/<%= @project.employer_id %>"><%= specific_owner.full_name %></a>
+    <br>
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
@@ -75,7 +81,7 @@
       <li>2+ Pages <%= @project.pages_two_pages %></li>
     <br>
     <strong>Posted by</strong><br/>
-      <li><%= @project.employer.full_name %></li>
+      <li><%= @project.employer.full_name%></li> 
     </table>
   </div>
 </div>
