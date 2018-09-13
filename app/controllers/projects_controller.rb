@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :apply]
 
   # GET /projects
   # GET /projects.json
   def index
    
     binary_select_options = [['Yes', true], ['No', false]]
-    status_of_project = [['Open', 'open'],['Pending', 'pending'], ['In Process', 'in process'],['Complete', 'complete']]
+    status_of_project = [['Open', 'open'], ['In Process', 'in process'], ['Complete', 'complete']]
 
     @filterrific = initialize_filterrific(
       Project,
@@ -44,7 +44,6 @@ class ProjectsController < ApplicationController
   def show
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
     @aplications = Aplication.where(project_id: @project.id)
-    
   end
 
   # GET /projects/new
@@ -96,6 +95,24 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def apply
+    respond_to :js
+    unless current_developer
+      return head 403
+    end
+
+    attributes = {
+      developer: current_developer,
+      project: @project
+    }
+
+    if Aplication.exists?(attributes) 
+      return head 422
+    end
+
+    Aplication.create!(attributes)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -105,6 +122,5 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:developer_id, :employer_id,:project_status, :project_name, :project_description, :project_review, :plattform_mobile, :plattform_desktop, :platform_tablet, :assets_text, :assets_images, :assets_videos, :assets_audio, :assets_database, :due_date_less_then_month, :due_date_one_month, :due_date_three_month, :due_date_plus_three_month, :pages_landing_pages, :pages_two_pages)
-
     end
 end

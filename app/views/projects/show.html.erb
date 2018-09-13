@@ -9,11 +9,13 @@
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
+
     <div class="project-review">
-   <% if @project.developer_id%>
-    <strong>Developer</strong> <%= @project.developer.full_name %>
-  <% end%>
-    <br>
+      <% if @project.developer_id%>
+        <strong>Developer</strong> <%= @project.developer.full_name %>
+      <% end%>
+      <br>
+
       <strong>Project Review</strong>
       <%= link_to "Write a Review", new_project_review_path(@project) %>
       <br>
@@ -23,21 +25,27 @@
           <%= review.review %> 
         </div>
       <% end %>
-         <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "pending"%>
-        <h3>Aplicants: </h3>
-    <% @aplications.each do |aplication|%>
-    <% specific_aplicant_name = Developer.find(aplication.developer_id) %>
-    <input type="radio" name="developer_full_name"> <%= specific_aplicant_name.full_name %><br>
-   <% end %>
-   <br>
-   <button>Submit</button>
-   <% end %>
+      <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "open" %>
+        <h3>Aplicants:</h3>
+        <% @aplications.each do |aplication|%>
+          <label><input type="radio" name="developer_full_name"> <%= aplication.developer.full_name %></label><br>
+        <% end %>
+        <br>
+        <button>Submit</button>
+      <% elsif current_developer and @project.project_status == "open" and !@aplications.where(developer: current_developer).exists? %>
+        <%# New application for dev that hasn't applied %>
+        <div id="project-dev-actions">
+          <%= link_to 'Apply', apply_project_path(@project), remote: true, id: "project-apply-button" %> 
+        </div>          
+      <% end %>
     </div>
   </div>
+
+  <%# Sidebar %>
   <div class="project-side">
     <table>
     <strong>Status</strong><br>
-    <li><%= @project.project_status %></li>
+    <li><span class="project-status"><%= @project.project_status %></span></li>
     <br>
     <strong>Due Date</strong>
       <li>&lt; 1 month <%= @project.due_date_less_then_month %></li>
@@ -67,6 +75,7 @@
   </div>
 </div>
   
+<%#
 <script>
   $('.star-rating').raty({
     path: '/assets/',
@@ -76,3 +85,4 @@
     }
   });
 </script>
+%>

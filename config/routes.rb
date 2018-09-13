@@ -8,12 +8,10 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
     resources :employers
 
+    member do
+      get 'apply'
+    end
   end
- 
- 
-  # get 'welcome/index'
- 
-
  
   root 'welcome#index'
   get "/updatestatus", to: "reviews#update_status" 
