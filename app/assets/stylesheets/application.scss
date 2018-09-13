@@ -33,12 +33,16 @@ header{
 
 .navigation-bar{
     @include flexbox(flex, row, center, space-evenly);
-    width: 100%;
+    width: 100vw;
     height: 2.5vh;
     background-color: #34374D;
-    
+
     .link{
         color: white;
+    }
+
+    a.active{
+        color: green;
     }
 }
 
@@ -49,6 +53,7 @@ header{
 .links{
     @include flexbox(flex,row, center, space-between);
     width: 25vw;
+
 }
 
 .log-link{
