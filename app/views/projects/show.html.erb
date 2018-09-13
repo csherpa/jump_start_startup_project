@@ -4,7 +4,10 @@
 </div>
 <div class="project-container">
   <div class="project-main">
-    <strong>Project</strong> <%= @project.project_name %> <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
+  <strong>Project</strong> <%= @project.project_name %>
+   <%if current_employer.id == @project.employer_id%>
+     <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
+   <%end%>
     <br>
     <strong>Description</strong>
     <br>
@@ -18,7 +21,9 @@
       <%= link_to "Write a Review", new_project_review_path(@project) %>
       <br>
        <strong>Apply</strong>
+       <%if current_developer%>
       <%= link_to 'Apply', updatestatus_path(@project), remote:true %> 
+      <%end%>
       <br>
       <% @reviews.each do |review| %>
         <div>
