@@ -50,22 +50,23 @@
         </div>   
 </div>
 
-<div class="proj-profile">
-  <h1>Projects</h1>
-  <h2>Open</h2>
-  <%@open_projects.each do |open_project| %>
-    <h3><%= open_project.project_name%></h3>
-  <%end%>
-  
-  <h2>In Process</h2>
-  <%@inprogress_projects.each do |inprogress_project| %>
-    <h3><%= inprogress_project.project_name%></h3>
-  <%end%>
+  <div class="proj-profile">
+    <h1>Projects</h1>
+    <h2>Open</h2>
+    <%@open_projects.each do |open_project| %>
+      <h3><a href='/projects/<%=open_project.id%>'><%= open_project.project_name%></a></h3>
+    <%end%>
 
-   <h2>Complete</h2>
-  <%@complete_projects.each do |complete_project| %>
-    <h3><%= complete_project.project_name%></h3>
-  <%end%>
+    <h2>In Process</h2>
+    <%@inprogress_projects.each do |inprogress_project| %>
+      <h3><a href='/projects/<%=inprogress_project.id%>'><%= inprogress_project.project_name%></a></h3>
+    <%end%>
+
+    <h2>Complete</h2>
+    <%@complete_projects.each do |complete_project| %>
+      <h3><a href='/projects/<%=complete_project.id%>'><%= complete_project.project_name%></a></h3>
+    <%end%>
+
   </div>
 </div>
 

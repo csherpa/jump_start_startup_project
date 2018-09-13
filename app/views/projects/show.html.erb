@@ -15,13 +15,14 @@
 
     <div class="project-review">
       <% if @project.developer_id%>
-        <strong>Developer</strong> <%= @project.developer.full_name %>
+        <strong>Developer</strong> <a href="/developers/<%=@project.developer.id%>"><%= @project.developer.full_name %></a>
       <% end%>
       <br>
 
       <strong>Project Review</strong>
       <%= link_to "Write a Review", new_project_review_path(@project) %>
       <br>
+
       <% @reviews.each do |review| %>
         <div>
           <h1><%= review.title %></h1>
