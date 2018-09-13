@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
     @review.project_id = @project.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to new_project_review_path(@project.id), notice: 'Review was successfully created.' }
+        format.html { redirect_to project_path(@project.id), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }

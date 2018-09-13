@@ -74,19 +74,26 @@ a:hover{
 
 .main-container{
     @include flexbox(flex, column, center, center);
+    
 }
 
 .card-container {
     @include flexbox(flex, row, center, flex-start);
     flex-wrap: wrap;
-    width: 100vw;
+    width: 120vw;
+    margin-left: 340px;
 }
 
 .ui.card {
     width: 30vw;
     margin: 2vw 2vh;
 }
-
+.ui.card:first-child{
+    margin-top: 30px;
+}
+.ui.card:last-child {
+    margin-top: -1px;
+}
 .show-profile{
     @include flexbox(flex, row, flex-start, flex-start);
     width: 100%;
