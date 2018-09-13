@@ -8,9 +8,16 @@
 <div class="project-container">
  
   <div class="project-main">
-    
+
+
     <strong>Project</strong> <%= @project.project_name %>
+
     <br>
+    <strong>Posted By</strong>
+    <br>
+    <% specific_owner = Employer.find(@project.employer_id) %>
+    <a href="/employers/<%= @project.employer_id %>"><%= specific_owner.full_name %></a>
+
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
@@ -103,8 +110,10 @@
         <li>2+ Pages</li>
     <% end %>
     <br>
+
   
   </table>
+
   </div>
 </div>
   

@@ -105,4 +105,9 @@ a:hover{
 
 select {
     background-color: white;
+
+.ui.card > .image:not(.ui) > img {
+    height: 380px;
+    border: none;
+
 }
