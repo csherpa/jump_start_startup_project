@@ -1,4 +1,8 @@
 <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, project_path %>
 <h1>Edit Project</h1>
+<% if @project.project_status == "open" %>
+<%= link_to 'Delete',project_path(@project), method: :delete, data: { confirm: 'Are you sure?' },  id: 'delete_project' %>
+<% end %>
 <%= render 'form', project: @project %>
+
 
