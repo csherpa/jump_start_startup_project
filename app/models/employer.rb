@@ -8,7 +8,10 @@ class Employer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
  # instead of deleting, indicate the user requested a delete & timestamp it  
- def soft_delete  
+ def soft_delete
+  
+  update_attribute(:first_name, "account was deleted") 
+  
   update_attribute(:deleted_at, Time.current)  
 end  
 
