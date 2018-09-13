@@ -102,3 +102,9 @@ a:hover{
 .proj-profile {
     @include flexbox(flex, column, flex-start, flex-start);
 }
+
+.ui.card > .image:not(.ui) > img {
+    height: 380px;
+    border: none;
+    
+}
