@@ -48,8 +48,8 @@
   <%# Sidebar %>
   <div class="project-side">
     <table>
-    <strong id="project_status">Status</strong><br>
-    <li><span class="project-status"><%= @project.project_status %></span></li>
+    <strong>Status</strong><br>
+    <li><span class="project-status" id="project-status"><%= @project.project_status %></span></li>
     <br>
     <strong>Due Date</strong>
       <li>&lt; 1 month <%= @project.due_date_less_then_month %></li>
