@@ -30,17 +30,18 @@ header{
 .top-nav{
     @include flexbox(flex, row, center, space-between);
     width: 100%;
+    font-size: 1.25em;
 }
 
 .navigation-bar{
     @include flexbox(flex, row, center, space-evenly);
     width: 100vw;
-    height: 2.5vh;
+    height: 3vh;
+    font-size: 1.25em;
     background-color: #34374D;
 
     .link {
         color: white;
-        
     }
 
     a:hover{
@@ -57,6 +58,8 @@ a:hover{
 
 .logo {
     width: 15vh;
+    position: relative;
+    bottom: 10px;
 }
 
 .links{
