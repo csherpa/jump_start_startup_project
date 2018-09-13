@@ -1,140 +1,139 @@
 <p id="notice"><%= notice %></p>
 <div class="projects">
-<h1>Projects</h1>
-<% if current_employer%>
-<h2><%= link_to '<i class="fas fa-plus-circle"></i> Create New Project'.html_safe, new_project_path %></h2>
-<%end%>
-<%= form_for_filterrific @filterrific do |f| %>
-<h3>Search Filter</h3>
-<div class="project-filter">
-  <div class="filter-col">
-    <strong><label>Status</label></strong>
-    <%= f.select(
-      :project_status,
-      @filterrific.select_options[:project_status],
-      include_blank: '- Any -' 
-    ) %>
-  </div>
+  <h1>Projects</h1>
+    
+  <%= form_for_filterrific @filterrific do |f| %>
+    <strong>Search Filter</strong>
+    <div class="project-filter">
+      <div class="filter-col">
+        <strong><label>Status</label></strong>
+        <%= f.select(
+          :project_status,
+          @filterrific.select_options[:project_status],
+          include_blank: '- Any -' 
+        ) %>
+      </div>
 
-  <div class="filter-col">
-    <strong>Platform</strong>
+      <div class="filter-col">
+        <strong>Platform</strong>
 
-    <label>Desktop</label>
-    <%= f.select(
-      :plattform_desktop,
-      @filterrific.select_options[:plattform_desktop],
-      include_blank: '- Any -' 
-    ) %>
+        <label>Desktop</label>
+        <%= f.select(
+          :plattform_desktop,
+          @filterrific.select_options[:plattform_desktop],
+          include_blank: '- Any -' 
+        ) %>
 
-    <label>Mobile</label>
-    <%= f.select(
-      :plattform_mobile,
-      @filterrific.select_options[:plattform_mobile],
-      include_blank: '- Any -' 
-    ) %>
+        <label>Mobile</label>
+        <%= f.select(
+          :plattform_mobile,
+          @filterrific.select_options[:plattform_mobile],
+          include_blank: '- Any -' 
+        ) %>
 
-    <label>Tablet</label>
-    <%= f.select(
-      :platform_tablet,
-      @filterrific.select_options[:platform_tablet],
-      include_blank: '- Any -' 
-    ) %>
-  </div>
+        <label>Tablet</label>
+        <%= f.select(
+          :platform_tablet,
+          @filterrific.select_options[:platform_tablet],
+          include_blank: '- Any -' 
+        ) %>
+      </div>
 
-  <div class="filter-col">
-  <strong>Assets</strong>
-    <label>Text</label>
-    <%= f.select(
-      :assets_text,
-      @filterrific.select_options[:assets_text],
-      include_blank: '- Any -' 
-    ) %>
-  
-    <label>Images</label>
-    <%= f.select(
-      :assets_images,
-      @filterrific.select_options[:assets_images],
-      include_blank: '- Any -' 
-    ) %>
- 
-    <label>Videos</label>
-    <%= f.select(
-      :assets_videos,
-      @filterrific.select_options[:assets_videos],
-      include_blank: '- Any -' 
-    ) %>
+      <div class="filter-col">
+      <strong>Assets</strong>
+        <label>Text</label>
+        <%= f.select(
+          :assets_text,
+          @filterrific.select_options[:assets_text],
+          include_blank: '- Any -' 
+        ) %>
+      
+        <label>Images</label>
+        <%= f.select(
+          :assets_images,
+          @filterrific.select_options[:assets_images],
+          include_blank: '- Any -' 
+        ) %>
+    
+        <label>Videos</label>
+        <%= f.select(
+          :assets_videos,
+          @filterrific.select_options[:assets_videos],
+          include_blank: '- Any -' 
+        ) %>
 
-    <label>Audio</label>
-    <%= f.select(
-      :assets_audio,
-      @filterrific.select_options[:assets_audio],
-      include_blank: '- Any -' 
-    ) %>
-  
-    <label>Database</label>
-    <%= f.select(
-      :assets_database,
-      @filterrific.select_options[:assets_database],
-      include_blank: '- Any -' 
-    ) %>
-  </div>
+        <label>Audio</label>
+        <%= f.select(
+          :assets_audio,
+          @filterrific.select_options[:assets_audio],
+          include_blank: '- Any -' 
+        ) %>
+      
+        <label>Database</label>
+        <%= f.select(
+          :assets_database,
+          @filterrific.select_options[:assets_database],
+          include_blank: '- Any -' 
+        ) %>
+      </div>
 
-  <div class="filter-col">
-  <strong>Due Date</strong>
-    <label> < 1 month</label>
-    <%= f.select(
-      :due_date_less_then_month,
-      @filterrific.select_options[:due_date_less_then_month],
-      include_blank: '- Any -' 
-    ) %>
- 
-    <label>1 month</label>
-    <%= f.select(
-      :due_date_one_month,
-      @filterrific.select_options[:due_date_one_month],
-      include_blank: '- Any -' 
-    ) %>
- 
-    <label>3 months</label>
-    <%= f.select(
-      :due_date_three_month,
-      @filterrific.select_options[:due_date_three_month],
-      include_blank: '- Any -' 
-    ) %>
- 
-    <label>3+ months</label>
-    <%= f.select(
-      :due_date_plus_three_month,
-      @filterrific.select_options[:due_date_plus_three_month],
-      include_blank: '- Any -' 
-    ) %>
-  </div>
+      <div class="filter-col">
+      <strong>Due Date</strong>
+        <label> < 1 month</label>
+        <%= f.select(
+          :due_date_less_then_month,
+          @filterrific.select_options[:due_date_less_then_month],
+          include_blank: '- Any -' 
+        ) %>
+    
+        <label>1 month</label>
+        <%= f.select(
+          :due_date_one_month,
+          @filterrific.select_options[:due_date_one_month],
+          include_blank: '- Any -' 
+        ) %>
+    
+        <label>3 months</label>
+        <%= f.select(
+          :due_date_three_month,
+          @filterrific.select_options[:due_date_three_month],
+          include_blank: '- Any -' 
+        ) %>
+    
+        <label>3+ months</label>
+        <%= f.select(
+          :due_date_plus_three_month,
+          @filterrific.select_options[:due_date_plus_three_month],
+          include_blank: '- Any -' 
+        ) %>
+      </div>
 
-   <div class="filter-col">
-   <strong>Pages</strong>
-    <label>Landing Page</label>
-    <%= f.select(
-      :pages_landing_pages,
-      @filterrific.select_options[:pages_landing_pages],
-      include_blank: '- Any -' 
-    ) %>
-  
-    <label>2+ Pages</label>
-    <%= f.select(
-      :pages_two_pages,
-      @filterrific.select_options[:pages_two_pages],
-      include_blank: '- Any -' 
-    ) %>
-  </div>
-</div>
-  <%= link_to 'Reset filters', reset_filterrific_url %>
-  <%# add an automated spinner to your form when the list is refreshed %>
-  <%= render_filterrific_spinner %>
+      <div class="filter-col">
+      <strong>Pages</strong>
+        <label>Landing Page</label>
+        <%= f.select(
+          :pages_landing_pages,
+          @filterrific.select_options[:pages_landing_pages],
+          include_blank: '- Any -' 
+        ) %>
+      
+        <label>2+ Pages</label>
+        <%= f.select(
+          :pages_two_pages,
+          @filterrific.select_options[:pages_two_pages],
+          include_blank: '- Any -' 
+        ) %>
+      </div>
+    </div>
+    <%= link_to 'Reset filters', reset_filterrific_url %>
+    <%# add an automated spinner to your form when the list is refreshed %>
+    <%= render_filterrific_spinner %>
+  <% end %>
 
+  <% if current_employer%>
+    <h3><%= link_to '<i class="fas fa-plus-circle"></i> Create New Project'.html_safe, new_project_path %></h3>
+  <%end%>
 
-<% end %>
-
-  
   <div class="project-list">
     <%= render(partial: 'projects/list', locals: { projects: @projects }) %>
   </div>

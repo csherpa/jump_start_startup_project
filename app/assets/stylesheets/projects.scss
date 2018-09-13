@@ -20,6 +20,8 @@ form {
     @include flexbox(flex, row, flex-start, space-evenly);
     width: 90%;
     border: 1px solid black;
+    border-radius: 10px 10px 10px 10px;
+    background-color: $light-green;
 }
 
 .project-main{
@@ -28,12 +30,12 @@ form {
 }
 
 .project-review {
-    background-color: rgba($color: green, $alpha: 0.2);
+    background-color: $light-green;
     padding: 1vh 2vw 2vh 2vh;
 }
 
 .project-side{
-    background-color: rgba($color: green, $alpha: 0.2);
+    background-color: $light-green;
     padding: 1vh 2vw 2vh 2vh;
     width: 20vw;
 }
@@ -45,4 +47,8 @@ form {
 
 li {
     list-style-type: none;
+}
+
+.title{
+    font-size: 1.25em;
 }

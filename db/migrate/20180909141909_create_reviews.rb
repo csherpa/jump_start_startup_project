@@ -6,7 +6,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :review
       t.integer :developer_id
       t.integer :employer_id
-      
+      t.integer :project_id
       t.timestamps
 
     end

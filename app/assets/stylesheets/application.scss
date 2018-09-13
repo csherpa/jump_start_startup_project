@@ -74,7 +74,7 @@ a:hover{
 
 .main-container{
     @include flexbox(flex, column, center, center);
-    
+    width: 100%;
 }
 
 .card-container {
@@ -103,8 +103,11 @@ a:hover{
     @include flexbox(flex, column, flex-start, flex-start);
 }
 
+select {
+    background-color: white;
+
 .ui.card > .image:not(.ui) > img {
     height: 380px;
     border: none;
-    
+
 }
