@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %>
 <div class="top-buttons">
-  <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, projects_path %>
+  <h3><%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, projects_path %></h3>
 </div>
-<div class="project-container">
-  <div class="project-main">
-    <strong>Project</strong> <%= @project.project_name %>
-    <% if current_employer && current_employer.id == @project.employer_id %>
-     <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
+   <% if current_employer && current_employer.id == @project.employer_id %>
+      <h3><%= link_to '<i class="fas fa-edit"></i> Edit Project'.html_safe, edit_project_path(@project) %></h3> 
    <%end%>
+<div class="project-container">
+ 
+  <div class="project-main">
+    
+    <strong>Project</strong> <%= @project.project_name %>
     <br>
     <strong>Description</strong>
     <br>
@@ -52,30 +54,57 @@
     <li><span class="project-status" id="project-status"><%= @project.project_status %></span></li>
     <br>
     <strong>Due Date</strong>
-      <li>&lt; 1 month <%= @project.due_date_less_then_month %></li>
-      <li>1 month <%= @project.due_date_one_month %></li>
-      <li>&gt; 3 months <%= @project.due_date_three_month %></li>
-      <li>3+ months <%= @project.due_date_plus_three_month %></li>
+      <% if @project.due_date_less_then_month %>
+        <li>&lt; 1 month</li>
+      <% end %>
+      <% if @project.due_date_one_month %>
+        <li>1 month</li>
+      <% end %>
+      <% if @project.due_date_three_month %>
+        <li>&gt; 3 months</li>
+      <% end %>
+      <% if @project.due_date_plus_three_month %>
+        <li>3+ months</li>
+      <% end %>
     <br>
     <strong>Platform</strong>
-      <li>Desktop <%= @project.plattform_desktop %></li>
-      <li>Mobile <%= @project.plattform_mobile %></li>
-      <li>Tablet <%= @project.platform_tablet %></li>
+      <% if @project.plattform_desktop %>
+        <li>Desktop</li>
+      <% end %>
+      <% if @project.plattform_mobile %>
+        <li>Mobile</li>
+      <% end %>
+      <% if @project.platform_tablet %>
+        <li>Tablet</li>
+      <% end %>
     <br>
     <strong>Assets</strong>
-      <li>Text <%= @project.assets_text %></li>
-      <li>Images <%= @project.assets_images %></li>
-      <li>Videos <%= @project.assets_videos %></li>
-      <li>Audio <%= @project.assets_audio %></li>
-      <li>Database <%= @project.assets_database %></li>
+      <% if @project.assets_text %>
+        <li>Text</li>
+      <% end %>
+      <% if @project.assets_images %>
+        <li>Images</li>
+      <% end %>
+      <% if @project.assets_videos %>
+        <li>Videos</li>
+      <% end %>
+      <% if @project.assets_audio %>
+        <li>Audio</li>
+      <% end %>
+      <% if @project.assets_database %>
+        <li>Database</li>
+      <% end %>
     <br>
     <strong>Pages</strong>
-      <li>Landing Page <%= @project.pages_landing_pages %></li>
-      <li>2+ Pages <%= @project.pages_two_pages %></li>
+      <% if @project.pages_landing_pages %>
+        <li>Landing Page</li>
+      <% end %>
+      <% if @project.pages_two_pages %>
+        <li>2+ Pages</li>
+    <% end %>
     <br>
-    <strong>Posted by</strong><br/>
-      <li><%= @project.employer.full_name %></li>
-    </table>
+  
+  </table>
   </div>
 </div>
   

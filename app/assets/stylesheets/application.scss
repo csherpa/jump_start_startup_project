@@ -30,26 +30,42 @@ header{
 .top-nav{
     @include flexbox(flex, row, center, space-between);
     width: 100%;
+    font-size: 1.25em;
 }
 
 .navigation-bar{
     @include flexbox(flex, row, center, space-evenly);
-    width: 100%;
-    height: 2.5vh;
+    width: 100vw;
+    height: 3vh;
+    font-size: 1.25em;
     background-color: #34374D;
-    
-    .link{
+
+    .link {
         color: white;
     }
+
+    a:hover{
+        color: green;
+        background-color: transparent;
+    }
+    
+}
+
+a:hover{
+    color: green;
+    background-color: transparent;
 }
 
 .logo {
     width: 15vh;
+    position: relative;
+    bottom: 10px;
 }
 
 .links{
     @include flexbox(flex,row, center, space-between);
     width: 25vw;
+
 }
 
 .log-link{
@@ -64,14 +80,20 @@ header{
 .card-container {
     @include flexbox(flex, row, center, flex-start);
     flex-wrap: wrap;
-    width: 100vw;
+    width: 120vw;
+    margin-left: 340px;
 }
 
 .ui.card {
     width: 30vw;
     margin: 2vw 2vh;
 }
-
+.ui.card:first-child{
+    margin-top: 30px;
+}
+.ui.card:last-child {
+    margin-top: -1px;
+}
 .show-profile{
     @include flexbox(flex, row, flex-start, flex-start);
     width: 100%;
@@ -79,4 +101,8 @@ header{
 
 .proj-profile {
     @include flexbox(flex, column, flex-start, flex-start);
+}
+
+select {
+    background-color: white;
 }

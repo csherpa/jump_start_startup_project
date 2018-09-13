@@ -26,6 +26,10 @@ class ReviewsController < ApplicationController
      
   end
 
+  def show
+  enddef show
+  end
+
   # POST /reviews
   # POST /reviews.json
   def create

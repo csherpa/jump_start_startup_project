@@ -1,111 +1,6 @@
- 
-
-
-  
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Status:</strong>
-  <p id ="status"><%= @project.project_status %></p>
-</p>
-<p>
-  <strong>Developer:</strong>
-  <%= @project.developer_id %>
-</p>
-
-<p>
-  <strong>Employer:</strong>
-  <%= @project.employer_id %>
-</p>
-
-
-<p>
-  <strong>Project name:</strong>
-  <%= @project.project_name %>
-</p>
-
-<p>
-  <strong>Project description:</strong>
-  <%= @project.project_description %>
-</p>
-
-<p>
-  <strong>Project review:</strong>
-  <%= @project.project_review %>
-</p>
-
-<p>
-  <strong>Plattform mobile:</strong>
-  <%= @project.plattform_mobile %>
-</p>
-
-<p>
-  <strong>Plattform desktop:</strong>
-  <%= @project.plattform_desktop %>
-</p>
-
-<p>
-  <strong>Platform tablet:</strong>
-  <%= @project.platform_tablet %>
-</p>
-
-<p>
-  <strong>Assets text:</strong>
-  <%= @project.assets_text %>
-</p>
-
-<p>
-  <strong>Assets images:</strong>
-  <%= @project.assets_images %>
-</p>
-
-<p>
-  <strong>Assets videos:</strong>
-  <%= @project.assets_videos %>
-</p>
-
-<p>
-  <strong>Assets audio:</strong>
-  <%= @project.assets_audio %>
-</p>
-
-<p>
-  <strong>Assets database:</strong>
-  <%= @project.assets_database %>
-</p>
-
-<p>
-  <strong>Due date less then month:</strong>
-  <%= @project.due_date_less_then_month %>
-</p>
-
-<p>
-  <strong>Due date one month:</strong>
-  <%= @project.due_date_one_month %>
-</p>
-
-<p>
-  <strong>Due date three month:</strong>
-  <%= @project.due_date_three_month %>
-</p>
-
-<p>
-  <strong>Due date plus three month:</strong>
-  <%= @project.due_date_plus_three_month %>
-</p>
-
-<p>
-  <strong>Pages landing pages:</strong>
-  <%= @project.pages_landing_pages %>
-</p>
-
-<p>
-  <strong>Pages two pages:</strong>
-  <%= @project.pages_two_pages %>
-</p>
- 
-<%= link_to 'Edit', edit_project_path(@project) %> 
- 
- 
+<div class="project-container">
+  <div class="project-main"> 
 
  <%= form_for([@project, @review]) do |f| %>
   <% if @review.errors.any? %>
@@ -123,25 +18,74 @@
 <div class="field">
     <%= f.label :title %><br>
     <%= f.text_area :title %>
-  </div>
-   
-  <div class="field">
+
     <%= f.label :review %><br>
     <%= f.text_area :review %>
-  </div>
-  <div class="field">
+
     <div id="star-rating"></div>
-  </div>
-  <div class="actions">
+</div>
+<div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
 
-
-          <% @reviews.each do |review| %>
-            
-              <h1><%= review.title %></h1>
-              <p><%= review.review %></p>
-            </div>
-          <% end %>
-   
+<div class="project-side">
+    <table>
+    <strong>Status</strong><br>
+    <li><span class="project-status" id="project-status"><%= @project.project_status %></span></li>
+    <br>
+    <strong>Due Date</strong>
+      <% if @project.due_date_less_then_month %>
+        <li>&lt; 1 month</li>
+      <% end %>
+      <% if @project.due_date_one_month %>
+        <li>1 month</li>
+      <% end %>
+      <% if @project.due_date_three_month %>
+        <li>&gt; 3 months</li>
+      <% end %>
+      <% if @project.due_date_plus_three_month %>
+        <li>3+ months</li>
+      <% end %>
+    <br>
+    <strong>Platform</strong>
+      <% if @project.plattform_desktop %>
+        <li>Desktop</li>
+      <% end %>
+      <% if @project.plattform_mobile %>
+        <li>Mobile</li>
+      <% end %>
+      <% if @project.platform_tablet %>
+        <li>Tablet</li>
+      <% end %>
+    <br>
+    <strong>Assets</strong>
+      <% if @project.assets_text %>
+        <li>Text</li>
+      <% end %>
+      <% if @project.assets_images %>
+        <li>Images</li>
+      <% end %>
+      <% if @project.assets_videos %>
+        <li>Videos</li>
+      <% end %>
+      <% if @project.assets_audio %>
+        <li>Audio</li>
+      <% end %>
+      <% if @project.assets_database %>
+        <li>Database</li>
+      <% end %>
+    <br>
+    <strong>Pages</strong>
+      <% if @project.pages_landing_pages %>
+        <li>Landing Page</li>
+      <% end %>
+      <% if @project.pages_two_pages %>
+        <li>2+ Pages</li>
+    <% end %>
+    <br>
+  
+  </table>
+  </div>
+</div>

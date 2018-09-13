@@ -1,7 +1,7 @@
 <div id="projects_list">
     <% @projects.each do |project| %>
         <p>
-            <strong><%= link_to project.project_name, project_path(project) %></strong>
+            <strong><%= link_to project.project_name, project_path(project), class: "title" %></strong>
             <br />
             <%= project.project_description %>
         </p>

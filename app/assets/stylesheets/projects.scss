@@ -20,6 +20,7 @@ form {
     @include flexbox(flex, row, flex-start, space-evenly);
     width: 90%;
     border: 1px solid black;
+    border-radius: 10px 10px 10px 10px;
     background-color: $light-green;
 }
 
@@ -49,8 +50,5 @@ li {
 }
 
 .title{
-    a {
-        color: $blue;
-        font-weight: bold;
-    }
+    font-size: 1.25em;
 }
