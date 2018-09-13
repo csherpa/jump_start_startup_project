@@ -38,13 +38,21 @@ header{
     height: 2.5vh;
     background-color: #34374D;
 
-    .link{
+    .link {
         color: white;
+        
     }
 
-    a.active{
+    a:hover{
         color: green;
+        background-color: transparent;
     }
+    
+}
+
+a:hover{
+    color: green;
+    background-color: transparent;
 }
 
 .logo {

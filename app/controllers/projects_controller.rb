@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :apply]
+  before_action :set_project, only: [:edit, :show, :update, :destroy, :apply]
 
   # GET /projects
   # GET /projects.json

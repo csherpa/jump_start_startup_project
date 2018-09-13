@@ -19,12 +19,7 @@
       <strong>Project Review</strong>
       <%= link_to "Write a Review", new_project_review_path(@project) %>
       <br>
-      <% @reviews.each do |review| %>
-        <div>
-          <h1><%= review.title %></h1>
-          <%= review.review %> 
-        </div>
-      <% end %>
+  
       <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "open" %>
         <%# Employers: project owners choose the applicant  %>
         <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
