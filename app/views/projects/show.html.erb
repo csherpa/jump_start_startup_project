@@ -5,14 +5,17 @@
 <div class="project-container">
   <div class="project-main">
   <strong>Project</strong> <%= @project.project_name %>
-   <%if current_employer.id == @project.employer_id%>
+  
+   <%if current_employer && current_employer.id == @project.employer_id%>
      <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
    <%end%>
+    
     <br>
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
     <div class="project-review">
+    
    <% if @project.developer_id%>
     <strong>Developer</strong> <%= @project.developer.full_name %>
   <% end%>
