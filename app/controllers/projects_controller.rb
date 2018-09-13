@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:edit, :show, :update, :destroy, :apply]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :apply, :confirm_complete]
 
   # GET /projects
   # GET /projects.json
@@ -86,6 +86,12 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm_complete
+     puts "hello"
+    @project = Project.find(params[:id])
+    @project.update(project_status: "complete")
   end
 
   # DELETE /projects/1

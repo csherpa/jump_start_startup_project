@@ -4,7 +4,10 @@
 </div>
 <div class="project-container">
   <div class="project-main">
-    <strong>Project</strong> <%= @project.project_name %> <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
+    <strong>Project</strong> <%= @project.project_name %>
+    <% if current_employer && current_employer.id == @project.employer_id %>
+     <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_project_path(@project) %> 
+   <%end%>
     <br>
     <strong>Description</strong>
     <br>
@@ -19,13 +22,26 @@
       <strong>Project Review</strong>
       <%= link_to "Write a Review", new_project_review_path(@project) %>
       <br>
-  
-      <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "open" %>
+
+      <% @reviews.each do |review| %>
+        <div>
+          <h1><%= review.title %></h1>
+          <%= review.review %> 
+        </div>
+      <% end %>
+      <% if current_employer and @project.employer_id == current_employer.id %>
         <%# Employers: project owners choose the applicant  %>
         <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
       <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>
         <%# Developers: New application for devs that haven't applied %>
         <%= render(partial: 'projects/form_developer_apply', object: @project) %>         
+      <% end %>
+            <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "in process" %>
+            <p id='please_confirm'>Please confirm thet the project is complete.</p>
+            
+          <div id="confirm_complete">
+              <a data-remote="true" href='/confirm/<%= @project.id%>'>Confirm</a> 
+          </div> 
       <% end %>
     </div>
   </div>
@@ -34,7 +50,7 @@
   <div class="project-side">
     <table>
     <strong>Status</strong><br>
-    <li><span class="project-status"><%= @project.project_status %></span></li>
+    <li><span class="project-status" id="project-status"><%= @project.project_status %></span></li>
     <br>
     <strong>Due Date</strong>
       <li>&lt; 1 month <%= @project.due_date_less_then_month %></li>

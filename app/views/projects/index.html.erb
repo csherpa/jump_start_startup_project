@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 <div class="projects">
 <h1>Projects</h1>
+<% if current_employer%>
 <h2><%= link_to '<i class="fas fa-plus-circle"></i> Create New Project'.html_safe, new_project_path %></h2>
+<%end%>
 <%= form_for_filterrific @filterrific do |f| %>
 <h3>Search Filter</h3>
 <div class="project-filter">

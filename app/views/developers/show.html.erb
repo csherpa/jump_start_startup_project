@@ -66,6 +66,8 @@
     <%@pending_projects.each do |pending_project| %>
       <h3><%= pending_project.project_name%></h3>
     <%end%>
+
+    <h2>In Process</h2>
     <%@inprogress_projects.each do |inprogress_project| %>
       <h3><%= inprogress_project.project_name%></h3>
     <%end%>
