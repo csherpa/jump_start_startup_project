@@ -1,73 +1,79 @@
 <p id="notice"><%= notice %></p>
 
-
-<div class="main-index">
+<div class="show-profile">
       <div class="ui card">
+
         <div class="image">
           <%if @developer.image.attached? %>
             <%= image_tag (@developer.image)%>
           <% end %>
         </div>
+
         <div class="content">
-          <a class="header"><%=@developer.full_name%></a>
+          <div class="header">
+            <%=@developer.full_name%>
+          </div>
+
           <div class="meta">
             <%= @developer.created_at%>
           </div>
-          <div class="content">
-          Description: <%= @developer.description%>
+ 
+          <div class="description">
+            <% if !@developer.description.nil? %>
+              <strong>Bio</strong> <%= @developer.description %>
+            <% end %>
           </div>
 
-          <div class="content">
-          Resume: <%= @developer.resume_url%>
-          </div>
-
-          <div class="content">
-          Github: <%= @developer.github_url%>
-          </div>
-
-          <div class="content">
-          Linkedin: <%= @developer.linkedin_url%>
-          </div>
-
-          <div class="content">
-          Portfolio: <%= @developer.portfolio_url%>
-          </div>
-
-        <div class="content">
-          City: <%= @developer.city%>
-        </div>
-
-         <div class="content">
-          Zip: <%= @developer.zip%>
-          </div>
-          <div class="content">
-          <%= @developer.email%>
+          <div class="extra content">
+            <% if !@developer.email.nil? %>
+              <strong>Email</strong> <%= @developer.email %>
+              <br />
+            <% end %>
+            <% if !@developer.resume_url.nil? %>
+              <strong>Resume</strong> <%= @developer.resume_url %>
+              <br />
+            <% end %>
+            <% if !@developer.github_url.nil? %>
+              <strong>Github</strong> <%= @developer.github_url %>
+              <br />
+            <% end %>
+            <% if !@developer.linkedin_url.nil? %>
+              <strong>Linkedin</strong> <%= @developer.linkedin_url %>
+              <br />
+            <% end %>
+            <% if !@developer.portfolio_url.nil? %>
+              <strong>Portfolio</strong> <%= @developer.portfolio_url %>
+              <br />
+            <% end %>
+            <% if !@developer.city.nil? %>
+              City <%= @developer.city%>
+            <br>
+            <% end %>
+            <% if !@developer.zip.nil? %>
+              Zip <%= @developer.zip %> 
+            <% end %>
           </div>
         </div>  
+  </div>
+  <div class="proj-profile">
+    <h1>Projects</h1>
+    <h2>Open</h2>
+    <%@open_projects.each do |open_project| %>
+      <h3><%= open_project.project_name%></h3>
+    <%end%>
 
+    <h2>Pending</h2>
+    <%@pending_projects.each do |pending_project| %>
+      <h3><%= pending_project.project_name%></h3>
+    <%end%>
+    <%@inprogress_projects.each do |inprogress_project| %>
+      <h3><%= inprogress_project.project_name%></h3>
+    <%end%>
 
+    <h2>Complete</h2>
+    <%@complete_projects.each do |complete_project| %>
+      <h3><%= complete_project.project_name%></h3>
+    <%end%>
+
+  </div>
 </div>
-
-<h1>Open projects</h1>
-
-<%@open_projects.each do |open_project| %>
-  <p><%= open_project.project_name%></p>
-<%end%>
-
-<h1>Projects In Process</h1>
-
-<%@inprogress_projects.each do |inprogress_project| %>
-  <p><%= inprogress_project.project_name%></p>
-<%end%>
-
-<h1>Complete Projects</h1>
-
-<%@complete_projects.each do |complete_project| %>
-  <p><%= complete_project.project_name%></p>
-<%end%>
-
-<h1>Pending Projects</h1>
-
-<%@pending_projects.each do |pending_project| %>
-  <p><%= pending_project.project_name%></p>
-<%end%>

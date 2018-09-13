@@ -20,6 +20,7 @@
  @import 'welcome';
  @import 'projects';
  @import 'developers';
+ @import 'employers';
  @import 'messages';
 
 header{
@@ -57,4 +58,24 @@ header{
 
 .main-container{
     @include flexbox(flex, column, center, center);
+}
+
+.card-container {
+    @include flexbox(flex, row, center, flex-start);
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+.ui.card {
+    width: 30vw;
+    margin: 2vw 2vh;
+}
+
+.show-profile{
+    @include flexbox(flex, row, flex-start, flex-start);
+    width: 100%;
+}
+
+.proj-profile {
+    @include flexbox(flex, column, flex-start, flex-start);
 }

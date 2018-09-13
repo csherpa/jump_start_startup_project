@@ -1,65 +1,75 @@
 <p id="notice"><%= notice %></p>
 
-<div class="main-index">
+<div class="show-profile">
       <div class="ui card">
+
         <div class="image">
           <%if @employer.image.attached? %>
             <%= image_tag (@employer.image)%>
           <% end %>
         </div>
+
         <div class="content">
-          <a class="header"><%=@employer.full_name%></a>
+          <div class="header">
+            <%=@employer.full_name%>
+          </div>
+
           <div class="meta">
             <%= @employer.created_at%>
           </div>
+
           <div class="content">
-          Description: <%= @employer.description%>
-          </div>
-          <div class="content">
-          Company Name: <%= @employer.company_name%>
+            <% if !@employer.company_name.nil? %>
+              <strong>Company Name</strong> <%= @employer.company_name%>
+              <br />
+            <% end %>
+            <% if !@employer.company_url.nil? %>
+              <strong>Company Site</strong> <%= @employer.company_url%>
+              <br />
+            <% end %>
+            <strong>Contact</strong> <%= @employer.email%>
           </div>
 
-        <div class="content">
-          Company Site: <%= @employer.company_url%>
-        </div>
-
-        <div class="content">
-          City: <%= @employer.city%>
-        </div>
-
-         <div class="content">
-          Zip: <%= @employer.zip%>
+          <div class="description">
+            <% if !@employer.description.nil? %>
+              <strong>Description</strong> <%= @employer.description%>
+              <br />
+            <% end %>
           </div>
-          <div class="content">
-          <%= @employer.email%>
+  
+          <div class="extra content">
+            <% if !@employer.city.nil? %>
+              <strong>City</strong> <%= @employer.city%>
+              <br />
+            <% end %>
+            <% if !@employer.zip.nil? %>
+              <strong>Zip</strong> <%= @employer.zip%>
+              <br />
+            <% end %>
           </div>
         </div>   
-
 </div>
 
-<h1>Open projects</h1>
+<div class="proj-profile">
+  <h1>Projects</h1>
+  <h2>Open</h2>
+  <%@open_projects.each do |open_project| %>
+    <h3><%= open_project.project_name%></h3>
+  <%end%>
+  
+  <h2>Pending</h2>
+  <%@pending_projects.each do |pending_project| %>
+    <h3><a href="/projects/<%=pending_project.id%>/reviews/new"><%= pending_project.project_name%></a></h3>
+  <%end%>
+  <%@inprogress_projects.each do |inprogress_project| %>
+    <h3><%= inprogress_project.project_name%></h3>
+  <%end%>
 
-<%@open_projects.each do |open_project| %>
-  <p><%= open_project.project_name%></p>
-<%end%>
-
-<h1>Projects In Process</h1>
-
-<%@inprogress_projects.each do |inprogress_project| %>
-  <p><%= inprogress_project.project_name%></p>
-<%end%>
-
-<h1>Complete Projects</h1>
-
-<%@complete_projects.each do |complete_project| %>
-  <p><%= complete_project.project_name%></p>
-<%end%>
-
-<h1>Pending Projects</h1>
-
-<%@pending_projects.each do |pending_project| %>
-  <p><a href="/projects/<%=pending_project.id%>/reviews/new"><%= pending_project.project_name%></a></p>
-
-<%end%>
+   <h2>Complete</h2>
+  <%@complete_projects.each do |complete_project| %>
+    <h3><%= complete_project.project_name%></h3>
+  <%end%>
+  </div>
+</div>
 
  
