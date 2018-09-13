@@ -10,8 +10,10 @@ class Employer < ApplicationRecord
  # instead of deleting, indicate the user requested a delete & timestamp it  
  def soft_delete
   
-  update_attribute(:first_name, "account was deleted") 
+  update_attribute(:first_name, "account")
+  update_attribute( :last_name , 'deleted') 
   
+ 
   update_attribute(:deleted_at, Time.current)  
 end  
 
