@@ -25,7 +25,7 @@
           <%= review.review %> 
         </div>
       <% end %>
-      <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "open" %>
+      <% if current_employer and @project.employer_id == current_employer.id %>
         <%# Employers: project owners choose the applicant  %>
         <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
       <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>
