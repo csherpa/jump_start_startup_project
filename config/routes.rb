@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
  
  
-  # get 'welcome/index'
+   
+  get '/updatestatus', to: 'reviews#update_status'
  
 
  

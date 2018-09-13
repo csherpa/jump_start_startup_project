@@ -17,6 +17,9 @@
       <strong>Project Review</strong>
       <%= link_to "Write a Review", new_project_review_path(@project) %>
       <br>
+       <strong>Apply</strong>
+      <%= link_to 'Apply', updatestatus_path(@project), remote:true %> 
+      <br>
       <% @reviews.each do |review| %>
         <div>
           <h1><%= review.title %></h1>
@@ -36,8 +39,8 @@
   </div>
   <div class="project-side">
     <table>
-    <strong>Status</strong><br>
-    <li><%= @project.project_status %></li>
+    <strong>Status</strong><br> 
+    <li  id ="status"><%= @project.project_status %></li>
     <br>
     <strong>Due Date</strong>
       <li>&lt; 1 month <%= @project.due_date_less_then_month %></li>

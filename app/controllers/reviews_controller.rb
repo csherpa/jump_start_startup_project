@@ -9,15 +9,18 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
-    @reviews = Review.where(project_id: @project.id).order("created_at DESC")
     @aplications = Aplication.where(project_id: @project.id)
-    
+    @project = Project.find(params[:project_id])
+    @currentUser = current_developer.id
     if Aplication.exists?(developer_id: @currentUser, project_id:  @project.id ) 
       @project.update(project_status: "pending")
       else
+        @project.update(project_status: "open")
       
-    @project.update(project_status: "open")
     end
+   
+    @reviews = Review.where(project_id: @project.id).order("created_at DESC")
+
    
   end
 
@@ -31,7 +34,7 @@ class ReviewsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @review = Review.new(review_params) 
-   
+    
     @review.project_id = @project.id
     respond_to do |format|
       if @review.save
@@ -49,7 +52,7 @@ class ReviewsController < ApplicationController
     @currentUser = current_developer.id
     @current_project = Project.find(params[:format])
     # @aplication = Aplication.all
-    
+    puts ""
     if current_developer
     
       if Aplication.exists?(developer_id: @currentUser, project_id:  @current_project ) 

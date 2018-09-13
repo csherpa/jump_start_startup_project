@@ -5,7 +5,7 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Status:</strong>
-  <p id ="status"><%= @project.project_status %></p>
+  <%= @project.project_status %> 
 </p>
 <p>
   <strong>Developer:</strong>
@@ -104,7 +104,7 @@
 </p>
  
 <%= link_to 'Edit', edit_project_path(@project) %> 
-<%= link_to 'Apply', updatestatus_path(@project), remote:true %> 
+
  
  
 

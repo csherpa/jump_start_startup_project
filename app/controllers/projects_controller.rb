@@ -45,7 +45,30 @@ class ProjectsController < ApplicationController
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
     @aplications = Aplication.where(project_id: @project.id)
     
+    @currentUser = current_developer.id
+    if Aplication.exists?(developer_id: current_developer.id, project_id:  @project.id ) 
+      @project.update(project_status: "pending")
+      else
+        @project.update(project_status: "open")
+      
+    end
   end
+
+  def update_status
+    @currentUser = current_developer.id
+    @current_project = Project.find(params[:format])
+    # @aplication = Aplication.all
+   
+    if current_developer
+    
+      if Aplication.exists?(developer_id: @currentUser, project_id:  @current_project ) 
+      puts "HELLO"
+      else
+      Aplication.create(:project_id => @current_project.id,:developer_id => @currentUser)
+    @current_project.update(project_status: "pending")
+    end
+  end
+end
 
   # GET /projects/new
   def new
