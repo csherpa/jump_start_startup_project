@@ -12,11 +12,11 @@ Rails.application.routes.draw do
       get 'apply'
     end
 
-    member do
-      get 'confirm_complete'
-    end
+     
+     
+    
   end
- 
+  get '/confirm/:id', to: "projects#confirm_complete"
   root 'welcome#index'
 
   resources :messages, only: [:index, :create] do
