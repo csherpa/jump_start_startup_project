@@ -1,5 +1,4 @@
-<div class="project-container">
-  <%= form_with(model: project, local: true) do |form| %>
+<%= form_with(model: project, local: true) do |form| %>
     <% if project.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,21 +9,27 @@
         </ul>
       </div>
     <% end %>
+<div class="project-container">
 
   <div class="project-main">
+ 
     <div class="field">
       <%= form.label :project_name %>
       <%= form.text_field :project_name %>
       <%= form.label :project_description %>
       <%= form.text_field :project_description %>
     </div>
+
     <div class="actions">
       <%= form.submit %>
     </div>
+    
+
     <% if @project.project_status == "open" %>
       <%= link_to '<i class="fas fa-trash-alt"></i> Delete Project'.html_safe, project_path(@project), method: :delete, data: { confirm: 'Are you sure you want to delete the project?' },  id: 'delete_project' %>
     <% end %>
   </div>
+
   <div class="project-side">
     <div class="field">
       <strong><%= form.label :project_status %></strong>
@@ -48,7 +53,7 @@
       <%= form.check_box :assets_audio %> Audio <br>
       <%= form.check_box :assets_database %> Database<br>
     <br>
-    <strong>Pages</strong> <br>
+    <strong>Page(s)</strong> <br>
       <%= form.check_box :pages_landing_pages %> Landing pages <br>
       <%= form.check_box :pages_two_pages %> 2 pages<br>
   </div>

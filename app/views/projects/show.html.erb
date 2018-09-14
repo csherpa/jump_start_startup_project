@@ -1,30 +1,22 @@
 <p id="notice"><%= notice %>
-<div class="top-buttons">
-  <h3><%= link_to '<i class="fas fa-arrow-left"></i>  Back to Projects'.html_safe, projects_path %></h3>
-</div>
-   <% if current_employer && current_employer.id == @project.employer_id %>
-      <h3><%= link_to '<i class="fas fa-edit"></i> Edit Project'.html_safe, edit_project_path(@project) %></h3> 
-   <%end%>
-
+<% if current_employer && current_employer.id == @project.employer_id %>
+  <h3><%= link_to '<i class="fas fa-edit"></i> Edit Project'.html_safe, edit_project_path(@project) %></h3> 
+<%end%>
 <div class="project-container">
  
   <div class="project-main">
-    <strong>Project</strong> <%= @project.project_name %>
+    <strong>Project</strong>  <%= @project.project_name %>
     <br>
-    <strong>Posted By</strong> <%= link_to @project.employer.full_name, employer_path(@project.employer_id) %>
+    <strong>Posted By</strong>  <%= link_to @project.employer.full_name, employer_path(@project.employer_id) %>
     <br>
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
 
     <div class="project-review">
-      <% if @project.developer_id%>
-        <strong>Developer</strong> <%= @project.developer.full_name %>
-      <% end%>
+    <strong>Project Review</strong>
       <br>
-
-      <strong>Project Review</strong>
-      <%= link_to "Write a Review", new_project_review_path(@project) %>
+      <%= link_to '<i class="fas fa-pen"></i> Write a Review'.html_safe, new_project_review_path(@project),class: "small" %>
       <br>
       <% @reviews.each do |review| %>
         <div>
@@ -97,7 +89,7 @@
         <li>Database</li>
       <% end %>
     <br>
-    <strong>Pages</strong>
+    <strong>Page(s)</strong>
       <% if @project.pages_landing_pages %>
         <li>Landing Page</li>
       <% end %>
