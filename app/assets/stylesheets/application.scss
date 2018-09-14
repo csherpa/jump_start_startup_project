@@ -87,6 +87,24 @@ a:hover{
 .main-container{
     @include flexbox(flex, column, center, center);
     width: 100%;
+    .how-it-works{
+        margin-top: -800px; 
+    }
+    h1{
+        color: green;
+    }
+    button{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 100px;
+        cursor: pointer;
+    }
 }
 
 .card-container {
@@ -125,14 +143,3 @@ select {
     margin-top: -1px;
 }
 
-.image > img {
-    display: block;
-    width: 100%;
-    /* height: auto; */
-    border-radius: inherit;
-}
-
-.ui.card > .image:not(.ui) > img {
-    height: 100%;
-    border: none;
-}

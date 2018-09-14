@@ -30,3 +30,104 @@
     @include flexbox(flex, column, center, center);
 }
 
+.main-container{
+    @include flexbox(flex, column, center, center);
+    width: 100%;
+    .how-it-works{
+        margin-top: -700px; 
+    }
+    h1{
+        color: green;
+    }
+    button{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 100px;
+        cursor: pointer;
+    }
+}
+
+.image > img {
+    display: block;
+    width: 100%;
+    /* height: auto; */
+    border-radius: inherit;
+}
+
+.ui.card > .image:not(.ui) > img {
+    height: 100%;
+    border: none;
+}
+
+.row img{
+    height: 500px;
+    width: 106%;
+    margin-left: -40px;
+}
+
+ .row1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 35px;
+    background-color: lightgray;
+    width: 110%;
+    margin-left: -60px;
+}
+
+.container{
+    padding-bottom: 45px;
+}
+.container1{
+    width: 100%;
+    padding-top: 20px;
+}
+
+.button{
+    margin-left: 260px;
+}
+
+  
+.tablink {
+background-color: #555;
+color: green;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+font-size: 17px;
+width: 25%;
+}
+  
+.tabcontent {
+color: black;
+display: none;
+padding: 100px 20px;
+height: 100%;
+}
+  
+.sideImg img{
+    margin-left: 700px;
+}
+.empRow{
+    padding: 30px;
+    margin-left: 170px;
+}
+.empRow .text{
+    margin-top: -120px;
+}
+
+.devRow{
+    padding: 30px;
+    margin-left: 170px;
+}
+.devRow .text{
+    margin-top: -130px;
+}
