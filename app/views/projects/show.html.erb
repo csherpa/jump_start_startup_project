@@ -13,6 +13,7 @@
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
+    <br>
   
       <% if @project.developer_id%>
       <strong>Developer</strong> <a href="/developers/<%= @project.developer_id %>"><%= @project.developer.full_name %></a>
