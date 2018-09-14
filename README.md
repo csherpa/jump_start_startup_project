@@ -1,24 +1,10 @@
-# README
+## YOUR FIRST REAL EXPERIENCE OF PROGRAMMING STARTS HERE
+### Readme in process...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img src="https://github.com/mary-tkachenko/jump_start_startup_project/blob/master/project%20screenshoats/Screenshot%202018-09-14%2018.15.38.png?raw=true">
 
-Things you may want to cover:
+<img src="https://github.com/mary-tkachenko/jump_start_startup_project/blob/master/project%20screenshoats/Screenshot%202018-09-14%2018.15.58.png?raw=true">
 
-* Ruby version
+<img src="https://github.com/mary-tkachenko/jump_start_startup_project/blob/master/project%20screenshoats/Screenshot%202018-09-14%2018.16.10.png?raw=true">
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img src="https://github.com/mary-tkachenko/jump_start_startup_project/blob/master/project%20screenshoats/Screenshot%202018-09-14%2018.16.27.png?raw=true">
