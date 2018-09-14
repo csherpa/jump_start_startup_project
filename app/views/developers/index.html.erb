@@ -22,9 +22,10 @@
           </div>
           
           <div class="extra content">
-            <% if current_employer %>
+            
               <%= mail_to developer.email, '<i class="far fa-envelope"></i> Email'.html_safe + ' ' + developer.first_name %>
               <br>
+              <% if current_employer %>
               <%= link_to '<i class="far fa-comments"></i> Message'.html_safe + ' ' + developer.first_name, chat_messages_path(developer) %>
             <% end %>
             <br/>
