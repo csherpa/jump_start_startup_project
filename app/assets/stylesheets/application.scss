@@ -90,17 +90,22 @@ a:hover{
 }
 
 .card-container {
-    @include flexbox(flex, row, center, flex-start);
+    @include flexbox(flex, row, stretch, flex-start);
     flex-wrap: wrap;
     width: 100vw;
 }
 
-.ui.card {
+.card-profile {
     width: 30vw;
     margin: 2vw 2vh;
+    border: 1px solid lightgray;
+    border-radius: 5px 5px 5px 5px;
+    padding: 1vh 1vw;
     .image{
         @include flexbox(flex, row, center, center);
-        height: 380px;
+        img {
+            width: 20vw;
+        }
     }
 }
 
@@ -111,6 +116,7 @@ a:hover{
 
 .proj-profile {
     @include flexbox(flex, column, flex-start, flex-start);
+    margin-left: 2vw;
 }
 
 select {
@@ -125,3 +131,6 @@ select {
     margin-top: -1px;
 }
 
+.name-title{
+    font-weight: bold;
+}

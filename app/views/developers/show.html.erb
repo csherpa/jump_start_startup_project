@@ -20,38 +20,44 @@
  
           <div class="description">
             <% if !@developer.description.nil? %>
-              <strong>Bio</strong> <%= @developer.description %>
+              <strong>Description</strong> <%= @developer.description %>
+              <br>
             <% end %>
-          </div>
 
-          <div class="extra content">
             <% if !@developer.email.nil? %>
               <strong>Email</strong> <%= @developer.email %>
               <br />
             <% end %>
+
             <% if !@developer.resume_url.nil? %>
               <strong>Resume</strong> <%= @developer.resume_url %>
               <br />
             <% end %>
+
             <% if !@developer.github_url.nil? %>
               <strong>Github</strong> <%= @developer.github_url %>
               <br />
             <% end %>
+
             <% if !@developer.linkedin_url.nil? %>
               <strong>Linkedin</strong> <%= @developer.linkedin_url %>
               <br />
             <% end %>
+
             <% if !@developer.portfolio_url.nil? %>
               <strong>Portfolio</strong> <%= @developer.portfolio_url %>
               <br />
             <% end %>
+
             <% if !@developer.city.nil? %>
-              City <%= @developer.city%>
+              <strong>City</strong> <%= @developer.city%>
             <br>
             <% end %>
+
             <% if !@developer.zip.nil? %>
-              Zip <%= @developer.zip %> 
+              <strong>Zip</strong> <%= @developer.zip %> 
             <% end %>
+
           </div>
         </div>  
   </div>
