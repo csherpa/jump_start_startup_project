@@ -135,6 +135,7 @@ a:hover{
         @include flexbox(flex, row, center, center);
         img {
             width: 20vw;
+            height: auto;
         }
     }
 }
