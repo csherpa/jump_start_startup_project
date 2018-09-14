@@ -128,8 +128,6 @@ class ProjectsController < ApplicationController
     unless current_employer
       return head 403
     end
-
-
   end
 
   private

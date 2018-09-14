@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Developers</h1>
-
 <div class="card-container">
     <% @developers.each do |developer| %>
       <div class="ui card">
@@ -21,15 +19,16 @@
 
           <div class="description">
             <%= developer.description%>
-            <%= developer.email%>
           </div>
           
           <div class="extra content">
-          <%= link_to 'More Info', developer_path(developer) %>
-          <br/>
             <% if current_employer %>
-              <%= link_to '<i class="far fa-comments"></i> Message'.html_safe, chat_messages_path(developer) %>
+              <%= mail_to developer.email, '<i class="far fa-envelope"></i> Email'.html_safe + ' ' + developer.first_name %>
+              <br>
+              <%= link_to '<i class="far fa-comments"></i> Message'.html_safe + ' ' + developer.first_name, chat_messages_path(developer) %>
             <% end %>
+            <br/>
+            <%= link_to 'More Info', developer_path(developer) %>
           </div>
         </div>
         </div>  

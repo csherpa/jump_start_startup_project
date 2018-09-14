@@ -1,6 +1,8 @@
 <div class="top-buttons">
-    <h3><%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, projects_path %></h3>
+    <h3><%= link_to '<i class="fas fa-arrow-left"></i>'.html_safe + ' Back to ' + "#{@project.project_name}", project_path(@project) %></h3>
 </div>
-<h1>Edit Project</h1>
+<h3>Edit Project</h3>
 <%= render 'form', project: @project %>
+
+
 
