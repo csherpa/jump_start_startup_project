@@ -125,3 +125,14 @@ select {
     margin-top: -1px;
 }
 
+.image > img {
+    display: block;
+    width: 100%;
+    /* height: auto; */
+    border-radius: inherit;
+}
+
+.ui.card > .image:not(.ui) > img {
+    height: 100%;
+    border: none;
+}
