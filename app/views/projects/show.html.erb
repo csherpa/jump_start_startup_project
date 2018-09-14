@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %>
 <div class="top-buttons">
-  <h3><%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, projects_path %></h3>
+  <h3><%= link_to '<i class="fas fa-arrow-left"></i>  Back to Projects'.html_safe, projects_path %></h3>
 </div>
    <% if current_employer && current_employer.id == @project.employer_id %>
       <h3><%= link_to '<i class="fas fa-edit"></i> Edit Project'.html_safe, edit_project_path(@project) %></h3> 
    <%end%>
+
 <div class="project-container">
  
   <div class="project-main">
-
-
     <strong>Project</strong> <%= @project.project_name %>
-
     <br>
-    <strong>Posted By</strong>
+    <strong>Posted By</strong> <%= link_to @project.employer.full_name, employer_path(@project.employer_id) %>
     <br>
-    <% specific_owner = Employer.find(@project.employer_id) %>
-    <a href="/employers/<%= @project.employer_id %>"><%= specific_owner.full_name %></a>
-
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
@@ -109,22 +104,6 @@
       <% if @project.pages_two_pages %>
         <li>2+ Pages</li>
     <% end %>
-    <br>
-
-  
   </table>
-
   </div>
 </div>
-  
-<%#
-<script>
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-          return $(this).attr('data-score');
-    }
-  });
-</script>
-%>

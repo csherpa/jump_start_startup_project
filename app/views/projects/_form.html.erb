@@ -1,59 +1,57 @@
-<%= form_with(model: project, local: true) do |form| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
 <div class="project-container">
+  <%= form_with(model: project, local: true) do |form| %>
+    <% if project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+        <ul>
+          <% project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
   <div class="project-main">
-  <div class="field">
-    <%= form.label :project_name %>
-    <%= form.text_field :project_name %>
-    <%= form.label :project_description %>
-    <%= form.text_field :project_description %>
-  </div>
-   <div class="actions">
-    <%= form.submit %>
-  </div>
-  <% if @project.project_status == "open" %>
-    <%= link_to '<i class="fas fa-trash-alt"></i> Delete Project'.html_safe, project_path(@project), method: :delete, data: { confirm: 'Are you sure you want to delete the project?' },  id: 'delete_project' %>
-  <% end %>
+    <div class="field">
+      <%= form.label :project_name %>
+      <%= form.text_field :project_name %>
+      <%= form.label :project_description %>
+      <%= form.text_field :project_description %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    <% if @project.project_status == "open" %>
+      <%= link_to '<i class="fas fa-trash-alt"></i> Delete Project'.html_safe, project_path(@project), method: :delete, data: { confirm: 'Are you sure you want to delete the project?' },  id: 'delete_project' %>
+    <% end %>
   </div>
   <div class="project-side">
-  <div class="field">
-    <strong><%= form.label :project_status %></strong>
-    <%= form.text_field :project_status, :value => 'open'%><br>
+    <div class="field">
+      <strong><%= form.label :project_status %></strong>
+      <%= form.text_field :project_status, :value => 'open'%><br>
+      <br>
+      <strong>Due Date</strong><br>
+      <%= form.check_box :due_date_less_then_month %> Less than 1 month<br>
+      <%= form.check_box :due_date_one_month %> 1 month<br>
+      <%= form.check_box :due_date_three_month %> 3 months<br>
+      <%= form.check_box :due_date_plus_three_month %> 3+ months<br>
     <br>
-     <strong>Due Date</strong><br>
-    <%= form.check_box :due_date_less_then_month %> Less than 1 month<br>
-    <%= form.check_box :due_date_one_month %> 1 month<br>
-    <%= form.check_box :due_date_three_month %> 3 months<br>
-    <%= form.check_box :due_date_plus_three_month %> 3+ months<br>
-  <br>
-  <strong>Platform</strong><br>
-    <%= form.check_box :plattform_desktop %> Desktop <br>
-    <%= form.check_box :plattform_mobile %> Mobile <br>
-    <%= form.check_box :platform_tablet %> Tablet <br>
-  <br>
-  <strong>Assets</strong><br>
-    <%= form.check_box :assets_text %> Text <br>
-    <%= form.check_box :assets_images %> Images <br>
-    <%= form.check_box :assets_videos %> Videos <br>
-    <%= form.check_box :assets_audio %> Audio <br>
-    <%= form.check_box :assets_database %> Database<br>
- <br>
-  <strong>Pages</strong> <br>
-    <%= form.check_box :pages_landing_pages %> Landing pages <br>
-    <%= form.check_box :pages_two_pages %> 2 pages<br>
+    <strong>Platform</strong><br>
+      <%= form.check_box :plattform_desktop %> Desktop <br>
+      <%= form.check_box :plattform_mobile %> Mobile <br>
+      <%= form.check_box :platform_tablet %> Tablet <br>
+    <br>
+    <strong>Assets</strong><br>
+      <%= form.check_box :assets_text %> Text <br>
+      <%= form.check_box :assets_images %> Images <br>
+      <%= form.check_box :assets_videos %> Videos <br>
+      <%= form.check_box :assets_audio %> Audio <br>
+      <%= form.check_box :assets_database %> Database<br>
+    <br>
+    <strong>Pages</strong> <br>
+      <%= form.check_box :pages_landing_pages %> Landing pages <br>
+      <%= form.check_box :pages_two_pages %> 2 pages<br>
   </div>
+  <%form.text_field :employer_id, value: @project.employer_id, readonly: "true"%>
+  <% end %>
 </div>
- 
-<% end %>
-
