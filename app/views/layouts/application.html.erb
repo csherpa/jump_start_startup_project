@@ -1,5 +1,5 @@
 <head>
-    <title>JUMPSTART</title>
+    <title>JumpStart</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag 'favicon.png' %>
@@ -17,12 +17,12 @@
       </div>
       <div class="links">
         <% if developer_signed_in? %>
-          <%= link_to 'MESSAGES', messages_path %>
-          <%= link_to 'PROFILE', developer_path(current_developer.id) %>
-          <%= link_to 'LOG OUT', destroy_developer_session_path, method: :delete %> 
+          <%= active_link_to 'MESSAGES', messages_path %>
+          <%= active_link_to 'PROFILE', developer_path(current_developer.id) %>
+          <%= active_link_to 'LOG OUT', destroy_developer_session_path, method: :delete %> 
         <% elsif employer_signed_in? %>
-          <%= link_to 'MESSAGES', messages_path %>
-          <%= link_to 'PROFILE', employer_path(current_employer.id) %>
+          <%= active_link_to 'MESSAGES', messages_path %>
+          <%= active_link_to 'PROFILE', employer_path(current_employer.id) %>
           <%= link_to 'LOG OUT', destroy_employer_session_path, method: :delete %>
         <% else %> 
           <%= link_to 'LOGIN / SIGN UP', login_path %>
@@ -30,9 +30,9 @@
       </div>
     </div>
     <div class="navigation-bar">
-      <%= link_to 'PROJECTS', projects_path, class: "link" %>
-      <%= link_to 'DEVELOPERS', developers_path, class: "link" %>
-      <%= link_to 'EMPLOYERS', employers_path, class: "link" %> 
+      <%= active_link_to 'PROJECTS', projects_path, class: "link" %>
+      <%= active_link_to 'DEVELOPERS', developers_path, class: "link" %>
+      <%= active_link_to 'EMPLOYERS', employers_path, class: "link" %> 
     </div>
     </header>
     <div class="main-container">

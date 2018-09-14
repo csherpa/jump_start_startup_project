@@ -1,58 +1,58 @@
 <p id="notice"><%= notice %>
-<div class="top-buttons">
-  <h3><%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, projects_path %></h3>
-</div>
-   <% if current_employer && current_employer.id == @project.employer_id %>
-      <h3><%= link_to '<i class="fas fa-edit"></i> Edit Project'.html_safe, edit_project_path(@project) %></h3> 
-   <%end%>
+<% if current_employer && current_employer.id == @project.employer_id %>
+  <h3><%= link_to '<i class="fas fa-edit"></i> Edit Project'.html_safe, edit_project_path(@project) %></h3> 
+<%end%>
 <div class="project-container">
  
   <div class="project-main">
-
-
-    <strong>Project</strong> <%= @project.project_name %>
-
-    <br>
-    <strong>Posted By</strong>
-    <% specific_owner = Employer.find(@project.employer_id) %>
-    <a href="/employers/<%= @project.employer_id %>"><%= specific_owner.full_name %></a>
+    <strong>Project</strong>  <%= @project.project_name %>
     <br>
 
-    <% if (@project.project_description != nil)%>
+    <strong>Posted By</strong>  <%= link_to @project.employer.full_name, employer_path(@project.employer_id) %>
+    <br>
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
-    <br>
-    <%end%>
-    <% if @project.developer_id%>
+  
+      <% if @project.developer_id%>
       <strong>Developer</strong> <a href="/developers/<%= @project.developer_id %>"><%= @project.developer.full_name %></a>
     <% end%>
     <br>
-    <div class="project-review">
-      <strong>Project Review</strong>
-      <%= link_to "Write a Review", new_project_review_path(@project) %>
-      <br>
+  
+  <div class="project-appdev">
+     <% if current_employer and @project.employer_id == current_employer.id %>
+      <%# Employers: project owners choose the applicant  %>
+      <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
+    <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>
+      <%# Developers: New application for devs that haven't applied %>
+      <%= render(partial: 'projects/form_developer_apply', object: @project) %>         
+    <% end %>
+  </div>
+
+   <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "in process" %>
+      <p id='please_confirm'>Please confirm that the project is complete.</p> 
+      <button data-remote="true" href='/confirm/<%= @project.id%>'>Confirm</button>
+    <% end %>
+
+  <div class="project-review">
+  <strong>Project Review</strong>
+    <br>
+    <%= link_to '<i class="fas fa-pen"></i> Write a Review'.html_safe, new_project_review_path(@project),class: "small" %>
+    <br>
+    <table style= "width: 100%">
+
       <% @reviews.each do |review| %>
-        <div>
-          <h1><%= review.title %></h1>
-          <%= review.review %> 
-        </div>
+        <tr>
+          <td>
+            <strong><%= review.title %></strong>
+            <br>
+            <%= review.review %>
+          </td>
+        </tr>
       <% end %>
-      <% if current_employer and @project.employer_id == current_employer.id %>
-        <%# Employers: project owners choose the applicant  %>
-        <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
-      <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>
-        <%# Developers: New application for devs that haven't applied %>
-        <%= render(partial: 'projects/form_developer_apply', object: @project) %>         
-      <% end %>
-            <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "in process" %>
-            <p id='please_confirm'>Please confirm thet the project is complete.</p>
-            
-          <div id="confirm_complete">
-              <a data-remote="true" href='/confirm/<%= @project.id%>'>Confirm</a> 
-          </div> 
-      <% end %>
+      </table>
     </div>
+
   </div>
 
   <%# Sidebar %>
@@ -103,29 +103,14 @@
         <li>Database</li>
       <% end %>
     <br>
-    <strong>Pages</strong>
+    <strong>Page(s)</strong>
       <% if @project.pages_landing_pages %>
         <li>Landing Page</li>
       <% end %>
       <% if @project.pages_two_pages %>
         <li>2+ Pages</li>
     <% end %>
-    <br>
-
-  
+    
   </table>
-
   </div>
 </div>
-  
-<%#
-<script>
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-          return $(this).attr('data-score');
-    }
-  });
-</script>
-%>

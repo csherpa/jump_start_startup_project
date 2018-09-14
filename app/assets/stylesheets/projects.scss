@@ -10,7 +10,7 @@
 
 form {
     @include flexbox(flex, column, center, space-around);
-    width: 90vw;
+    width: 100%;
 }
 .project-container{
     @include flexbox(flex, row, flex-start, space-evenly);
@@ -19,9 +19,11 @@ form {
 .project-filter{
     @include flexbox(flex, row, flex-start, space-evenly);
     width: 90%;
+    padding: 1vh 1vw;
     border: 1px solid black;
     border-radius: 10px 10px 10px 10px;
     background-color: $light-green;
+    font-size: 0.8em;
 }
 
 .project-main{
@@ -29,26 +31,43 @@ form {
     margin-right: 10vw;
 }
 
-.project-review {
+.project-appdev {
     background-color: $light-green;
     padding: 1vh 2vw 2vh 2vh;
 }
 
-.project-side{
+.project-review {
+    border: 1px solid $blue;
+    margin: 1vh 0;
+    padding: 1vh 1vw;
+}
+
+.project-side {
     background-color: $light-green;
     padding: 1vh 2vw 2vh 2vh;
     width: 20vw;
+    font-size: 0.8em;
 }
 
-.projects-list {
+.project-list {
     @include flexbox(flex, column, flex-start, center);
-    width: 90%;
+    width: 80%;
+    padding: 0vh 5vw;
 }
 
 li {
     list-style-type: none;
 }
 
-.title{
+.title {
     font-size: 1.25em;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+tr:nth-child(odd){
+    background-color: $light-green;
+    width: 100%;
 }
