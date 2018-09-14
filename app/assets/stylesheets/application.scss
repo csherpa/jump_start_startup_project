@@ -35,6 +35,10 @@ header{
     font-weight: bold;
 }
 
+a.active {
+    color: green;
+}
+
 .navigation-bar{
     @include flexbox(flex, row, center, space-evenly);
     width: 100vw;
@@ -46,6 +50,10 @@ header{
 
     .link {
         color: white;
+    }
+
+    a.link.active {
+        color: lightgreen;
     }
 
     a:hover{
