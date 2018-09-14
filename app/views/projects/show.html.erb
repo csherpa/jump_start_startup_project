@@ -14,20 +14,21 @@
 
     <br>
     <strong>Posted By</strong>
-    <br>
     <% specific_owner = Employer.find(@project.employer_id) %>
     <a href="/employers/<%= @project.employer_id %>"><%= specific_owner.full_name %></a>
     <br>
+
+    <% if (@project.project_description != nil)%>
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
-
+    <br>
+    <%end%>
+    <% if @project.developer_id%>
+      <strong>Developer</strong> <a href="/developers/<%= @project.developer_id %>"><%= @project.developer.full_name %></a>
+    <% end%>
+    <br>
     <div class="project-review">
-      <% if @project.developer_id%>
-        <strong>Developer</strong> <%= @project.developer.full_name %>
-      <% end%>
-      <br>
-
       <strong>Project Review</strong>
       <%= link_to "Write a Review", new_project_review_path(@project) %>
       <br>
@@ -37,7 +38,7 @@
           <%= review.review %> 
         </div>
       <% end %>
-      <% if current_employer and @project.employer_id == current_employer.id %>
+      <% if current_employer and @project.employer_id == current_employer.id and  %>
         <%# Employers: project owners choose the applicant  %>
         <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
       <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>

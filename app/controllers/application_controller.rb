@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
         end
         return false
     end
+
+    def get_default_avatar_path
+        File.join(Rails.root, 'storage', '_generic', 'default-avatar.jpg')
+    end
 end

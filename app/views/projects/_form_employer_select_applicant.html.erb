@@ -1,12 +1,14 @@
-<div id="applications-form">
-    <% if @project.developer_id %>
-      <h3>Developer: <%= @project.developer.full_name %> </h3>
-    <% else %>
-        <h3>Applicants:</h3>
+<% if @project.aplications.length > 0 %>
+    <div id="applications-form">
+        <% if @project.developer_id %>
+        <h3>Developer: <%= @project.developer.full_name %> </h3>
+        <% else %>
+            <h3>Applicants:</h3>
 
-        <%= form_with(model: @project) do |form| %>
-            <%= form.collection_radio_buttons :developer_id, @project.aplications, :developer_id, :developer_name %>
-            <%= form.submit %>
+            <%= form_with(model: @project) do |form| %>
+                <%= form.collection_radio_buttons :developer_id, @project.aplications, :developer_id, :developer_name %>
+                <%= form.submit %>
+            <% end %>
         <% end %>
-    <% end %>
-</div>
+    </div>
+<% end %>
