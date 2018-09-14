@@ -13,14 +13,11 @@
 
  */
  
- $font-url: 'http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
  @import 'semantic-ui';
  @import './partials/*';
  @import 'scaffolds';
  @import 'welcome';
  @import 'projects';
- @import 'developers';
- @import 'employers';
  @import 'messages';
 
 body {
@@ -95,12 +92,7 @@ a:hover{
     width: 30vw;
     margin: 2vw 2vh;
 }
-.ui.card:first-child{
-    margin-top: 30px;
-}
-.ui.card:last-child {
-    margin-top: -1px;
-}
+
 .show-profile{
     @include flexbox(flex, row, flex-start, flex-start);
     width: 100%;
@@ -112,6 +104,14 @@ a:hover{
 
 select {
     background-color: white;
+}
+
+.ui.card:first-child{
+    margin-top: 0px;
+}
+
+.ui.card:last-child {
+    margin-top: -1px;
 }
 
 .ui.card > .image:not(.ui) > img {

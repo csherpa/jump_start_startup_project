@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= link_to '<i class="fas fa-edit"></i> Edit Profile'.html_safe, '/employers/edit'%>
 <div class="show-profile">
 <div class="ui card">
         <div class="image">
@@ -50,20 +51,22 @@
 
   <div class="proj-profile">
     <h1>Projects</h1>
-    <h2>Open</h2>
+    <span><strong>Open</strong></span>
     <%@open_projects.each do |open_project| %>
-      <h3><a href='/projects/<%=open_project.id%>'><%= open_project.project_name%></a></h3>
+      <li><a href='/projects/<%=open_project.id%>'><%= open_project.project_name%></a></li>
     <%end%>
-
-    <h2>In Process</h2>
+    <br>
+    <span><strong>In Process</strong></span>
     <%@inprogress_projects.each do |inprogress_project| %>
-      <h3><a href='/projects/<%=inprogress_project.id%>'><%= inprogress_project.project_name%></a></h3>
+      <li><a href='/projects/<%=inprogress_project.id%>'><%= inprogress_project.project_name%></a></li>
     <%end%>
-
-    <h2>Complete</h2>
-    <%@complete_projects.each do |complete_project| %>
-      <h3><a href='/projects/<%=complete_project.id%>'><%= complete_project.project_name%></a></h3>
-    <%end%>
+    <br>
+    <% if !@complete_projects.each.nil? %>
+      <span><strong>Complete</strong></span>
+      <%@complete_projects.each do |complete_project| %>
+        <li><a href='/projects/<%=complete_project.id%>'><%= complete_project.project_name%></a></li>
+      <%end%>
+    <% end %>
 
   </div>
 </div>
