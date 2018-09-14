@@ -1,9 +1,21 @@
+
 <div id="projects_list">
+    <table class="ui selectable celled table" >
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+        </tr>
+    </thead>
     <% @projects.each do |project| %>
-        <p>
-            <strong><%= link_to project.project_name, project_path(project), class: "title" %></strong>
-            <br />
-            <%= project.project_description%>
-        </p>
-    <% end %>
+    <tbody>
+        <tr>
+        <td><strong><%= link_to project.project_name, project_path(project), class: "title" %></strong></td>
+        <td><%= project.project_description%></td>
+        <td><%= project.project_status%></td>
+        </tr>
+    </tbody>
+     <% end %>
+    </table>
 </div>
