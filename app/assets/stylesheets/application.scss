@@ -27,12 +27,17 @@ body {
 }
 header{
     @include flexbox(flex, column, center, center);
+    background-color:white;
+    position: fixed;
+    left: 0vw;
+    z-index: 1;
 }
 
 .top-nav{
     @include flexbox(flex, row, center, space-between);
     width: 100%;
     font-weight: bold;
+    padding: 0 1vw;
 }
 
 a.active {
@@ -87,6 +92,8 @@ a:hover{
 .main-container{
     @include flexbox(flex, column, center, center);
     width: 100%;
+    position: relative;
+    top: 20vh;
 }
 
 .card-container {
