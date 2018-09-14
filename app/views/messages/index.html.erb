@@ -1,7 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Messages</h1>
-
 <% @chats.each do |chat| %>
   <% if current_developer %>
     <p><%= link_to chat.employer.full_name, chat_messages_path(chat.employer_id) %></p>

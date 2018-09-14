@@ -141,3 +141,16 @@ select {
 .name-title{
     font-weight: bold;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1vh;
+    width: 100%;
+    color: white;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    background-color: $blue;
+    text-align: center;
+}
