@@ -84,13 +84,16 @@ a:hover{
 .card-container {
     @include flexbox(flex, row, center, flex-start);
     flex-wrap: wrap;
-    width: 120vw;
-    margin-left: 340px;
+    width: 100vw;
 }
 
 .ui.card {
     width: 30vw;
     margin: 2vw 2vh;
+    .image{
+        @include flexbox(flex, row, center, center);
+        height: 380px;
+    }
 }
 
 .show-profile{
@@ -114,7 +117,3 @@ select {
     margin-top: -1px;
 }
 
-.ui.card > .image:not(.ui) > img {
-    height: 380px;
-    border: none;
-}
