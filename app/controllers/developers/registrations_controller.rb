@@ -8,7 +8,13 @@ class Developers::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-
+  
+  def create
+    super do
+       resource.image.attach(io: File.open(get_default_avatar_path), filename: 'avatar.jpg')
+      resource.save
+      end
+  end
   # POST /resource
   # def create
   #   super

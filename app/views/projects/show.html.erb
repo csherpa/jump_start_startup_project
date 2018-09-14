@@ -7,11 +7,17 @@
   <div class="project-main">
     <strong>Project</strong>  <%= @project.project_name %>
     <br>
+
     <strong>Posted By</strong>  <%= link_to @project.employer.full_name, employer_path(@project.employer_id) %>
     <br>
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
+  
+      <% if @project.developer_id%>
+      <strong>Developer</strong> <a href="/developers/<%= @project.developer_id %>"><%= @project.developer.full_name %></a>
+    <% end%>
+    <br>
   
   <div class="project-appdev">
      <% if current_employer and @project.employer_id == current_employer.id %>
@@ -34,6 +40,7 @@
     <%= link_to '<i class="fas fa-pen"></i> Write a Review'.html_safe, new_project_review_path(@project),class: "small" %>
     <br>
     <table style= "width: 100%">
+
       <% @reviews.each do |review| %>
         <tr>
           <td>

@@ -19,15 +19,25 @@
       <%= form.label :project_description %>
       <%= form.text_field :project_description %>
     </div>
+<div class="project-container">
+  <div class="project-main">
+  <div class="field">
+   <%= form.hidden_field :developer_id %>
+   <%= form.hidden_field :developer_id %>
+   <%= form.hidden_field  :employer_id %>
+    <%= form.hidden_field  :employer_id, :value => current_employer.id %>
+    <%= form.label :project_name %>
+    <%= form.text_field :project_name %>
+    <%= form.label :project_description %>
+    <%= form.text_field :project_description %>
+  </div>
+   <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% if @project.project_status == "open" %>
+    <%= link_to '<i class="fas fa-trash-alt"></i> Delete Project'.html_safe, project_path(@project), method: :delete, data: { confirm: 'Are you sure you want to delete the project?' },  id: 'delete_project' %>
+  <% end %>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-    
-
-    <% if @project.project_status == "open" %>
-      <%= link_to '<i class="fas fa-trash-alt"></i> Delete Project'.html_safe, project_path(@project), method: :delete, data: { confirm: 'Are you sure you want to delete the project?' },  id: 'delete_project' %>
-    <% end %>
   </div>
 
   <div class="project-side">
@@ -57,9 +67,6 @@
       <%= form.check_box :pages_landing_pages %> Landing pages <br>
       <%= form.check_box :pages_two_pages %> 2 pages<br>
     <br>
-    <strong>Developer</strong><br>
-      <%= form.select :developer_id, Developer.all.map{|x| [x.full_name, x.id]} %>
   </div>
-  <%form.text_field :employer_id, value: @project.employer_id, readonly: "true"%>
   <% end %>
 </div>
