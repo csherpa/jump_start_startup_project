@@ -1,14 +1,195 @@
-<div class="homepage-container">   
-    <div class="left-info">
-        <h1>DEVELOPERS</h1>
-        <h2>Placeholder</h2>
+
+<div class="container">
+    <div class='row'>
+        <div>
+            <img src= 'http://intellitech.pro/wp-content/uploads/2015/10/App2-Title-image-1-1-e1496411693224.jpg'>
+        </div>
+        <div class="homepage-container">   
+        
+        <div class="how-it-works">
+            <h1>GET HIRE AND WORK HERE</h1>  
+            <button><%= active_link_to 'Get Started', login_path %></button>
+        </div>
+        </div>
+    <div class='row1'>
+        <div class="list-info">
+            <h2>Hire for any work  : </h2>
+        </div>
+        <div class="left-info">
+            <h3>Short term projects</h3>
+            <p>Have a diverse developers for one-off tasks</p>
+        </div>
+        <div class="right-info">
+            <h3>Long-term projects</h3>
+            <p>Build amazing project with talented developers  </p>
+        </div>
     </div>
-    <div class="right-info">
-        <h1>EMPLOYERS</h1>
-        <h2>Placeholder </h2>
     </div>
 </div>
-<div class="how-it-works">
-    <h1>HOW IT WORKS</h1>
+<div>
+    <h2>How it works</h2>
+</div>
+
+<div class ='container1'>
+<div class='button'>
+<button class="tablink" onclick="openPage('Developer', this, 'black')">Developer</button>
+<button class="tablink" onclick="openPage('Employer', this, 'black')" id="defaultOpen">Employer</button>
+</div>
+<section>
+<div id="Developer" class="tabcontent">
+    <div class='devRow'>
+        <div class='sideImg'>
+            <img src='http://www.clker.com/cliparts/i/O/l/8/X/I/job-search-blue-svg.svg.hi.png' width='200px'>
+        </div>
+        <div class='text'>
+        <h3>Find rewarding projects</h3>
+        <p>JumpStart is a platform to find projects grow your freelance career</p>
+        <ul>
+            <li><strong>Can get to work on any ideal projects</strong></li> 
+            <li><strong>Wide variety and high pay</strong></li>  
+            <li><strong>More and more success</strong></li>
+        </ul>
+        </div>
+    </div>
+    <div class='devRow'>
+        <div class='sideImg'>
+            <img src='https://cdn2.iconfinder.com/data/icons/interview-part-2/50/documents-512.png' width='200px'>
+        </div>
+        <div class='text'>
+        <h3>Get Hired</h3>
+        <p>JumpStart makes it easy to connect with clients and begin doing great work.</p>
+        <ul>
+            <li><strong>Streamlined hiring</strong></li> 
+            <li><strong>Top Rated and Rising Talent programs</strong></li>  
+            <li><strong>Do substantial work with top clients.</strong></li>
+        </ul>
+        </div>
+    </div>
+    <div class='devRow'>
+        <div class='sideImg'>
+            <img src='https://png2.kisspng.com/20180424/veq/kisspng-responsive-web-design-iphone-handheld-devices-comp-let-5adecbd5d1a547.7612029015245506138587.png' width='200px'>
+        </div>
+        <div class='text'>
+        <h3>Work efficiently</h3>
+        <p>JumpStart gives you the freedom and flexibility to control when, where, and how you work.</p>
+        <ul>
+            <li><strong>Send and receive files</strong></li> 
+            <li><strong>Share feedback in real time.</strong></li>  
+        </ul>
+        </div>
+    </div>
+</div>
+</section>
+<div id="Employer" class="tabcontent">
+  <div class='empRow'>
+        <div class='sideImg'>
+            <img src='http://www.clker.com/cliparts/i/O/l/8/X/I/job-search-blue-svg.svg.hi.png' width='200px'>
+        </div>
+        <div class='text'>
+        <h3>Find quality freelancers</h3>
+        <p>JumpStart is a platform to where you’ll find a range of top talent</p>
+        <ul>
+            <li><strong>Start by posting a job</strong></li> 
+            <li><strong>Upwork analyzes your needs.</strong></li>  
+            <li><strong>We send you a shortlist of likely candidates</strong></li>
+        </ul>
+        </div>
+    </div>
+    <div class='empRow'>
+        <div class='sideImg'>
+            <img src='https://cdn2.iconfinder.com/data/icons/interview-part-2/50/documents-512.png' width='200px'>
+        </div>
+        <div class='text'>
+        <h3>Hire the best freelancers</h3>
+        <p>Choose your favorite candidates and, then review and hire your favorite.</p>
+        <ul>
+            <li><strong>Browse profiles.</strong></li> 
+            <li><strong>Review proposals.</strong></li>  
+            <li><strong>Schedule a chat.</strong></li>
+        </ul>
+        </div>
+    </div>
+
+    <section>
+    <div class='empRow'>
+        <div class='sideImg'>
+            <img src='https://png2.kisspng.com/20180424/veq/kisspng-responsive-web-design-iphone-handheld-devices-comp-let-5adecbd5d1a547.7612029015245506138587.png' width='200px'>
+        </div>
+        <div class='text'>
+        <h3>Work efficiently</h3>
+        <p>Each project includes an online workspace shared by your team and your freelancer.</p>
+        <ul>
+            <li><strong>Send and receive files</strong></li> 
+            <li><strong>Share feedback in real time.</strong></li>  
+        </ul>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<script>
+function openPage(pageName, elmnt, color) {
+    // Hide all elements with class="tabcontent" by default */
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove the background color of all tablinks/buttons
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+
+    // Show the specific tab content
+    document.getElementById(pageName).style.display = "block";
+
+    // Add the specific color to the button used to open the tab content
+    elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <div class='container1'>
+    <div class ='devContainer'>
+        <div class='empRow'>
+            <h2>Developers</h2>
+        </div>
+        <div>
+            <h2>Hire:</h2>
+        </div>
+    </div>
     
-</div>
+    <div class ='empContainer'>
+        <div class='devRow'>
+            <h2>employer</h2>
+        </div>
+    </div>
+    
+</div> %>
+<%# <div class='container1'>
+    <div class='hireImg'>
+        <img src =''>
+    </div>
+    <div class='hire'>
+        <ul></ul>
+    </div>
+</div> %>
+
