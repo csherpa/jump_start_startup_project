@@ -27,12 +27,19 @@ body {
 }
 header{
     @include flexbox(flex, column, center, center);
+    background-color:white;
+    position: fixed;
+    left: 0vw;
+    z-index: 1;
+    top: 0;
+    height: 25vh;
 }
 
 .top-nav{
     @include flexbox(flex, row, center, space-between);
     width: 100%;
     font-weight: bold;
+    padding: 0 1vw;
 }
 
 a.active {
@@ -87,12 +94,16 @@ a:hover{
 .main-container{
     @include flexbox(flex, column, center, center);
     width: 100%;
+    position: relative;
+    top: 20vh;
+
     .how-it-works{
         margin-top: -800px; 
-    }
-    h1{
+       h1{
         color: green;
+      }
     }
+   
     button{
         background-color: #4CAF50;
         border: none;
@@ -105,20 +116,26 @@ a:hover{
         margin-left: 100px;
         cursor: pointer;
     }
+
 }
 
 .card-container {
-    @include flexbox(flex, row, center, flex-start);
+    @include flexbox(flex, row, stretch, flex-start);
     flex-wrap: wrap;
     width: 100vw;
 }
 
-.ui.card {
+.card-profile {
     width: 30vw;
     margin: 2vw 2vh;
+    border: 1px solid lightgray;
+    border-radius: 5px 5px 5px 5px;
+    padding: 1vh 1vw;
     .image{
         @include flexbox(flex, row, center, center);
-        height: 380px;
+        img {
+            width: 20vw;
+        }
     }
 }
 
@@ -129,6 +146,7 @@ a:hover{
 
 .proj-profile {
     @include flexbox(flex, column, flex-start, flex-start);
+    margin-left: 2vw;
 }
 
 select {
@@ -143,3 +161,19 @@ select {
     margin-top: -1px;
 }
 
+.name-title{
+    font-weight: bold;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1vh;
+    width: 100%;
+    color: white;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    background-color: $blue;
+    text-align: center;
+}

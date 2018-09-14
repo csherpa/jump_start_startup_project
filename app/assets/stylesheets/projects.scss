@@ -51,8 +51,9 @@ form {
 
 .project-list {
     @include flexbox(flex, column, flex-start, center);
-    width: 80%;
+    width: 100%;
     padding: 0vh 5vw;
+    margin-bottom: 10vh;
 }
 
 li {
@@ -70,4 +71,8 @@ li {
 tr:nth-child(odd){
     background-color: $light-green;
     width: 100%;
+}
+
+tr{
+    vertical-align: top;
 }

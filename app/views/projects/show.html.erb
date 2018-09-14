@@ -32,7 +32,7 @@
 
    <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "in process" %>
       <p id='please_confirm'>Please confirm that the project is complete.</p> 
-      <button data-remote="true" href='/confirm/<%= @project.id%>'>Confirm</button>
+     <a data-remote="true" href='/confirm/<%= @project.id%>'>Confirm</a> 
     <% end %>
 
   <div class="project-review">
