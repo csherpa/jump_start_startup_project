@@ -12,33 +12,40 @@
     <strong>Description</strong>
     <br>
     <%= @project.project_description %>
+  
+  <div class="project-appdev">
+     <% if current_employer and @project.employer_id == current_employer.id %>
+      <%# Employers: project owners choose the applicant  %>
+      <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
+    <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>
+      <%# Developers: New application for devs that haven't applied %>
+      <%= render(partial: 'projects/form_developer_apply', object: @project) %>         
+    <% end %>
+  </div>
 
-    <div class="project-review">
-    <strong>Project Review</strong>
-      <br>
-      <%= link_to '<i class="fas fa-pen"></i> Write a Review'.html_safe, new_project_review_path(@project),class: "small" %>
-      <br>
+   <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "in process" %>
+      <p id='please_confirm'>Please confirm that the project is complete.</p> 
+      <button data-remote="true" href='/confirm/<%= @project.id%>'>Confirm</button>
+    <% end %>
+
+  <div class="project-review">
+  <strong>Project Review</strong>
+    <br>
+    <%= link_to '<i class="fas fa-pen"></i> Write a Review'.html_safe, new_project_review_path(@project),class: "small" %>
+    <br>
+    <table style= "width: 100%">
       <% @reviews.each do |review| %>
-        <div>
-          <h1><%= review.title %></h1>
-          <%= review.review %> 
-        </div>
+        <tr>
+          <td>
+            <strong><%= review.title %></strong>
+            <br>
+            <%= review.review %>
+          </td>
+        </tr>
       <% end %>
-      <% if current_employer and @project.employer_id == current_employer.id %>
-        <%# Employers: project owners choose the applicant  %>
-        <%= render(partial: 'projects/form_employer_select_applicant', object: @project) %>
-      <% elsif current_developer and @project.project_status == "open" and !@project.aplications.where(developer: current_developer).exists? %>
-        <%# Developers: New application for devs that haven't applied %>
-        <%= render(partial: 'projects/form_developer_apply', object: @project) %>         
-      <% end %>
-            <% if current_employer and @project.employer_id == current_employer.id and @project.project_status == "in process" %>
-            <p id='please_confirm'>Please confirm thet the project is complete.</p>
-            
-          <div id="confirm_complete">
-              <a data-remote="true" href='/confirm/<%= @project.id%>'>Confirm</a> 
-          </div> 
-      <% end %>
+      </table>
     </div>
+
   </div>
 
   <%# Sidebar %>
@@ -96,6 +103,7 @@
       <% if @project.pages_two_pages %>
         <li>2+ Pages</li>
     <% end %>
+    
   </table>
   </div>
 </div>

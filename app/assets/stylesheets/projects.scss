@@ -31,9 +31,15 @@ form {
     margin-right: 10vw;
 }
 
-.project-review {
+.project-appdev {
     background-color: $light-green;
     padding: 1vh 2vw 2vh 2vh;
+}
+
+.project-review {
+    border: 1px solid $blue;
+    margin: 1vh 0;
+    padding: 1vh 1vw;
 }
 
 .project-side {
@@ -59,4 +65,9 @@ li {
 
 .small {
     font-size: 0.8em;
+}
+
+tr:nth-child(odd){
+    background-color: $light-green;
+    width: 100%;
 }

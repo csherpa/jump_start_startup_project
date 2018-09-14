@@ -56,6 +56,9 @@
     <strong>Page(s)</strong> <br>
       <%= form.check_box :pages_landing_pages %> Landing pages <br>
       <%= form.check_box :pages_two_pages %> 2 pages<br>
+    <br>
+    <strong>Developer</strong><br>
+      <%= form.select :developer_id, Developer.all.map{|x| [x.full_name, x.id]} %>
   </div>
   <%form.text_field :employer_id, value: @project.employer_id, readonly: "true"%>
   <% end %>
