@@ -2,7 +2,7 @@
 <table>
   <thead>
     <th>
-    
+      Messages
     </th>
   </thead>
   <% @chats.each do |chat| %>
@@ -12,10 +12,10 @@
         <%= link_to chat.employer.full_name, chat_messages_path(chat.employer_id) %>
       </td>
     </tr>
-      <% elsif %>
-        <tr>
-          <td>
-            <%= link_to chat.developer.full_name, chat_messages_path(chat.developer_id) %>
+    <% elsif %>
+      <tr>
+        <td>
+          <%= link_to chat.developer.full_name, chat_messages_path(chat.developer_id) %>
         </td>
       </tr>
     <%end%>
