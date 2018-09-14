@@ -10,14 +10,14 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @reviews = Review.where(project_id: @project.id).order("created_at DESC")
-    @aplications = Aplication.where(project_id: @project.id)
+    # @aplications = Aplication.where(project_id: @project.id)
     
-    if Aplication.exists?(developer_id: @currentUser, project_id:  @project.id ) 
-      @project.update(project_status: "pending")
-      else
+    # if Aplication.exists?(developer_id: @currentUser, project_id:  @project.id ) 
+    #   @project.update(project_status: "pending")
+    #   else
       
-    @project.update(project_status: "open")
-    end
+    # @project.update(project_status: "open")
+    # end
    
   end
 

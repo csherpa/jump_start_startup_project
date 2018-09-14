@@ -10,9 +10,12 @@ class Employers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do
+      resource.image.attach(io: File.open(get_default_avatar_path), filename: 'avatar.jpg')
+      resource.save
+    end
+  end
 
   # GET /resource/edit
   # def edit

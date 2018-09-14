@@ -1,10 +1,15 @@
 class DevelopersController < ApplicationController
   before_action :set_developer, only: [:show, :edit, :update, :destroy]
 
+
   # GET /developers
   # GET /developers.json
   def index
     @developers = Developer.all
+  end
+
+  def set_default_avatar
+    @developer.update(image: "http://www.orangegnome.com/identicon/identicon.php?string=Orange%20Gnome&size=250")
   end
 
   # GET /developers/1
@@ -45,7 +50,7 @@ class DevelopersController < ApplicationController
   # POST /developers
   # POST /developers.json
   def create
-    @developer = Developer.new(developer_params)
+    @developer = Developer.new(developer_params, image: "http://www.orangegnome.com/identicon/identicon.php?string=Orange%20Gnome&size=250")
 
     respond_to do |format|
       if @developer.save
