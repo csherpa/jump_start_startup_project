@@ -2,7 +2,7 @@
 
 <div class="card-container">
     <% @developers.each do |developer| %>
-      <div class="ui card">
+      <div class="card-profile">
 
         <div class="image">
           <%if developer.image.attached? %>
@@ -11,7 +11,7 @@
         </div>
 
         <div class="content">
-          <%= link_to developer.full_name, developer_path(developer), class: 'header'%></a>
+            <%= link_to developer.full_name, developer_path(developer), class:"name-title" %></a>
           
           <div class="meta">
             <%= developer.created_at%>
